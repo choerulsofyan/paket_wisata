@@ -13,8 +13,6 @@ class M_paket_wisata extends CI_Model {
     function get() 
     {   
         $id = null;
-        // $id   = $this->input->post('id');
-        // $id = $this->uri->segment(3);
 
         $this->db->select('*');
         $this->db->from($this->table);
@@ -29,6 +27,17 @@ class M_paket_wisata extends CI_Model {
         {
             $row = $query->result_array();
             return $row;
+        }
+    }
+
+    function save($data)
+    {
+        $result = $this->db->insert($this->table, $data);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
         }
     }
 
