@@ -1,6 +1,15 @@
 $( document ).ready(function() {
-    $('.carousel').carousel({
-            interval: 5000 //changes the speed
-        });
+
+    $('#DaftarPaketWisata').dataTable({
+        "ajax": "http://localhost/tour/paket_wisata/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "judul_wisata" },
+            { "data": "nama_kategori" },
+            { "data": "jumlah_hari" },
+            { "data": "harga" }
+        ]
+    });
+
 });
 

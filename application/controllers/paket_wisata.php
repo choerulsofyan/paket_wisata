@@ -13,8 +13,12 @@ class Paket_wisata extends CI_Controller {
         $data['title'] = "Daftar Paket Wisata";
         $data['paket_wisata'] = $this->m_paket_wisata->get();
         // print_r($data);
-        // $this->load->view('paket_wisata/index.php', $data);
-        $this->load->template_public('paket_wisata', $data);
+        $this->load->template_admin('paket_wisata/index.php', $data);
+    }
+
+    function get() {
+        $data = $this->m_paket_wisata->get();
+        print_r($data);
     }
 
     function create()
