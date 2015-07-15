@@ -13,7 +13,7 @@ class M_paket_wisata extends CI_Model {
     function get() 
     {   
 
-        $this->db->select('tpw.judul_wisata, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga')
+        $this->db->select('tpw.id, tpw.judul_wisata, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga')
                   ->from('tpaket_wisata AS tpw, tkategori AS tkt')
                   ->where('tpw.kategori_id = tkt.id');
 
@@ -27,7 +27,9 @@ class M_paket_wisata extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
+                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata/edit/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
+                $data[$i] = $data[$i] + $detail; 
             }
 
             $data = array("data" => $data);

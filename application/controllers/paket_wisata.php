@@ -6,6 +6,7 @@ class Paket_wisata extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('m_paket_wisata');
+        
     }
 
     public function index()

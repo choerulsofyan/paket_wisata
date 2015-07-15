@@ -49,7 +49,7 @@
                             <a href="about.html">Registrasi</a>
                         </li>
                         <li>
-                            <a href="about.html">Login</a>
+                            <a href="about.html">Register</a>
                         </li>
                     </ul>
                 </div>

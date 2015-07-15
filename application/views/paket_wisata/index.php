@@ -26,6 +26,7 @@
                     <th>Kategori</th>
                     <th>Jumlah Hari</th>
                     <th>Harga</th>
+                    <th>Detail</th>
                 </tr>
             </thead>
 
