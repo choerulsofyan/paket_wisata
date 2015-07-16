@@ -50,23 +50,7 @@ class Paket_wisata extends CI_Controller {
 
     function save()
     {
-        $id = $this->input-post('id');
-        
-        $judul_wisata = $this->input->post('judul_wisata');
-        $kategori     = $this->input->post('kategori');
-        $jumlah_hari  = $this->input->post('jumlah_hari');
-        $harga        = $this->input->post('harga');
-        $deskripsi    = $this->input->post('deskripsi');
-        
-        $data = array(
-            'judul_wisata' => $judul_wisata,
-            'kategori_id'     => $kategori,
-            'jumlah_hari'  => $jumlah_hari,
-            'harga'        => $harga,
-            'deskripsi'    => $deskripsi
-        );
-
-        $save = $this->m_paket_wisata->save($data);    
+        $save = $this->m_paket_wisata->save();    
         
         if ($save) {
             // echo "save success!!";

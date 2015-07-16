@@ -55,9 +55,30 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
-    function save($data)
+    function save()
     {
-        $result = $this->db->insert($this->table, $data);
+        $id           = $this->input->post('id');
+        $judul_wisata = $this->input->post('judul_wisata');
+        $kategori     = $this->input->post('kategori');
+        $jumlah_hari  = $this->input->post('jumlah_hari');
+        $harga        = $this->input->post('harga');
+        $deskripsi    = $this->input->post('deskripsi');
+        
+        $data = array(
+            'judul_wisata' => $judul_wisata,
+            'kategori_id'  => $kategori,
+            'jumlah_hari'  => $jumlah_hari,
+            'harga'        => $harga,
+            'deskripsi'    => $deskripsi
+        );
+
+
+        if ($id == null) {
+            $result = $this->db->insert($this->table, $data);
+        } else {
+            $this->db->where('id', $id);
+            $result = $this->db->update($this->table, $data);
+        }
 
         if ($result) {
             return true;
