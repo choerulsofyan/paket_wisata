@@ -63,6 +63,7 @@
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
         <a href="<?php echo base_url() . 'paket_wisata/edit/' . $paket_wisata['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata['id'];?>)">Delete</button>
         <a href="<?php echo base_url() . 'paket_wisata'; ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>

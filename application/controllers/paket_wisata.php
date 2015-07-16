@@ -38,8 +38,6 @@ class Paket_wisata extends CI_Controller {
         $data['title'] = "Edit Data Paket Wisata";
         $data['paket_wisata']  = $this->m_paket_wisata->detail($id);
         $this->load->template_admin('paket_wisata/edit', $data);
-
-        // print_r($data);
     }
 
     function create()
@@ -50,14 +48,26 @@ class Paket_wisata extends CI_Controller {
 
     function save()
     {
+        $id = $this->input->post('id');
         $save = $this->m_paket_wisata->save();    
         
         if ($save) {
-            // echo "save success!!";
-            redirect('paket_wisata/create','refresh');
+            redirect('paket_wisata','refresh');
         } else {
             echo "save failed";
         }
+    }
+
+    function delete() 
+    {
+        $id = $this->uri->segment(3);
+        $delete = $this->m_paket_wisata->delete($id);    
+        
+        if ($delete) {
+            redirect('paket_wisata','refresh');
+        } else {
+            echo "delete failed";
+        }   
     }
 
 }

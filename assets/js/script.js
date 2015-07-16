@@ -11,6 +11,11 @@ $( document ).ready(function() {
             { "data": "detail" }
         ]
     });
-
 });
 
+function confirmDelete(id)
+{
+    if (confirm("Apakah anda yakin akan menghapus?")) {
+        location.href= window.location.origin + "/tour/paket_wisata/delete/" + id;
+    }
+}

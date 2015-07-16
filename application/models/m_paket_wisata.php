@@ -87,6 +87,17 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
+    function delete($id)
+    {
+        $this->db->where('id', $id);
+        $delete = $this->db->delete($this->table);
+
+        if ($delete) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }
 
