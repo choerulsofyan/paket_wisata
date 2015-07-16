@@ -27,7 +27,7 @@ class M_paket_wisata extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata/edit/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }
@@ -35,6 +35,22 @@ class M_paket_wisata extends CI_Model {
             $data = array("data" => $data);
             $data = json_encode($data);
 
+            return $data;
+        }
+    }
+
+    function detail($id)
+    {
+        $this->db->select('tpw.id, tpw.judul_wisata, tkt.id as kategori_id, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga, tpw.deskripsi')
+                  ->from('tpaket_wisata AS tpw, tkategori AS tkt')
+                  ->where('tpw.kategori_id = tkt.id')
+                  ->where('tpw.id = ' . $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data = $query->row_array();
             return $data;
         }
     }
