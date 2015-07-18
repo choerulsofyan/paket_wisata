@@ -26,5 +26,9 @@ $( document ).ready(function() {
     $('#delete').on('click', function () {
         return confirm('Apakah anda yakin akan menghapus?');
     });
+
+    $('#tgl_lahir').datepicker({
+        format: 'yyyy/mm/dd'
+    })
 });
 
