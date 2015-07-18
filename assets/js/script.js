@@ -11,11 +11,20 @@ $( document ).ready(function() {
             { "data": "detail" }
         ]
     });
+
+    $('#DaftarPaketWisataDetail').dataTable({
+        "ajax": window.location.origin + "/tour/paket_wisata_detail/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "judul_wisata" },
+            { "data": "hari_ke" },
+            { "data": "rute" },
+            { "data": "detail" }
+        ]
+    });
+
+    $('#delete').on('click', function () {
+        return confirm('Apakah anda yakin akan menghapus?');
+    });
 });
 
-function confirmDelete(id)
-{
-    if (confirm("Apakah anda yakin akan menghapus?")) {
-        location.href= window.location.origin + "/tour/paket_wisata/delete/" + id;
-    }
-}

@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_paket_wisata extends CI_Model {
+class M_paket_wisata_detail extends CI_Model {
 
-    public $table = "tpaket_wisata";
+    public $table = "tpaket_wisata_detail";
 
     public function __construct()
     {
@@ -13,9 +13,9 @@ class M_paket_wisata extends CI_Model {
     function get() 
     {   
 
-        $this->db->select('tpw.id, tpw.judul_wisata, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga')
-                  ->from('tpaket_wisata AS tpw, tkategori AS tkt')
-                  ->where('tpw.kategori_id = tkt.id');
+        $this->db->select('tpwd.id, tpw.id AS wisata_id, tpw.judul_wisata, tpwd.hari_ke, tpwd.rute')
+                  ->from('tpaket_wisata_detail AS tpwd, tpaket_wisata AS tpw')
+                  ->where('tpwd.wisata_id = tpw.id');
 
         $query = $this->db->get();
 
@@ -27,7 +27,7 @@ class M_paket_wisata extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata/view/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata_detail/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }
@@ -39,22 +39,12 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
-    function get_paket_wisata()
-    {
-        $this->db->select('id, judul_wisata');
-        $this->db->from($this->table);
-
-        $query = $this->db->get();
-        $data  = $query->result_array();
-        return $data;
-    }
-
     function detail($id)
     {
-        $this->db->select('tpw.id, tpw.judul_wisata, tkt.id as kategori_id, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga, tpw.deskripsi')
-                  ->from('tpaket_wisata AS tpw, tkategori AS tkt')
-                  ->where('tpw.kategori_id = tkt.id')
-                  ->where('tpw.id = ' . $id);
+        $this->db->select('tpwd.id, tpw.id AS wisata_id, tpw.judul_wisata, tpwd.hari_ke, tpwd.rute, tpwd.deskripsi')
+                  ->from('tpaket_wisata_detail AS tpwd, tpaket_wisata AS tpw')
+                  ->where('tpwd.wisata_id = tpw.id')
+                  ->where('tpwd.id = ' . $id);
 
         $query = $this->db->get();
 
@@ -67,19 +57,17 @@ class M_paket_wisata extends CI_Model {
 
     function save()
     {
-        $id           = $this->input->post('id');
-        $judul_wisata = $this->input->post('judul_wisata');
-        $kategori     = $this->input->post('kategori');
-        $jumlah_hari  = $this->input->post('jumlah_hari');
-        $harga        = $this->input->post('harga');
-        $deskripsi    = $this->input->post('deskripsi');
+        $id        = $this->input->post('id');
+        $wisata_id = $this->input->post('wisata_id');
+        $rute      = $this->input->post('rute');
+        $hari_ke   = $this->input->post('hari_ke');
+        $deskripsi = $this->input->post('deskripsi');
         
         $data = array(
-            'judul_wisata' => $judul_wisata,
-            'kategori_id'  => $kategori,
-            'jumlah_hari'  => $jumlah_hari,
-            'harga'        => $harga,
-            'deskripsi'    => $deskripsi
+            'wisata_id' => $wisata_id,
+            'hari_ke'   => $hari_ke,
+            'rute'      => $rute,
+            'deskripsi' => $deskripsi
         );
 
 
