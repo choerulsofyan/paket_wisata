@@ -23,6 +23,18 @@ $( document ).ready(function() {
         ]
     });
 
+    $('#DaftarUser').dataTable({
+        "ajax": window.location.origin + "/tour/user/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "nama_lengkap" },
+            { "data": "email" },
+            { "data": "hak_akses" },
+            { "data": "status" },
+            { "data": "detail" }
+        ]
+    });
+
     $('#delete').on('click', function () {
         return confirm('Apakah anda yakin akan menghapus?');
     });

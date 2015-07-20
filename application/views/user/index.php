@@ -18,14 +18,14 @@
 
 <div class="row">
     <div class="col-lg-12">
-    <table id="DaftarPaketWisata">
+    <table id="DaftarUser">
             <thead>
                 <tr>
                     <th>No. </th>
-                    <th>Judul Wisata</th>
-                    <th>Kategori</th>
-                    <th>Jumlah Hari</th>
-                    <th>Harga</th>
+                    <th>Nama Lengkap</th>
+                    <th>Email</th>
+                    <th>Hak Akses</th>
+                    <th>Status</th>
                     <th>Detail</th>
                 </tr>
             </thead>
