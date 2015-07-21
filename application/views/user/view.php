@@ -6,7 +6,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'paket_wisata';?>">Paket Wisata</a>
+                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'user';?>">User</a>
             </li>
             <li class="active">
                 <i class="fa fa-edit"></i> View Detail
@@ -18,43 +18,66 @@
 
 <div class="row">
     <div class="col-lg-2">
-        Judul Wisata
+        Nama lengkap
     </div>
     <div class="col-lg-5">
-        <?=$paket_wisata['judul_wisata'];?>
+        <?=$user['nama_lengkap'];?>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-2">
-        Kategori
+        Tanggal lahir
     </div>
     <div class="col-lg-5">
-        <?=$paket_wisata['nama_kategori'];?>
+        <?=$user['tgl_lahir'];?>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-2">
-            Jumlah hari
+        Jenis kelamin
     </div>
     <div class="col-lg-5">
-        <?=$paket_wisata['jumlah_hari'];?>
+        <?=$user['jenis_kelamin'];?>
     </div>
 </div>
 <div class="row">
     <div class="col-lg-2">
-        Harga
+        Alamat
     </div>
     <div class="col-lg-5">
-        <?=$paket_wisata['harga'];?>
+        <?=$user['alamat'];?>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-2">
-        Deskripsi
+        Email
     </div>
     <div class="col-lg-5">
-        <?=$paket_wisata['deskripsi'];?>
+        <?=$user['email'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+        Username
+    </div>
+    <div class="col-lg-5">
+        <?=$user['username'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+            Hak akses
+    </div>
+    <div class="col-lg-5">
+        <?=$user['hak_akses'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+        Status
+    </div>
+    <div class="col-lg-5">
+        <?=$user['status'];?>
     </div>
 </div>
 <div class="row">
@@ -62,10 +85,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'paket_wisata/edit/' . $paket_wisata['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
-        <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'paket_wisata/delete/' . $paket_wisata['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo base_url() . 'paket_wisata'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'user/edit/' . $user['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$user['id'];?>)">Delete</button> -->
+        <a href="<?php echo base_url() . 'user/delete/' . $user['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo base_url() . 'user'; ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>

@@ -40,7 +40,7 @@ class M_user extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tu.id, tu.nama_lengkap, tu.tgl_lahir, tu.jenis_kelamin, tu.alamat, tu.email, tu.hak_akses, tu.status')
+        $this->db->select('tu.id, tu.nama_lengkap, tu.tgl_lahir, tu.jenis_kelamin, tu.alamat, tu.email, tu.username, tu.hak_akses, tu.status')
                   ->from('tuser AS tu')
                   ->where('tu.id = ' . $id);
 

@@ -1,8 +1,8 @@
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <!-- <h1 class="page-header">
-          <?=$title;?>
+<!--         <h1 class="page-header">
+            <?=$title;?>
         </h1> -->
         <ol class="breadcrumb">
             <li>
@@ -21,70 +21,110 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>paket_wisata/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>user/save">
       <fieldset>
 
       <!-- Form Name -->
-      <legend><?=$title;?></legend>
+      <legend>Edit Data User</legend>
 
-      <input type="hidden" name="id" value="<?=$paket_wisata['id'];?>">
+      <input type="hidden" name="id" value="<?=$user['id'];?>">
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="judul_wisata">Judul wisata</label>  
+        <label class="col-md-4 control-label" for="nama_lengkap">Nama lengkap</label>  
         <div class="col-md-6">
-        <input id="judul_wisata" name="judul_wisata" type="text" placeholder="" class="form-control input-md" required="" value="<?=$paket_wisata['judul_wisata'];?>">
+        <input id="nama_lengkap" name="nama_lengkap" type="text" placeholder="" class="form-control input-md" required="" value="<?=$user['nama_lengkap'];?>">
           
-        </div>
-      </div>
-
-      <!-- Multiple Radios -->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="kategori">Kategori Wisata</label>
-        <div class="col-md-4">
-        <div class="radio">
-          <label for="kategori-0">
-            <input type="radio" name="kategori" id="kategori-0" value="1" <?php echo ($paket_wisata['kategori_id'] == '1' ? 'checked' : ''); ?>>
-            Lokal
-          </label>
-        </div>
-        <div class="radio">
-          <label for="kategori-1">
-            <input type="radio" name="kategori" id="kategori-1" value="2" <?php echo ($paket_wisata['kategori_id'] == '2' ? 'checked' : ''); ?>>
-            Luar Negri
-          </label>
-        </div>
         </div>
       </div>
 
       <!-- Appended Input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="jumlah_hari">Jumlah hari</label>
+        <label class="col-md-4 control-label" for="tgl_lahir">Tanggal lahir</label>
         <div class="col-md-6">
           <div class="input-group">
-            <input id="jumlah_hari" name="jumlah_hari" class="form-control" placeholder="" type="text" required="" value="<?=$paket_wisata['jumlah_hari'];?>">
-            <span class="input-group-addon">hari</span>
-          </div>
-          
-        </div>
-      </div>
-      <!-- Prepended text-->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="harga">Harga</label>
-        <div class="col-md-6">
-          <div class="input-group">
-            <span class="input-group-addon">Rp.</span>
-            <input id="harga" name="harga" class="form-control" placeholder="" type="text" required="" value="<?=$paket_wisata['harga'];?>">
+            <input id="tgl_lahir" name="tgl_lahir" class="form-control" placeholder="" type="text" required=""  value="<?=$user['tgl_lahir'];?>">
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
           </div>
           
         </div>
       </div>
 
+
+      <!-- Multiple Radios -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="jenis_kelamin">Jenis kelamin</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="jenis_kelamin-0">
+            <input type="radio" name="jenis_kelamin" id="jenis_kelamin-0" value="Pria" <?php echo ($user['jenis_kelamin'] == 'Pria' ? 'checked' : ''); ?>>
+            Pria
+          </label>
+        </div>
+        <div class="radio">
+          <label for="jenis_kelamin-1">
+            <input type="radio" name="jenis_kelamin" id="jenis_kelamin-1" value="Wanita"  <?php echo ($user['jenis_kelamin'] == 'Wanita' ? 'checked' : ''); ?>>
+            Wanita
+          </label>
+        </div>
+        </div>
+      </div>
+
       <!-- Textarea -->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="deskripsi">Deskripsi</label>
+        <label class="col-md-4 control-label" for="alamat">Alamat lengkap</label>
         <div class="col-md-4">                     
-          <textarea class="form-control" id="deskripsi" name="deskripsi"><?=$paket_wisata['deskripsi'];?></textarea>
+          <textarea class="form-control" id="alamat" name="alamat"><?=$user['alamat'];?></textarea>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="email">Email</label>  
+        <div class="col-md-6">
+        <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$user['email'];?>">
+          
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="username">Username</label>  
+        <div class="col-md-6">
+        <input id="username" name="username" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$user['username'];?>">
+          
+        </div>
+      </div>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="hak_akses">Hak akses</label>
+        <div class="col-md-6">
+          <select id="hak_akses" name="hak_akses" class="form-control">
+            <option value="Admin" <?php echo ($user['hak_akses'] == 'Admin' ? 'selected' : ''); ?>>Admin</option>
+            <option value="User" <?php echo ($user['hak_akses'] == 'User' ? 'selected' : ''); ?>>User</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Multiple Radios -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="status">Status</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="status-0">
+            <input type="radio" name="status" id="status-0" value="Aktif" <?php echo ($user['status'] == 'Aktif' ? 'checked' : ''); ?>>
+            Aktif
+          </label>
+        </div>
+        <div class="radio">
+          <label for="status-1">
+            <input type="radio" name="status" id="status-1" value="Non-aktif" <?php echo ($user['status'] == 'Non-aktif' ? 'checked' : ''); ?>>
+            Non-aktif
+          </label>
+        </div>
         </div>
       </div>
 
@@ -101,10 +141,11 @@
       </form>
 
 
+
     </div>
 
     <?php 
-      for ($i=0; $i < 30; $i++) { 
+      for ($i=0; $i < 40; $i++) { 
         echo "<br/>";
       }
     ?>
