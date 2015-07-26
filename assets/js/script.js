@@ -35,12 +35,60 @@ $( document ).ready(function() {
         ]
     });
 
+    $('#DaftarPembayaran').dataTable({
+        "ajax": window.location.origin + "/tour/pembayaran/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "no_faktur" },
+            { "data": "tgl_pembayaran" },
+            { "data": "customer_nama" },
+            { "data": "total" },
+            { "data": "pembayaran" },
+            { "data": "angsuran_ke" },
+            { "data": "detail" }
+        ]
+    });
+
     $('#delete').on('click', function () {
         return confirm('Apakah anda yakin akan menghapus?');
     });
 
     $('#tgl_lahir').datepicker({
         format: 'yyyy/mm/dd'
-    })
+    });
+
+    $('#no_faktur').keypress(function(e) {
+        if(e.which == 13) {
+
+            var no_faktur = $('#no_faktur').val();
+
+            $.ajax({
+              url: window.location.origin + "/tour/pembayaran/cek_info_customer/" + no_faktur,
+              type: 'GET',
+              data: no_faktur,
+              dataType: 'json',
+              success: function(data) {
+                $('#customer_nama').val(data.nama);
+                $('#total').val(data.total);
+                $('#angsuran_ke').val(data.angsuran_ke);
+                $('#sisa_bayar').val(data.sisa_bayar);
+                $('#pemesanan_id').val(data.pemesanan_id);
+                $('#customer_id').val(data.customer_id);
+                $('#pembayaran').focus();
+              },
+              error: function(xhr, status, error) {
+                console.log('xhr:');
+                console.log(xhr);
+                console.log('status:');
+                console.log(status);
+                console.log('error:');
+                console.log(error);
+              }
+            });
+
+            e.preventDefault();
+            return false;
+        }
+    });
 });
 
