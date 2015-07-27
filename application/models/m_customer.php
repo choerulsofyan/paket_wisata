@@ -1,8 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class M_pembayaran extends CI_Model {
+class M_customer extends CI_Model {
 
-    public $table = "tpembayaran";
+    public $table = "tcustomer";
 
     public function __construct()
     {
@@ -12,9 +12,8 @@ class M_pembayaran extends CI_Model {
 
     function get() 
     {   
-        $this->db->select('tp.id, tp.no_faktur, tp.tgl_pembayaran, tc.nama AS customer_nama, tp.total, tp.pembayaran, tp.angsuran_ke')
-                  ->from('tpembayaran AS tp, tcustomer AS tc')
-                  ->where('tp.customer_id = tc.id');
+        $this->db->select('tc.id, tc.nama, tc.tgl_lahir, tc.jenis_kelamin, tc.no_telp, tc.email, tc.status');
+        $this->db->from('tcustomer AS tc');
 
         
         $query = $this->db->get();
@@ -27,9 +26,16 @@ class M_pembayaran extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "pembayaran/view/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "customer/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
+            
+                if ($data[$i]['status'] == 1) {
+                    $data[$i]['status'] = "Aktif";
+                } elseif ($data[$i]['status'] == 0) {
+                    $data[$i]['status'] = "Non-Aktif";
+                }
+
             }
 
             $data = array("data" => $data);
@@ -41,17 +47,22 @@ class M_pembayaran extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tpb.id, tpb.no_faktur, tc.nama as customer_nama, tpm.id as pemesanan_id, tpm.customer_id, tpm.total, tpb.pembayaran, tpb.angsuran_ke');
-        $this->db->from('tpemesanan tpm');
-        $this->db->join('tcustomer tc', 'tpm.customer_id = tc.id', 'inner');
-        $this->db->join('tpembayaran tpb', 'tpm.customer_id = tpb.customer_id', 'left');
-        $this->db->where('tpb.id = "' . $id . '"');
+        $this->db->select('tc.id, tc.nama, tc.tgl_lahir, tc.jenis_kelamin, tc.alamat, tc.no_telp, tc.email, tc.status');
+        $this->db->from('tcustomer AS tc');
+        $this->db->where('id' , $id); 
 
         $query = $this->db->get();
 
         if ($query->num_rows() > 0)
         {
             $data = $query->row_array();
+
+            if ($data['status'] == 1) {
+                $data['status'] = "Aktif";
+            } elseif ($data['status'] == 0) {
+                $data['status'] = "Non-Aktif";
+            }
+
             return $data;
         }
     }

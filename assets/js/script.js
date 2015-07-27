@@ -49,6 +49,20 @@ $( document ).ready(function() {
         ]
     });
 
+    $('#Customer').dataTable({
+        "ajax": window.location.origin + "/tour/customer/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "nama" },
+            { "data": "tgl_lahir" },
+            { "data": "jenis_kelamin" },
+            { "data": "no_telp" },
+            { "data": "email" },
+            { "data": "status" },
+            { "data": "detail" }
+        ]
+    });
+
     $('#delete').on('click', function () {
         return confirm('Apakah anda yakin akan menghapus?');
     });
