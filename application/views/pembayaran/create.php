@@ -82,7 +82,7 @@
         <div class="col-md-6">
         <div class="input-group">
         <span class="input-group-addon">Rp.</span>
-        <input id="pembayaran" name="pembayaran" type="text" placeholder="" class="form-control input-md">
+        <input id="pembayaran" name="pembayaran" type="text" placeholder="" class="form-control input-md"  required="">
         </div>
         </div>
       </div>

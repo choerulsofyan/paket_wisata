@@ -1,15 +1,4 @@
-<?php
-  // echo "wisata id : " . print_r($paket_wisata_detail['wisata_id']) . "<br/><br/>";
-  // print_r($paket_wisata_detail['wisata_id']);
-  // echo "<pre>";
-  // print_r($paket_wisata);
-  // echo "</pre>";
-  // print_r($paket_wisata_detail['wisata_id'])
-?>
-
-
-
-<!-- Page Heading -->
+ <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
 <!--         <h1 class="page-header">
@@ -32,58 +21,58 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>paket_wisata_detail/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>pembayaran/save">
       <fieldset>
 
       <!-- Form Name -->
-      <legend>Form Name</legend>
-      <input type="hidden" name="id" value="<?=$paket_wisata_detail['id'];?>">
+      <legend>Input Pembayaran Baru</legend>
+      <input id="id" type="hidden" name="id" value="<?=$pembayaran['id'];?>">
 
-      <!-- Select Basic -->
+      <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="wisata_id">Paket Wisata</label>
+        <label class="col-md-4 control-label" for="no_faktur">Nomor Faktur</label>  
         <div class="col-md-6">
-          <select id="wisata_id" name="wisata_id" class="form-control">
-            <?php 
-              foreach ($paket_wisata as $row) :       
-                if ($row['id'] == $paket_wisata_detail['wisata_id']) :
-            ?>
-                  <option value="<?=$row['id'];?>" selected="selected"><?=$row['judul_wisata'];?></option>
-            <?php 
-                else : 
-            ?>
-                  <option value="<?=$row['id'];?>"><?=$row['judul_wisata'];?></option>
-            <?php
-                endif;
-              endforeach; 
-            ?>            
-          </select>
+        <input id="no_faktur" name="no_faktur" type="text" placeholder="" class="form-control input-md"  value="<?=$pembayaran['no_faktur'];?>" readonly/>
         </div>
       </div>
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="rute">Rute</label>  
+        <label class="col-md-4 control-label" for="customer_nama">Nama Customer</label>  
         <div class="col-md-6">
-        <input id="rute" name="rute" type="text" placeholder="" class="form-control input-md" required="" value="<?=$paket_wisata_detail['rute'];?>">
+        <input id="customer_nama" name="customer_nama" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['customer_nama'];?>" readonly/>
           
         </div>
       </div>
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="hari_ke">Hari ke</label>  
+        <label class="col-md-4 control-label" for="total">Total</label>  
         <div class="col-md-6">
-        <input id="hari_ke" name="hari_ke" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$paket_wisata_detail['hari_ke'];?>">
+        <div class="input-group">
+        <span class="input-group-addon">Rp.</span>
+        <input id="total" name="total" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['total'];?>" readonly/>
+        </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="angsuran_ke">Angsuran ke</label>  
+        <div class="col-md-6">
+        <input id="angsuran_ke" name="angsuran_ke" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['angsuran_ke'];?>" />
           
         </div>
       </div>
 
-      <!-- Textarea -->
+      <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="deskripsi">Deskripsi</label>
-        <div class="col-md-4">                     
-          <textarea class="form-control" id="deskripsi" name="deskripsi"><?=$paket_wisata_detail['deskripsi'];?></textarea>
+        <label class="col-md-4 control-label" for="pembayaran">Pembayaran</label>  
+        <div class="col-md-6">
+        <div class="input-group">
+        <span class="input-group-addon">Rp.</span>
+        <input id="pembayaran" name="pembayaran" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['pembayaran'];?>">
+        </div>
         </div>
       </div>
 
@@ -91,13 +80,14 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
-          <button id="submit" name="submit" class="btn btn-success">Submit</button>
+          <button id="submit" name="submit" class="btn btn-primary">Submit</button>
           <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
         </div>
       </div>
 
       </fieldset>
       </form>
+
 
     </div>
 

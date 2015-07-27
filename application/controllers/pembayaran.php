@@ -29,10 +29,7 @@ class Pembayaran extends CI_Controller {
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Pembayaran";
         $data['pembayaran']  = $this->m_pembayaran->detail($id);
-        // $this->load->template_admin('pembayaran/view', $data);
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
+        $this->load->template_admin('pembayaran/view', $data);
     }
 
     function edit() 
@@ -51,7 +48,6 @@ class Pembayaran extends CI_Controller {
 
     function save()
     {
-        $id = $this->input->post('id');
         $save = $this->m_pembayaran->save();    
         
         if ($save) {
@@ -75,7 +71,6 @@ class Pembayaran extends CI_Controller {
 
     function cek_info_customer()
     {
-        // $no_faktur = $this->input->get('no_faktur');
         $no_faktur = $this->uri->segment(3);
         $info_customer = $this->m_pembayaran->cek_info_customer($no_faktur);
         print_r($info_customer);  
