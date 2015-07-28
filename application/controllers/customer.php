@@ -59,13 +59,32 @@ class Customer extends CI_Controller {
 
     function delete() 
     {
+        $this->load->model('m_pemesanan');
+        $this->load->model('m_pembayaran');
+
         $id = $this->uri->segment(3);
         $delete = $this->m_customer->delete($id);    
         
         if ($delete) {
-            redirect('customer','refresh');
+            
+            $delete_pemesanan = $this->m_pemesanan->deleteByCustomerId($id);
+
+            if ($delete_pemesanan) {
+
+                $delete_pembayaran = $this->m_pembayaran->deleteByCustomerId($id);
+
+                if ($delete_pembayaran) {
+                    redirect('customer','refresh');
+                } else {
+                    echo "delete pembayaran error";
+                }
+
+            } else {
+                echo "delete pemesanan error";
+            }
+
         } else {
-            echo "delete failed";
+            echo "delete customer failed";
         }   
     }
 

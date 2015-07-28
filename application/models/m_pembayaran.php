@@ -96,6 +96,18 @@ class M_pembayaran extends CI_Model {
         }
     }
 
+    function deleteByCustomerId($id)
+    {
+        $this->db->where('customer_id', $id);
+        $delete = $this->db->delete($this->table);
+
+        if ($delete) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     function cek_info_customer($no_faktur)
     {
         $this->db->select('tc.nama, tpm.id as pemesanan_id, tpm.customer_id, tpm.total, sum(tpb.pembayaran) as total_pembayaran, max(tpb.angsuran_ke) as angsuran_ke');
