@@ -2,10 +2,10 @@
 <html>
     <head>
         <title></title>
-        <link rel="stylesheet" type="text/css" href="http://localhost/tour/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="http://localhost/tour/assets/css/modern-business.css">
-        <link rel="stylesheet" type="text/css" href="http://localhost/tour/assets/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="http://localhost/tour/assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/bootstrap.min.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/modern-business.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/font-awesome.min.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/style.css'); ?>">
         <script src="<?php echo asset_url('js/jquery-2.1.4.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/script.js'); ?>" type="text/javascript"></script>
@@ -29,24 +29,24 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="about.html">Beranda</a>
+                        <a href="<?=base_url();?>home">Beranda</a>
                         </li>
                         <li>
                             <a href="services.html">Services</a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Paket Wisata <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tour <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="portfolio-1-col.html">Lokal</a>
+                                    <a href="<?=base_url();?>tour/kategori/1">Domestik</a>
                                 </li>
                                 <li>
-                                    <a href="portfolio-2-col.html">Luar Negri</a>
+                                    <a href="<?=base_url();?>tour/kategori/2">Mancanegara</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <a href="about.html">Registrasi</a>
+                            <a href="<?=base_url();?>contact">Contact Us</a>
                         </li>
                         <li>
                             <a href="about.html">Register</a>
