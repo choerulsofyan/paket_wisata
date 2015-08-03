@@ -122,6 +122,55 @@ class M_pemesanan extends CI_Model {
         return $no_faktur;
     }
 
+    function get() 
+    {   
+
+        $this->db->select('tpp.id, tpc.nama , tpw.judul_wisata , tpp.no_faktur, tpp.tgl_pemesanan, tpp.jumlah_orang, tpp.total')
+                  ->from('tpemesanan AS tpp, tpaket_wisata AS tpw, tcustomer AS tpc')
+                  ->where('tpp.customer_id = tpc.id')
+                  ->where('tpp.wisata_id = tpw.id');
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data       = $query->result_array();
+            $row_counts = $query->num_rows();
+
+            for ($i = 0; $i < $row_counts; $i++) {
+                $number   = $i + 1;
+                $no       = array('no' => $number);
+                $detail   = array('detail' => "<a href='" . base_url() . "pemesanan/view/" . $data[$i]['id'] . "'>View</a>");
+                $data[$i] = $no + $data[$i]; 
+                $data[$i] = $data[$i] + $detail; 
+            }
+
+            $data = array("data" => $data);
+            $data = json_encode($data);
+
+            return $data;
+        }
+    }
+
+    function detail($id)
+    {
+        $this->db->select('tpp.id, tpc.nama , tpw.judul_wisata , tpp.no_faktur, tpp.tgl_pemesanan, tpp.jumlah_orang, tpp.total')
+                  ->from('tpemesanan AS tpp, tpaket_wisata AS tpw, tcustomer AS tpc')
+                  ->where('tpp.customer_id = tpc.id')
+                  ->where('tpp.wisata_id = tpw.id')
+                  ->where('tpp.id = ' . $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data = $query->row_array();
+            return $data;
+        }
+    }
+
+
+
 }
 
 /* End of file  */

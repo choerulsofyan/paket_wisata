@@ -107,6 +107,18 @@ class M_pembayaran extends CI_Model {
             return false;
         }
     }
+
+    function deleteteByPembayaranId($id)
+    {
+        $this->db->where('pemesanan_id', $id);
+        $delete = $this->db->delete($this->table);
+
+        if ($delete) {
+            return true;
+        } else {
+            return false;
+        }   
+    }
     
     function cek_info_customer($no_faktur)
     {

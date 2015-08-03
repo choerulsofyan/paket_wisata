@@ -1,7 +1,7 @@
 $( document ).ready(function() {
 
     $('#DaftarPaketWisata').dataTable({
-        "ajax": window.location.origin + "/tour/paket_wisata/get",
+        "ajax": window.location.origin + "/anugrah_tour/paket_wisata/get",
         "columns": [
             { "data": "no" },
             { "data": "judul_wisata" },
@@ -13,7 +13,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarPaketWisataDetail').dataTable({
-        "ajax": window.location.origin + "/tour/paket_wisata_detail/get",
+        "ajax": window.location.origin + "/anugrah_tour/paket_wisata_detail/get",
         "columns": [
             { "data": "no" },
             { "data": "judul_wisata" },
@@ -24,7 +24,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarUser').dataTable({
-        "ajax": window.location.origin + "/tour/user/get",
+        "ajax": window.location.origin + "/anugrah_tour/user/get",
         "columns": [
             { "data": "no" },
             { "data": "nama_lengkap" },
@@ -36,7 +36,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarPembayaran').dataTable({
-        "ajax": window.location.origin + "/tour/pembayaran/get",
+        "ajax": window.location.origin + "/anugrah_tour/pembayaran/get",
         "columns": [
             { "data": "no" },
             { "data": "no_faktur" },
@@ -50,7 +50,7 @@ $( document ).ready(function() {
     });
 
     $('#Customer').dataTable({
-        "ajax": window.location.origin + "/tour/customer/get",
+        "ajax": window.location.origin + "/anugrah_tour/customer/get",
         "columns": [
             { "data": "no" },
             { "data": "nama" },
@@ -77,7 +77,7 @@ $( document ).ready(function() {
             var no_faktur = $('#no_faktur').val();
 
             $.ajax({
-              url: window.location.origin + "/tour/pembayaran/cek_info_customer/" + no_faktur,
+              url: window.location.origin + "/anugrah_tour/pembayaran/cek_info_customer/" + no_faktur,
               type: 'GET',
               data: no_faktur,
               dataType: 'json',
@@ -116,5 +116,20 @@ $( document ).ready(function() {
             return false;
         }
     });
+
+    $('#DaftarPemesanan').dataTable({
+        "ajax": window.location.origin + "/anugrah_tour/pemesanan/get",
+        "columns": [
+            { "data": "no" },
+            { "data": "nama" },
+            { "data": "judul_wisata" },
+            { "data": "no_faktur" },
+            { "data": "tgl_pemesanan" },
+            { "data": "jumlah_orang" },
+            { "data": "total" },
+            { "data": "detail" }
+        ]
+    });
+
 });
 

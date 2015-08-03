@@ -29,13 +29,6 @@ class M_customer extends CI_Model {
                 $detail   = array('detail' => "<a href='" . base_url() . "customer/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
-            
-                if ($data[$i]['status'] == 1) {
-                    $data[$i]['status'] = "Aktif";
-                } elseif ($data[$i]['status'] == 0) {
-                    $data[$i]['status'] = "Non-Aktif";
-                }
-
             }
 
             $data = array("data" => $data);
