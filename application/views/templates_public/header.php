@@ -6,8 +6,12 @@
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/modern-business.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/font-awesome.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/style.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/jquery.dataTables.min.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/datepicker.css'); ?>">
         <script src="<?php echo asset_url('js/jquery-2.1.4.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/bootstrap.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo asset_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
+        <script src="<?php echo asset_url('js/bootstrap-datepicker.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/script.js'); ?>" type="text/javascript"></script>
     </head>
     <body>

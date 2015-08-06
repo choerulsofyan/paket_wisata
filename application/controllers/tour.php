@@ -37,9 +37,10 @@ class Tour extends CI_Controller {
 
     function save()
     {
+        $this->load->model('m_customer');
         $this->load->model('m_pemesanan');
 
-        $customer = $this->m_tour->save();    
+        $customer = $this->m_customer->save();    
         
         if ($customer) {
 

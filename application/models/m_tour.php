@@ -33,41 +33,6 @@ class M_Tour extends CI_Model {
             return $data;
         }
     }
-
-    function save()
-    {
-        $nama          = $this->input->post('nama');
-        $tgl_lahir     = $this->input->post('tgl_lahir');
-        $jenis_kelamin = $this->input->post('jenis_kelamin');
-        $alamat        = $this->input->post('alamat');
-        $no_telp       = $this->input->post('no_telp');
-        $email         = $this->input->post('email');
-        $password      = $this->input->post('password');
-        $status        = 'AKTIF';
-        
-        $data = array(
-            'nama'          => $nama,
-            'tgl_lahir'     => $tgl_lahir,
-            'jenis_kelamin' => $jenis_kelamin,
-            'alamat'        => $alamat,
-            'no_telp'       => $no_telp,
-            'email'         => $email,
-            'password'      => md5($password),
-            'status'        => $status
-        );
-
-
-        $result = $this->db->insert('tcustomer', $data);
-
-        if ($result) {
-            // return true;
-            $customer_id = $this->db->insert_id();
-            return $customer_id;
-        } else {
-            return false;
-        }
-
-    }
     
 }
 

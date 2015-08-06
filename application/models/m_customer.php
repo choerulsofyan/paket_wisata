@@ -49,42 +49,67 @@ class M_customer extends CI_Model {
         if ($query->num_rows() > 0)
         {
             $data = $query->row_array();
-
-            if ($data['status'] == 1) {
-                $data['status'] = "Aktif";
-            } elseif ($data['status'] == 0) {
-                $data['status'] = "Non-Aktif";
-            }
-
             return $data;
         }
     }
 
     function save()
     {
-        $id                     = $this->input->post('id');
-                  
-        $data['pembayaran']     = $this->input->post('pembayaran');        
-        $data['angsuran_ke']    = $this->input->post('angsuran_ke');    
+        $id            = $this->input->post('id');
+        $nama          = $this->input->post('nama');
+        $tgl_lahir     = $this->input->post('tgl_lahir');
+        $jenis_kelamin = $this->input->post('jenis_kelamin');
+        $alamat        = $this->input->post('alamat');
+        $no_telp       = $this->input->post('no_telp');
+        $email         = $this->input->post('email');
+        $password      = $this->input->post('password');
+        $status        = $this->input->post('status');
+        
+        $data = array(
+            'nama'          => $nama,
+            'tgl_lahir'     => $tgl_lahir,
+            'jenis_kelamin' => $jenis_kelamin,
+            'alamat'        => $alamat,
+            'no_telp'       => $no_telp,
+            'email'         => $email
+        );
 
-        if ($id == null) {
-            
-            $data['no_faktur']      = $this->input->post('no_faktur');            
-            $data['pemesanan_id']   = $this->input->post('pemesanan_id');
-            $data['customer_id']    = $this->input->post('customer_id');    
-            $data['tgl_pembayaran'] = date('Y-m-d');                    
-            $data['total']          = $this->input->post('total');                            
-
-            $result = $this->db->insert($this->table, $data);
-        } else {
-            $this->db->where('id', $id);
-            $result = $this->db->update($this->table, $data);
+        if ($password != "") {
+            $data['password'] = md5($password);
         }
 
-        if ($result) {
-            return true;
+        if (!isset($status)) {
+            $data['status'] = 'AKTIF';
         } else {
-            return false;
+            $data['status'] = $status;
+        }
+
+        if ($id == null) {            
+
+            $query            = $this->db->insert($this->table, $data);
+            
+            if ($query) {
+                $customer_id = $this->db->insert_id();
+                $result      = $customer_id;
+            } else {
+                $result = false;
+            }
+
+            return $result;
+
+        } else {
+            
+            $this->db->where('id', $id);
+            $query = $this->db->update($this->table, $data);
+
+            if ($query) {
+                $result = true;
+            } else {
+                $result = false;
+            }
+
+            return $result;
+
         }
     }
 
