@@ -62,6 +62,29 @@ class M_pemesanan extends CI_Model {
         }
     }
 
+    function update()
+    {
+        $id            = $this->input->post('id');
+        $tgl_pemesanan = $this->input->post('tgl_pemesanan');
+        $jumlah_orang  = $this->input->post('jml_orang');
+        $total         = $this->input->post('total');
+
+        $data = array(
+            'tgl_pemesanan' => $tgl_pemesanan,
+            'jumlah_orang'  => $jumlah_orang,
+            'total'         => $total
+        );
+
+        $this->db->where('id', $id);
+        $result = $this->db->update($this->table, $data);
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function cek_total_biaya($wisata_id, $jumlah_orang)
     {
         $this->db->select('harga');
@@ -96,7 +119,6 @@ class M_pemesanan extends CI_Model {
 
         if ($query->num_rows() > 0)
         {
-
             $data      = $query->row_array();
             $result    = $data['no_faktur'];
             $no_faktur = substr($result, -4);
@@ -125,10 +147,10 @@ class M_pemesanan extends CI_Model {
     function get() 
     {   
 
-        $this->db->select('tpp.id, tpc.nama , tpw.judul_wisata , tpp.no_faktur, tpp.tgl_pemesanan, tpp.jumlah_orang, tpp.total')
-                  ->from('tpemesanan AS tpp, tpaket_wisata AS tpw, tcustomer AS tpc')
-                  ->where('tpp.customer_id = tpc.id')
-                  ->where('tpp.wisata_id = tpw.id');
+        $this->db->select('tpm.id, tc.nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang, tpm.total')
+                  ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
+                  ->where('tpm.customer_id = tc.id')
+                  ->where('tpm.wisata_id = tpw.id');
 
         $query = $this->db->get();
 
@@ -154,11 +176,11 @@ class M_pemesanan extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tpp.id, tpc.nama , tpw.judul_wisata , tpp.no_faktur, tpp.tgl_pemesanan, tpp.jumlah_orang, tpp.total')
-                  ->from('tpemesanan AS tpp, tpaket_wisata AS tpw, tcustomer AS tpc')
-                  ->where('tpp.customer_id = tpc.id')
-                  ->where('tpp.wisata_id = tpw.id')
-                  ->where('tpp.id = ' . $id);
+        $this->db->select('tpm.id, tpm.wisata_id, tc.nama as customer_nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang, tpm.total')
+                  ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
+                  ->where('tpm.customer_id = tc.id')
+                  ->where('tpm.wisata_id = tpw.id')
+                  ->where('tpm.id = ' . $id);
 
         $query = $this->db->get();
 

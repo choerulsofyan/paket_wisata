@@ -60,13 +60,23 @@ class Paket_wisata extends CI_Controller {
 
     function delete() 
     {
+        $this->load->model('m_paket_wisata_detail');
+
         $id = $this->uri->segment(3);
-        $delete = $this->m_paket_wisata->delete($id);    
+        $delete_paket_wisata = $this->m_paket_wisata->delete($id);
         
-        if ($delete) {
-            redirect('paket_wisata','refresh');
+        if ($delete_paket_wisata) {
+
+            $delete_paket_wisata_detail = $this->m_paket_wisata_detail->deleteByPaketWisataId($id);
+
+            if ($delete_paket_wisata_detail) {
+                redirect('paket_wisata','refresh');
+            } else {
+                echo "delete paket wisata detail failed";
+            }
+
         } else {
-            echo "delete failed";
+            echo "delete paket wisata failed";
         }   
     }
 

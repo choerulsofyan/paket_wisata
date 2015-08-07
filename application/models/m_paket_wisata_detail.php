@@ -96,6 +96,18 @@ class M_paket_wisata_detail extends CI_Model {
             return false;
         }
     }
+
+    function deleteByPaketWisataId($id)
+    {
+        $this->db->where('wisata_id', $id);
+        $delete = $this->db->delete($this->table);
+
+        if ($delete) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }
 

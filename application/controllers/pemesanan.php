@@ -40,15 +40,8 @@ class Pemesanan extends CI_Controller {
         $this->load->template_admin('pemesanan/edit', $data);
     }
 
-    // function create()
-    // {
-    //     $data['title'] = "Input Pemesanan";
-    //     $this->load->template_admin('pemesanan/create', $data);   
-    // }
-
     function save()
     {
-        $id = $this->input->post('id');
         $save = $this->m_pemesanan->save();    
         
         if ($save) {
@@ -58,17 +51,16 @@ class Pemesanan extends CI_Controller {
         }
     }
 
-/*    function delete() 
+    function update()
     {
-        $id = $this->uri->segment(3);
-        $delete = $this->m_pemesanan->delete($id);    
+        $update = $this->m_pemesanan->update();    
         
-        if ($delete) {
+        if ($update) {
             redirect('pemesanan','refresh');
         } else {
-            echo "delete failed";
-        }   
-    }*/
+            echo "save failed";
+        }
+    }
 
     function delete() 
     {
@@ -90,6 +82,17 @@ class Pemesanan extends CI_Controller {
         } else {
             echo "delete pemesanan failed";
         }   
+    }
+
+    function cek_total_biaya()
+    {
+        $this->load->model('m_pemesanan');
+
+        $wisata_id = $this->input->get('wisata_id');
+        $jml_orang = $this->input->get('jml_orang');
+
+        $total_biaya = $this->m_pemesanan->cek_total_biaya($wisata_id, $jml_orang);
+        echo $total_biaya;
     }
 
 }

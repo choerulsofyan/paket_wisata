@@ -71,6 +71,10 @@ $( document ).ready(function() {
         format: 'yyyy/mm/dd'
     });
 
+    $('#tgl_pemesanan').datepicker({
+        format: 'yyyy/mm/dd'
+    });
+
     $('#no_faktur').keypress(function(e) {
         if(e.which == 13) {
 
@@ -129,6 +133,31 @@ $( document ).ready(function() {
             { "data": "total" },
             { "data": "detail" }
         ]
+    });
+
+    $( "#jml_orang" ).keyup(function() {
+        var wisata_id = $('#wisata_id').val();
+        var jml_orang = $('#jml_orang').val();
+
+        $.ajax({
+          url: window.location.origin + "/anugrah_tour/pemesanan/cek_total_biaya",
+          data: {
+            "wisata_id" : wisata_id,
+            "jml_orang" : jml_orang
+          },
+          type: 'GET',
+          success: function(data) {
+            $('#total').val(data);
+          },
+          error: function(xhr, status, error) {
+            console.log('xhr:');
+            console.log(xhr);
+            console.log('status:');
+            console.log(status);
+            console.log('error:');
+            console.log(error);
+          }
+        });
     });
 
 });

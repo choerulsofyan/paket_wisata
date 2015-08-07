@@ -21,7 +21,7 @@
         Nama Customer
     </div>
     <div class="col-lg-5">
-        <?=$pemesanan['nama'];?>
+        <?=$pemesanan['customer_nama'];?>
     </div>
 </div>
 <div class="row">
