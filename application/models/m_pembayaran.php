@@ -144,6 +144,56 @@ class M_pembayaran extends CI_Model {
             return $data;
         }
     }  
+
+    function cek_info_pembayaran($customer_id) 
+    {
+        $this->db->select('tpm.total, sum(tpb.pembayaran) as total_pembayaran, count(tpb.angsuran_ke) as angsuran');
+        $this->db->from('tpemesanan tpm');
+        $this->db->join('tcustomer tc', 'tpm.customer_id = tc.id', 'inner');
+        $this->db->join('tpembayaran tpb', 'tpm.customer_id = tpb.customer_id', 'left');
+        $this->db->where('tc.id = "' . $customer_id . '"');
+        $this->db->order_by('tpb.id', 'desc');
+
+        $query = $this->db->get();
+        $number_of_rows = $query->num_rows();
+
+        if ($number_of_rows > 0)
+        {
+            $data               = $query->row_array();
+            $data['sisa_bayar'] = $data['total'] - $data['total_pembayaran'];
+
+            return $data;
+        }
+    }
+
+    function getPembayaranCustomer($customer_id) 
+    {   
+        $this->db->select('tp.id, tp.tgl_pembayaran, tp.pembayaran, tp.angsuran_ke')
+                  ->from('tpembayaran AS tp, tcustomer AS tc')
+                  ->where('tp.customer_id = tc.id')
+                  ->where('tp.customer_id = ' . $customer_id);
+
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data       = $query->result_array();
+            $row_counts = $query->num_rows();
+
+            for ($i = 0; $i < $row_counts; $i++) {
+                $number   = $i + 1;
+                $no       = array('no' => $number);
+                $detail   = array('detail' => "<a href='" . base_url() . "pembayaran/view/" . $data[$i]['id'] . "'  id='view' class='btn btn-primary'>View</a> <a href='" . base_url() . "pembayaran/delete/" . $data[$i]['id'] . "' id='delete' class='btn btn-danger'>Delete</a>");
+                $data[$i] = $no + $data[$i]; 
+                $data[$i] = $data[$i] + $detail; 
+            }
+
+            // $data = array("data" => $data);
+
+            return $data;
+        }
+    }
 }
 
 /* End of file  */

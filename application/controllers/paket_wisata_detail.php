@@ -47,8 +47,15 @@ class Paket_wisata_detail extends CI_Controller {
     {
         $this->load->model('m_paket_wisata');
 
-        $data['title'] = "Input Paket Wisata Detail";
-        $data['paket_wisata']  = $this->m_paket_wisata->get_paket_wisata();
+        $paket_wisata_id = $this->uri->segment(3);
+        $data['title']   = "Input Paket Wisata Detail";
+        
+        if ($paket_wisata_id != null || $paket_wisata_id != "") {
+            $data['paket_wisata']  = $this->m_paket_wisata->get_paket_wisata($paket_wisata_id);
+        } else {
+            $data['paket_wisata']  = $this->m_paket_wisata->get_paket_wisata();
+        }
+        
         $this->load->template_admin('paket_wisata_detail/create', $data);   
     }
 

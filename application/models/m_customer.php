@@ -14,7 +14,6 @@ class M_customer extends CI_Model {
     {   
         $this->db->select('tc.id, tc.nama, tc.tgl_lahir, tc.jenis_kelamin, tc.no_telp, tc.email, tc.status');
         $this->db->from('tcustomer AS tc');
-
         
         $query = $this->db->get();
 

@@ -191,6 +191,23 @@ class M_pemesanan extends CI_Model {
         }
     }
 
+    function getDetailByCustomerId($customer_id)
+    {
+        $this->db->select('tpm.id as pemesanan_id, tpw.judul_wisata, tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang')
+                  ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
+                  ->where('tpm.customer_id = tc.id')
+                  ->where('tpm.wisata_id = tpw.id')
+                  ->where('tc.id = ' . $customer_id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data = $query->row_array();
+            return $data;
+        }
+    }
+
 
 
 }

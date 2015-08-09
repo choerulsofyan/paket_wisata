@@ -39,13 +39,28 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
-    function get_paket_wisata()
+    /*function get_paket_wisata()
     {
         $this->db->select('id, judul_wisata');
         $this->db->from($this->table);
 
         $query = $this->db->get();
         $data  = $query->result_array();
+        return $data;
+    }*/
+
+    function get_paket_wisata($id = null)
+    {
+        $this->db->select('id, judul_wisata');
+        $this->db->from($this->table);
+
+        if ($id != null) {
+            $this->db->where('id = ' . $id);
+        }
+
+        $query = $this->db->get();
+        $data  = $query->result_array();
+
         return $data;
     }
 

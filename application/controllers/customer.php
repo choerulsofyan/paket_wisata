@@ -26,10 +26,21 @@ class Customer extends CI_Controller {
 
     function view() 
     {
+        $this->load->model('m_pemesanan');
+        $this->load->model('m_pembayaran');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Customer";
-        $data['customer']  = $this->m_customer->detail($id);
+        $data['customer'] = $this->m_customer->detail($id);
+        $data['info_pemesanan'] = $this->m_pemesanan->getDetailByCustomerId($id);
+        $data['info_pembayaran'] = $this->m_pembayaran->cek_info_pembayaran($id);
+        $data['info_angsuran'] = $this->m_pembayaran->getPembayaranCustomer($id);
+
         $this->load->template_admin('customer/view', $data);
+
+        // echo "<pre>";
+        // print_r($data);
+        // echo "</pre>";
     }
 
     function edit() 
