@@ -8,13 +8,13 @@ class Pembayaran extends CI_Controller {
         $this->load->model('m_pembayaran');
         $this->load->helper('url');
         $this->load->library('form_validation');
-
-        $access = array('ADMIN', 'USER');
-        $this->auth->restrict($access);
+        $this->auth->check_login();
     }
 
     public function index()
     {
+        $this->auth->restrict('pembayaran.view');
+
         $data['title'] = "Daftar Pembayaran";
         $data['pembayaran'] = $this->m_pembayaran->get();
         $this->load->template_admin('pembayaran/index.php', $data);
@@ -29,6 +29,8 @@ class Pembayaran extends CI_Controller {
 
     function view() 
     {
+        $this->auth->restrict('pembayaran.view');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Pembayaran";
         $data['pembayaran']  = $this->m_pembayaran->detail($id);
@@ -37,6 +39,8 @@ class Pembayaran extends CI_Controller {
 
     function edit() 
     {
+        $this->auth->restrict('pembayaran.edit');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data Pembayaran";
         $data['pembayaran']  = $this->m_pembayaran->detail($id);
@@ -45,6 +49,8 @@ class Pembayaran extends CI_Controller {
 
     function create()
     {
+        $this->auth->restrict('pembayaran.create');
+        
         $data['title'] = "Input Pembayaran Baru";
         $this->load->template_admin('pembayaran/create', $data);   
     }
@@ -62,6 +68,8 @@ class Pembayaran extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->restrict('pembayaran.delete');
+
         $id = $this->uri->segment(3);
         $delete = $this->m_pembayaran->delete($id);    
         

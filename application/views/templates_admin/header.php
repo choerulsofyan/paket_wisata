@@ -136,29 +136,52 @@
                         <li>
                             <a href="<?=base_url();?>dashboard"><i class="fa fa-fw fa-bar-chart-o"></i> Dashboard</a>
                         </li>
+                        
+                        <?php if ($this->auth->check_privileges('paket_wisata.view')) : ?>
                         <li>
                             <a href="<?=base_url();?>paket_wisata"><i class="fa fa-fw fa-plane"></i> Paket Wisata</a>
                         </li>
+                        <?php endif; ?>                        
+
+                        <?php if ($this->auth->check_privileges('paket_wisata_detail.view')) : ?>                        
                         <li>
                             <a href="<?=base_url();?>paket_wisata_detail"><i class="fa fa-fw fa-plane"></i> Detail Wisata </a>
                         </li>
+                        <?php endif; ?>
+
+                        <?php if ($this->auth->check_privileges('pemesanan.view') || $this->auth->check_privileges('pembayaran.view')) : ?>
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-euro"></i> Transaksi <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="demo" class="collapse">
+                                
+                                <?php if ($this->auth->check_privileges('pemesanan.view')) : ?>
                                 <li>
                                     <a href="<?=base_url();?>pemesanan"><i class="fa fa-fw fa-book"></i> Pemesanan</a>
                                 </li>
+                                <?php endif; ?>
+
+                                <?php if ($this->auth->check_privileges('pembayaran.view')) : ?>
                                 <li>
                                     <a href="<?=base_url();?>pembayaran"><i class="fa fa-fw fa-euro"></i> Pembayaran</a>
                                 </li>
+                                <?php endif; ?>
+
                             </ul>
                         </li>
+                        <?php endif; ?>
+
+                        <?php if ($this->auth->check_privileges('customer.view')) : ?>
                         <li>
                             <a href="<?=base_url();?>customer"><i class="fa fa-fw fa-users"></i> Customer</a>
                         </li>
+                        <?php endif; ?>
+
+                        <?php if ($this->auth->check_privileges('user.view')) : ?>
                         <li>
                             <a href="<?=base_url();?>user"><i class="fa fa-fw fa-user"></i> User</a>
                         </li>
+                        <?php endif; ?>
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

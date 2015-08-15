@@ -10,19 +10,16 @@ class Customer extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
 
-        $access = array('ADMIN', 'USER');
-        $this->auth->restrict($access);
+        $this->auth->check_login();
     }
 
     public function index()
     {
-        $auth = $this->auth->check_privileges('customer.view');
+        $this->auth->restrict('customer.view');
 
-        if ($auth) {
-            $data['title'] = "Daftar Customer";
-            $data['customer'] = $this->m_customer->get();
-            $this->load->template_admin('customer/index.php', $data);
-        }        
+        $data['title'] = "Daftar Customer";
+        $data['customer'] = $this->m_customer->get();
+        $this->load->template_admin('customer/index.php', $data);
     }
 
     function get($id = null)
@@ -34,7 +31,7 @@ class Customer extends CI_Controller {
     function view() 
     {
      
-        $this->auth->check_privileges('customer.view');
+        $this->auth->restrict('customer.view');
         
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');
@@ -51,7 +48,7 @@ class Customer extends CI_Controller {
 
     function edit() 
     {
-        $this->auth->check_privileges('customer.edit');
+        $this->auth->restrict('customer.edit');
 
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data Customer";
@@ -61,7 +58,7 @@ class Customer extends CI_Controller {
 
     function create()
     {
-        $this->auth->check_privileges('customer.create');
+        $this->auth->restrict('customer.create');
 
         $data['title'] = "Input Customer Baru";
         $this->load->template_admin('customer/create', $data);   
@@ -80,7 +77,7 @@ class Customer extends CI_Controller {
 
     function delete() 
     {
-        $this->auth->check_privileges('customer.delete');
+        $this->auth->restrict('customer.delete');
 
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');

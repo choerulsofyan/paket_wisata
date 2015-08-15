@@ -166,6 +166,7 @@
 <!-- END OF INFO PEMBAYARAN -->
 
 <!-- INFO ANGSURAN -->
+<?php if ($info_angsuran) : ?>
 <h3>Info Pembayaran</h3>
 <div class="row">
     <div class="col-lg-12">
@@ -193,5 +194,6 @@
         </table>
     </div>
 </div>
+<?php endif; ?>
 <!-- END OF INFO ANGSURAN -->
 <!-- /.row

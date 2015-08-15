@@ -9,12 +9,13 @@ class Paket_wisata_detail extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
         
-        $access = array('ADMIN', 'USER');
-        $this->auth->restrict($access);
+        $this->auth->check_login();
     }
 
     public function index()
     {
+        $this->auth->restrict('paket_wisata_detail.view');
+
         $data['title'] = "Detail Paket Wisata";
         $data['paket_wisata'] = $this->m_paket_wisata_detail->get();
         $this->load->template_admin('paket_wisata_detail/index.php', $data);
@@ -28,6 +29,8 @@ class Paket_wisata_detail extends CI_Controller {
 
     function view() 
     {
+        $this->auth->restrict('paket_wisata_detail.view');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Paket Wisata";
         $data['paket_wisata_detail']  = $this->m_paket_wisata_detail->detail($id);
@@ -36,6 +39,8 @@ class Paket_wisata_detail extends CI_Controller {
 
     function edit() 
     {
+        $this->auth->restrict('paket_wisata_detail.edit');
+
         $id = $this->uri->segment(3);
 
         $this->load->model('m_paket_wisata');
@@ -47,6 +52,8 @@ class Paket_wisata_detail extends CI_Controller {
 
     function create()
     {
+        $this->auth->restrict('paket_wisata_detail.create');
+
         $this->load->model('m_paket_wisata');
 
         $paket_wisata_id = $this->uri->segment(3);
@@ -74,6 +81,8 @@ class Paket_wisata_detail extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->restrict('paket_wisata_detail.delete');
+        
         $id = $this->uri->segment(3);
         $delete = $this->m_paket_wisata_detail->delete($id);    
         

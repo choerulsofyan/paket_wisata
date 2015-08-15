@@ -9,13 +9,14 @@ class Pemesanan extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('form_validation');
 
-        $access = array('ADMIN');
-        $this->auth->restrict($access);
+        $this->auth->check_login();
         
     }
 
     public function index()
     {
+        $this->auth->restrict('pembayaran.view');
+
         $data['title'] = "Daftar Pemesanan";
         $data['pemesanan'] = $this->m_pemesanan->get();
         $this->load->template_admin('pemesanan/index.php', $data);
@@ -29,6 +30,8 @@ class Pemesanan extends CI_Controller {
 
     function view() 
     {
+        $this->auth->restrict('pembayaran.view');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Pemesanan";
         $data['pemesanan']  = $this->m_pemesanan->detail($id);
@@ -37,6 +40,8 @@ class Pemesanan extends CI_Controller {
 
     function edit() 
     {
+        $this->auth->restrict('pembayaran.edit');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data Pemesanan";
         $data['pemesanan']  = $this->m_pemesanan->detail($id);
@@ -67,6 +72,8 @@ class Pemesanan extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->restrict('pembayaran.delete');
+
         $this->load->model('m_pembayaran');
 
         $id = $this->uri->segment(3);

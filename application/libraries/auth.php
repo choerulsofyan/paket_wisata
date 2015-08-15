@@ -10,14 +10,26 @@ class Auth
         $this->ci->load->model('m_user');
     }
 
-    /*public function check_login()
+    public function check_login()
     {
         $this->session = $this->ci->session->userdata('logged_in');
 
         if ($this->session != TRUE) {
-            redirect('user/login','refresh');
+            redirect('login','refresh');
         }
-    }*/
+    }
+
+    public function check_privileges($access)
+    {
+        $this->user = (object) $this->ci->session->userdata('logged_in');
+        $result     = $this->ci->m_user->check_privileges($this->user->group_user, $access);
+
+        if (!$result) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
 /*    public function restrict($group_user)
     {
@@ -49,7 +61,7 @@ class Auth
         }
     }*/
 
-    public function restrict($access)
+    /*public function restrict($access)
     {
         $this->session = $this->ci->session->userdata('logged_in');
 
@@ -62,6 +74,16 @@ class Auth
             if (!$result) {
                 redirect('dashboard','refresh');
             }
+        }
+    }*/
+
+    public function restrict($access)
+    {
+        $this->user = (object) $this->ci->session->userdata('logged_in');
+        $result     = $this->ci->m_user->check_privileges($this->user->group_user, $access);
+
+        if (!$result) {
+            redirect('dashboard','refresh');
         }
     }
 

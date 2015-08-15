@@ -189,9 +189,9 @@ class M_pembayaran extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            // $data = array("data" => $data);
-
             return $data;
+        } else {
+            return false;
         }
     }
 }

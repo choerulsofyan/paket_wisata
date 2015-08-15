@@ -8,29 +8,18 @@ class Paket_wisata extends CI_Controller {
         $this->load->model('m_paket_wisata');
         $this->load->helper('url');
         $this->load->library('form_validation');
-
-        $access = array('ADMIN', 'USER');
-        $this->auth->restrict($access);
-        
+        $this->auth->check_login();
     }
 
     public function index()
     {
-        /*$data['title'] = "Daftar Paket Wisata";
+        $this->auth->restrict('paket_wisata.view');
+
+        $data['title']        = "Daftar Paket Wisata";
         $data['paket_wisata'] = $this->m_paket_wisata->get();
-        $this->load->template_admin('paket_wisata/index.php', $data);*/
 
-        if ($this->session->userdata('logged_in')) {
-
-            $data['title']        = "Daftar Paket Wisata";
-            $data['paket_wisata'] = $this->m_paket_wisata->get();
-
-            $this->load->template_admin('paket_wisata/index.php', $data);
+        $this->load->template_admin('paket_wisata/index.php', $data);
             
-        } else {
-            redirect('user/login','refresh');
-        }
-
     }
 
     function get($id = null)
@@ -41,6 +30,8 @@ class Paket_wisata extends CI_Controller {
 
     function view() 
     {
+        $this->auth->restrict('paket_wisata.view');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail Paket Wisata";
         $data['paket_wisata']  = $this->m_paket_wisata->detail($id);
@@ -49,6 +40,8 @@ class Paket_wisata extends CI_Controller {
 
     function edit() 
     {
+        $this->auth->restrict('paket_wisata.edit');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data Paket Wisata";
         $data['paket_wisata']  = $this->m_paket_wisata->detail($id);
@@ -57,6 +50,8 @@ class Paket_wisata extends CI_Controller {
 
     function create()
     {
+        $this->auth->restrict('paket_wisata.create');
+
         $data['title'] = "Input Paket Wisata";
         $this->load->template_admin('paket_wisata/create', $data);   
     }
@@ -75,6 +70,8 @@ class Paket_wisata extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->restrict('paket_wisata.delete');
+        
         $this->load->model('m_paket_wisata_detail');
 
         $id = $this->uri->segment(3);
