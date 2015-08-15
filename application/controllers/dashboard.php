@@ -1,12 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+session_start();
+
 class Dashboard extends CI_Controller {
 
     public function __construct()
     {
         parent::__construct();
-        $access = array('ADMIN', 'USER');
-        $this->auth->restrict($access);
+        // $this->auth->restrict($access);
     }
 
     public function index()

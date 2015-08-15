@@ -24,7 +24,7 @@
                     <th>No. </th>
                     <th>Nama Lengkap</th>
                     <th>Email</th>
-                    <th>Hak Akses</th>
+                    <th>Grup User</th>
                     <th>Status</th>
                     <th>Detail</th>
                 </tr>

@@ -66,10 +66,10 @@
 </div>
 <div class="row">
     <div class="col-lg-2">
-            Hak akses
+            Grup User
     </div>
     <div class="col-lg-5">
-        <?=$user['hak_akses'];?>
+        <?=$user['grup_user'];?>
     </div>
 </div>
 <div class="row">

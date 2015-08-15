@@ -29,7 +29,7 @@ $( document ).ready(function() {
             { "data": "no" },
             { "data": "nama_lengkap" },
             { "data": "email" },
-            { "data": "hak_akses" },
+            { "data": "grup_user" },
             { "data": "status" },
             { "data": "detail" }
         ]

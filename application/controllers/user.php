@@ -1,5 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+session_start();
+
 class User extends CI_Controller {
 
     public function __construct()
@@ -28,7 +30,7 @@ class User extends CI_Controller {
     {
         $this->session->unset_userdata('logged_in');
         session_destroy();
-        redirect(base_url() . 'user/login','refresh');
+        // redirect(base_url() . 'user/login','refresh');
     }
 
     function verifyLogin()
@@ -38,9 +40,9 @@ class User extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_login');
 
         if ($this->form_validation->run() == FALSE) {
-            redirect(base_url() . 'user/login','refresh');
+            // redirect(base_url() . 'user/login','refresh');
         } else {
-            redirect(base_url() . 'dashboard','refresh');
+            // redirect(base_url() . 'dashboard','refresh');
         }
     }
 
@@ -56,7 +58,7 @@ class User extends CI_Controller {
             $sess_array = array(
                 'id'         => $result['id'],
                 'username'   => $result['username'],
-                'group_user' => $result['hak_akses']
+                'group_user' => $result['grup_user']
             );
 
             $this->session->set_userdata('logged_in', $sess_array);
@@ -71,6 +73,8 @@ class User extends CI_Controller {
 
     public function index()
     {
+        $this->auth->restrict('user.view');
+
         $data['title'] = "Daftar User";
         $data['user'] = $this->m_user->get();
         $this->load->template_admin('user/index.php', $data);
@@ -84,6 +88,8 @@ class User extends CI_Controller {
 
     function view() 
     {
+        $this->auth->restrict('user.view');        
+
         $id = $this->uri->segment(3);
         $data['title'] = "Detail User";
         $data['user']  = $this->m_user->detail($id);
@@ -92,6 +98,8 @@ class User extends CI_Controller {
 
     function edit() 
     {
+        $this->auth->restrict('user.edit');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data User";
         $data['user']  = $this->m_user->detail($id);
@@ -100,6 +108,7 @@ class User extends CI_Controller {
 
     function create()
     {
+        $this->auth->restrict('user.create');
         $data['title'] = "Input User Baru";
         $this->load->template_admin('user/create', $data);   
     }
@@ -118,6 +127,8 @@ class User extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->restrict('user.delete');
+
         $id = $this->uri->segment(3);
         $delete = $this->m_user->delete($id);    
         

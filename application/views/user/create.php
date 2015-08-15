@@ -127,9 +127,9 @@
 
       <!-- Select Basic -->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="hak_akses">Hak akses</label>
+        <label class="col-md-4 control-label" for="grup_user">Grup User</label>
         <div class="col-md-6">
-          <select id="hak_akses" name="hak_akses" class="form-control">
+          <select id="grup_user" name="grup_user" class="form-control">
             <option value="Admin">Admin</option>
             <option value="User">User</option>
           </select>

@@ -100,11 +100,11 @@
 
       <!-- Select Basic -->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="hak_akses">Hak akses</label>
+        <label class="col-md-4 control-label" for="grup_user">Grup User</label>
         <div class="col-md-6">
-          <select id="hak_akses" name="hak_akses" class="form-control">
-            <option value="Admin" <?php echo ($user['hak_akses'] == 'Admin' ? 'selected' : ''); ?>>Admin</option>
-            <option value="User" <?php echo ($user['hak_akses'] == 'User' ? 'selected' : ''); ?>>User</option>
+          <select id="grup_user" name="grup_user" class="form-control">
+            <option value="Admin" <?php echo ($user['grup_user'] == 'ADMIN' ? 'selected' : ''); ?>>Admin</option>
+            <option value="User" <?php echo ($user['grup_user'] == 'USER' ? 'selected' : ''); ?>>User</option>
           </select>
         </div>
       </div>

@@ -12,10 +12,11 @@ class M_user extends CI_Model {
 
     function login($username, $password)
     {
-        $this->db->select('id, username, hak_akses, status');
+        $this->db->select('id, username, grup_user, status');
         $this->db->from($this->table);
         $this->db->where('username', $username);
         $this->db->where('password', md5($password));
+        $this->db->where('status', 'AKTIF');
         $this->db->limit(1);
 
         $query = $this->db->get();
@@ -35,42 +36,11 @@ class M_user extends CI_Model {
 
     }
 
-    function check_privileges($username, $privileges)
-    {
-        $this->db->select('hak_akses, status');
-        $this->db->from($this->table);
-        $this->db->where('username', $username);
-        $this->db->limit(1);
-
-        $query = $this->db->get();    
-
-        if ($query->num_rows() > 0)
-        {
-            $data = $query->row_array();
-            $grup = $data['hak_akses'];
-
-            $this->db->select('hak_akses');
-            $this->db->from('tuser_group');
-            $this->db->where('grup', $grup);
-            $this->db->where('hak_akses', $privileges);
-            $this->db->limit(1);
-
-            $query = $this->db->get();            
-
-            if ($query->num_rows() > 0) {
-                $result = $query->row_array();
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
     function get() 
     {   
 
-        $this->db->select('tu.id, tu.nama_lengkap, tu.email, tu.hak_akses, tu.status')
-                  ->from('tuser AS tu');
+        $this->db->select('tu.id, tu.nama_lengkap, tu.email, tu.grup_user, tu.status');
+        $this->db->from('tuser AS tu');
 
         $query = $this->db->get();
 
@@ -94,9 +64,25 @@ class M_user extends CI_Model {
         }
     }
 
+    function check_privileges($grup_user, $access)
+    {
+        $this->db->select('grup_user, hak_akses');
+        $this->db->from('tuser_group');
+        $this->db->where('grup_user', $grup_user);
+        $this->db->where('hak_akses', $access);
+
+        $query = $this->db->get();    
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function detail($id)
     {
-        $this->db->select('tu.id, tu.nama_lengkap, tu.tgl_lahir, tu.jenis_kelamin, tu.alamat, tu.email, tu.username, tu.hak_akses, tu.status')
+        $this->db->select('tu.id, tu.nama_lengkap, tu.tgl_lahir, tu.jenis_kelamin, tu.alamat, tu.email, tu.username, tu.grup_user, tu.status')
                   ->from('tuser AS tu')
                   ->where('tu.id = ' . $id);
 
@@ -119,7 +105,7 @@ class M_user extends CI_Model {
         $email         = $this->input->post('email');
         $username      = $this->input->post('username');
         $password      = $this->input->post('password');
-        $hak_akses     = $this->input->post('hak_akses');
+        $grup_user     = $this->input->post('grup_user');
         $status        = $this->input->post('status');
         
         $data = array(
@@ -130,7 +116,7 @@ class M_user extends CI_Model {
             'email'         => $email,
             'username'      => $username,
             'password'      => md5($password),
-            'hak_akses'     => $hak_akses,
+            'grup_user'     => $grup_user,
             'status'        => $status
         );
 
