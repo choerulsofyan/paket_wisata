@@ -8,6 +8,9 @@ class Pembayaran extends CI_Controller {
         $this->load->model('m_pembayaran');
         $this->load->helper('url');
         $this->load->library('form_validation');
+
+        $access = array('ADMIN', 'USER');
+        $this->auth->restrict($access);
     }
 
     public function index()

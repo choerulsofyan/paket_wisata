@@ -5,17 +5,24 @@ class Customer extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->auth->check_login();
         $this->load->model('m_customer');
         $this->load->helper('url');
         $this->load->library('form_validation');
+
+        $access = array('ADMIN', 'USER');
+        $this->auth->restrict($access);
     }
 
     public function index()
     {
-        $data['title'] = "Daftar Customer";
-        $data['customer'] = $this->m_customer->get();
-        $this->load->template_admin('customer/index.php', $data);
-        
+        $auth = $this->auth->check_privileges('customer.view');
+
+        if ($auth) {
+            $data['title'] = "Daftar Customer";
+            $data['customer'] = $this->m_customer->get();
+            $this->load->template_admin('customer/index.php', $data);
+        }        
     }
 
     function get($id = null)
@@ -26,6 +33,9 @@ class Customer extends CI_Controller {
 
     function view() 
     {
+     
+        $this->auth->check_privileges('customer.view');
+        
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');
 
@@ -37,14 +47,12 @@ class Customer extends CI_Controller {
         $data['info_angsuran'] = $this->m_pembayaran->getPembayaranCustomer($id);
 
         $this->load->template_admin('customer/view', $data);
-
-        // echo "<pre>";
-        // print_r($data);
-        // echo "</pre>";
     }
 
     function edit() 
     {
+        $this->auth->check_privileges('customer.edit');
+
         $id = $this->uri->segment(3);
         $data['title'] = "Edit Data Customer";
         $data['customer']  = $this->m_customer->detail($id);
@@ -53,6 +61,8 @@ class Customer extends CI_Controller {
 
     function create()
     {
+        $this->auth->check_privileges('customer.create');
+
         $data['title'] = "Input Customer Baru";
         $this->load->template_admin('customer/create', $data);   
     }
@@ -70,6 +80,8 @@ class Customer extends CI_Controller {
 
     function delete() 
     {
+        $this->auth->check_privileges('customer.delete');
+
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');
 

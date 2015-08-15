@@ -10,6 +10,62 @@ class M_user extends CI_Model {
         $this->load->database();
     }
 
+    function login($username, $password)
+    {
+        $this->db->select('id, username, hak_akses, status');
+        $this->db->from($this->table);
+        $this->db->where('username', $username);
+        $this->db->where('password', md5($password));
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $user =  $query->row_array();
+            
+            if ($user['status'] != 'AKTIF') {
+                return false;
+            } else {
+                return $user;
+            }
+
+        } else {
+            return false;
+        }
+
+    }
+
+    function check_privileges($username, $privileges)
+    {
+        $this->db->select('hak_akses, status');
+        $this->db->from($this->table);
+        $this->db->where('username', $username);
+        $this->db->limit(1);
+
+        $query = $this->db->get();    
+
+        if ($query->num_rows() > 0)
+        {
+            $data = $query->row_array();
+            $grup = $data['hak_akses'];
+
+            $this->db->select('hak_akses');
+            $this->db->from('tuser_group');
+            $this->db->where('grup', $grup);
+            $this->db->where('hak_akses', $privileges);
+            $this->db->limit(1);
+
+            $query = $this->db->get();            
+
+            if ($query->num_rows() > 0) {
+                $result = $query->row_array();
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
     function get() 
     {   
 

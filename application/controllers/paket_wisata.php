@@ -8,14 +8,29 @@ class Paket_wisata extends CI_Controller {
         $this->load->model('m_paket_wisata');
         $this->load->helper('url');
         $this->load->library('form_validation');
+
+        $access = array('ADMIN', 'USER');
+        $this->auth->restrict($access);
         
     }
 
     public function index()
     {
-        $data['title'] = "Daftar Paket Wisata";
+        /*$data['title'] = "Daftar Paket Wisata";
         $data['paket_wisata'] = $this->m_paket_wisata->get();
-        $this->load->template_admin('paket_wisata/index.php', $data);
+        $this->load->template_admin('paket_wisata/index.php', $data);*/
+
+        if ($this->session->userdata('logged_in')) {
+
+            $data['title']        = "Daftar Paket Wisata";
+            $data['paket_wisata'] = $this->m_paket_wisata->get();
+
+            $this->load->template_admin('paket_wisata/index.php', $data);
+            
+        } else {
+            redirect('user/login','refresh');
+        }
+
     }
 
     function get($id = null)
