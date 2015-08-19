@@ -16,7 +16,7 @@ class Paket_wisata_detail extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata_detail.view');
 
-        $data['title'] = "Detail Paket Wisata";
+        $data['title'] = "Daftar Rute Wisata";
         $data['paket_wisata'] = $this->m_paket_wisata_detail->get();
         $this->load->template_admin('paket_wisata_detail/index.php', $data);
     }
@@ -57,7 +57,7 @@ class Paket_wisata_detail extends CI_Controller {
         $this->load->model('m_paket_wisata');
 
         $paket_wisata_id = $this->uri->segment(3);
-        $data['title']   = "Input Paket Wisata Detail";
+        $data['title']   = "Tambah Rute Wisata";
         
         if ($paket_wisata_id != null || $paket_wisata_id != "") {
             $data['paket_wisata']  = $this->m_paket_wisata->get_paket_wisata($paket_wisata_id);

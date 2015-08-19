@@ -52,7 +52,7 @@ class Paket_wisata extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata.create');
 
-        $data['title'] = "Input Paket Wisata";
+        $data['title'] = "Tambah Paket Wisata";
         $this->load->template_admin('paket_wisata/create', $data);   
     }
 

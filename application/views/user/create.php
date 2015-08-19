@@ -1,31 +1,30 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-<!--         <h1 class="page-header">
-            <?=$title;?>
-        </h1> -->
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> Forms
-            </li>
-        </ol>
+      <ul class="nav nav-tabs">
+        <li role="user"><a href="<?=base_url() . 'user';?>">Daftar</a></li>
+        <li role="user" class="active"><a href="<?=base_url() . 'user/create';?>">Tambah</a></li>
+      </ul>
     </div>
 </div>
 <!-- /.row -->
 
 <div class="row">
     <div class="col-lg-6">
-
+      <br/>
+      <h3>
+          <?=$title;?>
+          <hr/>
+      </h3>
+      <br/>
+      
       <?php echo validation_errors(); ?>
 
       <form class="form-horizontal" method="POST" action="<?=base_url();?>user/save">
       <fieldset>
 
       <!-- Form Name -->
-      <legend>Input User Baru</legend>
+      <!-- <legend>Input User Baru</legend> -->
 
       <!-- Text input-->
       <div class="form-group">

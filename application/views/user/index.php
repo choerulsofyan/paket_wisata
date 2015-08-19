@@ -1,23 +1,22 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">
-            <?=$title;?>
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> Forms
-            </li>
-        </ol>
+        <ul class="nav nav-tabs">
+          <li role="user" class="active"><a href="<?=base_url() . 'user';?>">Daftar</a></li>
+          <li role="user"><a href="<?=base_url() . 'user/create';?>">Tambah</a></li>
+        </ul>
     </div>
 </div>
 <!-- /.row -->
 
 <div class="row">
     <div class="col-lg-12">
+    <br/>
+    <h3>
+        <?=$title;?>
+    </h3>
+    <br/>
+    
     <table id="DaftarUser">
             <thead>
                 <tr>

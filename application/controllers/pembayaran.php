@@ -51,7 +51,7 @@ class Pembayaran extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.create');
         
-        $data['title'] = "Input Pembayaran Baru";
+        $data['title'] = "Tambah Pembayaran";
         $this->load->template_admin('pembayaran/create', $data);   
     }
 

@@ -51,7 +51,7 @@ class User extends CI_Controller {
     function create()
     {
         $this->auth->restrict('user.create');
-        $data['title'] = "Input User Baru";
+        $data['title'] = "Tambah User Baru";
         $this->load->template_admin('user/create', $data);   
     }
 

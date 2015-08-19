@@ -1,23 +1,21 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">
-            <?=$title;?>
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> Forms
-            </li>
-        </ol>
+        <ul class="nav nav-tabs">
+          <li role="paket_wisata_detail" class="active"><a href="<?=base_url() . 'paket_wisata_detail';?>">Daftar</a></li>
+          <li role="paket_wisata_detail"><a href="<?=base_url() . 'paket_wisata_detail/create';?>">Tambah</a></li>
+        </ul>
     </div>
 </div>
 <!-- /.row -->
 
 <div class="row">
     <div class="col-lg-12">
+    <br/>
+    <h3>
+        <?=$title;?>
+    </h3>
+    <br/>
     <table id="DaftarPaketWisataDetail">
             <thead>
                 <tr>

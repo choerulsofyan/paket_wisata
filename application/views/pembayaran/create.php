@@ -1,31 +1,31 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-<!--         <h1 class="page-header">
-            <?=$title;?>
-        </h1> -->
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> Forms
-            </li>
-        </ol>
+      <ul class="nav nav-tabs">
+        <li role="pembayaran"><a href="<?=base_url() . 'pembayaran';?>">Daftar</a></li>
+        <li role="pembayaran" class="active"><a href="<?=base_url() . 'pembayaran/create';?>">Tambah</a></li>
+      </ul>
     </div>
 </div>
 <!-- /.row -->
 
 <div class="row">
     <div class="col-lg-6">
-
+      <br/>
+      <h3>
+          <?=$title;?>
+          <hr/>
+      </h3>
+      <br/>
+      
       <?php echo validation_errors(); ?>
 
       <form class="form-horizontal" method="POST" action="<?=base_url();?>pembayaran/save">
       <fieldset>
 
       <!-- Form Name -->
-      <legend>Input Pembayaran Baru</legend>
+      <!-- <legend>Input Pembayaran Baru</legend> -->
+
       <input id="pemesanan_id" type="hidden" name="pemesanan_id">
       <input id="customer_id" type="hidden" name="customer_id">
 
