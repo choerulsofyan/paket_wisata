@@ -30,11 +30,23 @@ class M_customer extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            $data = array("data" => $data);
-            $data = json_encode($data);
-
-            return $data;
+        } else {
+            $data                  = array();
+            $data['no']            = "";
+            $data['id']            = "";
+            $data['nama']          = "";
+            $data['tgl_lahir']     = "";
+            $data['jenis_kelamin'] = "";
+            $data['no_telp']       = "";
+            $data['email']         = "";
+            $data['status']        = "";
+            $data['detail']        = "";
         }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
     }
 
     function detail($id)

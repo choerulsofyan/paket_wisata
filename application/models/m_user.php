@@ -57,11 +57,21 @@ class M_user extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            $data = array("data" => $data);
-            $data = json_encode($data);
-
-            return $data;
+        } else {
+            $data                 = array();                                                       
+            $data['no']           = "";                                                  
+            $data['id']           = "";                                                  
+            $data['nama_lengkap'] = "";
+            $data['email']        = "";                                   
+            $data['grup_user']    = "";               
+            $data['status']       = "";                              
+            $data['detail']       = "";                              
         }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
     }
 
     function check_privileges($grup_user, $access)

@@ -32,11 +32,24 @@ class M_pembayaran extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            $data = array("data" => $data);
-            $data = json_encode($data);
-
-            return $data;
+        } else {
+            $data                   = array();
+            $data['no']             = "";
+            $data['id']             = "";
+            $data['no_faktur']      = "";
+            $data['tgl_pembayaran'] = "";
+            $data['customer_nama']  = "";
+            $data['total']          = "";
+            $data['pembayaran']     = "";
+            $data['angsuran_ke']    = "";
+            $data['detail']         = "";
         }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
+        
     }
 
     function detail($id)

@@ -32,11 +32,21 @@ class M_paket_wisata extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            $data = array("data" => $data);
-            $data = json_encode($data);
-
-            return $data;
+        } else {
+            $data                  = array();
+            $data['no']            = "";
+            $data['id']            = "";
+            $data['judul_wisata']  = "";
+            $data['nama_kategori'] = "";
+            $data['jumlah_hari']   = "";
+            $data['harga']         = "";
+            $data['detail']        = "";
         }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
     }
 
     /*function get_paket_wisata()

@@ -172,11 +172,24 @@ class M_pemesanan extends CI_Model {
                 $data[$i] = $data[$i] + $detail; 
             }
 
-            $data = array("data" => $data);
-            $data = json_encode($data);
-
-            return $data;
+        } else {
+            $data = array();
+            $data['no']                  = "";
+            $data['id']                  = "";
+            $data['nama']                = "";
+            $data['judul_wisata']        = "";
+            $data['no_faktur']           = "";
+            $data['tgl_pemesanan']       = "";
+            $data['jumlah_orang_dewasa'] = "";
+            $data['jumlah_orang_anak']   = "";
+            $data['total']               = "";
+            $data['detail']              = "";
         }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
     }
 
     function detail($id)
