@@ -129,21 +129,24 @@ $( document ).ready(function() {
             { "data": "judul_wisata" },
             { "data": "no_faktur" },
             { "data": "tgl_pemesanan" },
-            { "data": "jumlah_orang" },
+            { "data": "jumlah_orang_dewasa" },
+            { "data": "jumlah_orang_anak" },
             { "data": "total" },
             { "data": "detail" }
         ]
     });
 
-    $( "#jml_orang" ).keyup(function() {
+    $( "#jml_orang_dewasa" ).keyup(function() {
         var wisata_id = $('#wisata_id').val();
-        var jml_orang = $('#jml_orang').val();
+        var jml_orang_dewasa = $('#jml_orang_dewasa').val();
+        var jml_orang_anak = $('#jml_orang_anak').val();
 
         $.ajax({
           url: window.location.origin + "/anugrah_tour/pemesanan/cek_total_biaya",
           data: {
             "wisata_id" : wisata_id,
-            "jml_orang" : jml_orang
+            "jml_orang_dewasa" : jml_orang_dewasa,
+            "jml_orang_anak" : jml_orang_anak
           },
           type: 'GET',
           success: function(data) {
@@ -160,5 +163,31 @@ $( document ).ready(function() {
         });
     });
 
+    $( "#jml_orang_anak" ).keyup(function() {
+        var wisata_id = $('#wisata_id').val();
+        var jml_orang_dewasa = $('#jml_orang_dewasa').val();
+        var jml_orang_anak = $('#jml_orang_anak').val();
+
+        $.ajax({
+          url: window.location.origin + "/anugrah_tour/pemesanan/cek_total_biaya",
+          data: {
+            "wisata_id" : wisata_id,
+            "jml_orang_dewasa" : jml_orang_dewasa,
+            "jml_orang_anak" : jml_orang_anak
+          },
+          type: 'GET',
+          success: function(data) {
+            $('#total').val(data);
+          },
+          error: function(xhr, status, error) {
+            console.log('xhr:');
+            console.log(xhr);
+            console.log('status:');
+            console.log(status);
+            console.log('error:');
+            console.log(error);
+          }
+        });
+    });
 });
 

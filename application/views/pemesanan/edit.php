@@ -67,9 +67,17 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="jml_orang">Jumlah Orang</label>  
+        <label class="col-md-4 control-label" for="jml_orang_dewasa">Jumlah Orang Dewasa</label>  
         <div class="col-md-6">
-        <input id="jml_orang" name="jml_orang" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang'];?>" required />
+        <input id="jml_orang_dewasa" name="jml_orang_dewasa" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_dewasa'];?>" required />          
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="jml_orang_anak">Jumlah Orang Anak</label>  
+        <div class="col-md-6">
+        <input id="jml_orang_anak" name="jml_orang_anak" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_anak'];?>"/>
           
         </div>
       </div>

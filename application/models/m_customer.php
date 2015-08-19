@@ -77,7 +77,7 @@ class M_customer extends CI_Model {
             $data['password'] = md5($password);
         }
 
-        if (!isset($status)) {
+        if (empty($status)) {
             $data['status'] = 'AKTIF';
         } else {
             $data['status'] = $status;

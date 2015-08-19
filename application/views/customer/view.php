@@ -117,10 +117,18 @@
 </div>
 <div class="row">
     <div class="col-lg-2">
-        Jumlah Orang
+        Jumlah Orang Dewasa
     </div>
     <div class="col-lg-5">
-        <?=$info_pemesanan['jumlah_orang'];?>
+        <?=$info_pemesanan['jumlah_orang_dewasa'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+        Jumlah Orang Anak
+    </div>
+    <div class="col-lg-5">
+        <?=$info_pemesanan['jumlah_orang_anak'];?>
     </div>
 </div>
 <div class="row">

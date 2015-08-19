@@ -36,21 +36,22 @@ class M_pemesanan extends CI_Model {
 
     function save($customer_id)
     {
-
-        $customer_id   = $customer_id;
-        $wisata_id     = $this->input->post('wisata_id');
-        $no_faktur     = $this->cek_nomor_faktur();
-        $tgl_pemesanan = date('Y-m-d');
-        $jumlah_orang  = $this->input->post('jumlah_orang');
-        $total         = $this->cek_total_biaya($wisata_id, $jumlah_orang);
+        $customer_id         = $customer_id;
+        $wisata_id           = $this->input->post('wisata_id');
+        $no_faktur           = $this->cek_nomor_faktur();
+        $tgl_pemesanan       = date('Y-m-d');
+        $jumlah_orang_dewasa = $this->input->post('jumlah_orang_dewasa');
+        $jumlah_orang_anak   = $this->input->post('jumlah_orang_anak');
+        $total               = $this->cek_total_biaya($wisata_id, $jumlah_orang_dewasa, $jumlah_orang_anak);
         
         $data = array(
-            'customer_id'   => $customer_id,
-            'wisata_id'     => $wisata_id,
-            'no_faktur'     => $no_faktur,
-            'tgl_pemesanan' => $tgl_pemesanan,
-            'jumlah_orang'  => $jumlah_orang,
-            'total'         => $total
+            'customer_id'         => $customer_id,
+            'wisata_id'           => $wisata_id,
+            'no_faktur'           => $no_faktur,
+            'tgl_pemesanan'       => $tgl_pemesanan,
+            'jumlah_orang_dewasa' => $jumlah_orang_dewasa,
+            'jumlah_orang_anak'   => $jumlah_orang_anak,
+            'total'               => $total
         );
 
         $result = $this->db->insert($this->table, $data);
@@ -66,12 +67,14 @@ class M_pemesanan extends CI_Model {
     {
         $id            = $this->input->post('id');
         $tgl_pemesanan = $this->input->post('tgl_pemesanan');
-        $jumlah_orang  = $this->input->post('jml_orang');
+        $jumlah_orang_dewasa  = $this->input->post('jml_orang_dewasa');
+        $jumlah_orang_anak  = $this->input->post('jml_orang_anak');
         $total         = $this->input->post('total');
 
         $data = array(
             'tgl_pemesanan' => $tgl_pemesanan,
-            'jumlah_orang'  => $jumlah_orang,
+            'jumlah_orang_dewasa'  => $jumlah_orang_dewasa,
+            'jumlah_orang_anak'  => $jumlah_orang_anak,
             'total'         => $total
         );
 
@@ -85,15 +88,17 @@ class M_pemesanan extends CI_Model {
         }
     }
 
-    function cek_total_biaya($wisata_id, $jumlah_orang)
+    function cek_total_biaya($wisata_id, $jumlah_orang_dewasa, $jumlah_orang_anak)
     {
         $this->db->select('harga');
         $this->db->from('tpaket_wisata tpw');
         $this->db->where('tpw.id = ' . $wisata_id);
 
-        $query       = $this->db->get();
-        $data        = $query->row_array();
-        $total_biaya = $data['harga'] * $jumlah_orang;
+        $query              = $this->db->get();
+        $data               = $query->row_array();
+        $total_biaya_dewasa = $data['harga'] * $jumlah_orang_dewasa;
+        $total_biaya_anak   = ($data['harga'] * $jumlah_orang_anak) * 0.5;
+        $total_biaya        = $total_biaya_dewasa + $total_biaya_anak;
 
         return $total_biaya;
     }
@@ -147,7 +152,7 @@ class M_pemesanan extends CI_Model {
     function get() 
     {   
 
-        $this->db->select('tpm.id, tc.nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang, tpm.total')
+        $this->db->select('tpm.id, tc.nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang_dewasa, tpm.jumlah_orang_anak, tpm.total')
                   ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
                   ->where('tpm.customer_id = tc.id')
                   ->where('tpm.wisata_id = tpw.id');
@@ -176,7 +181,7 @@ class M_pemesanan extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tpm.id, tpm.wisata_id, tc.nama as customer_nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang, tpm.total')
+        $this->db->select('tpm.id, tpm.wisata_id, tc.nama as customer_nama , tpw.judul_wisata , tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang_dewasa, tpm.jumlah_orang_anak, tpm.total')
                   ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
                   ->where('tpm.customer_id = tc.id')
                   ->where('tpm.wisata_id = tpw.id')
@@ -193,7 +198,7 @@ class M_pemesanan extends CI_Model {
 
     function getDetailByCustomerId($customer_id)
     {
-        $this->db->select('tpm.id as pemesanan_id, tpw.judul_wisata, tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang')
+        $this->db->select('tpm.id as pemesanan_id, tpw.judul_wisata, tpm.no_faktur, tpm.tgl_pemesanan, tpm.jumlah_orang_dewasa, tpm.jumlah_orang_anak')
                   ->from('tpemesanan AS tpm, tpaket_wisata AS tpw, tcustomer AS tc')
                   ->where('tpm.customer_id = tc.id')
                   ->where('tpm.wisata_id = tpw.id')

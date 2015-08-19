@@ -102,10 +102,17 @@
 
       <!-- Text input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="jumlah_orang">Jumlah orang</label>  
+        <label class="col-md-4 control-label" for="jumlah_orang_anak_dewasa">Dewasa</label>  
         <div class="col-md-6">
-        <input id="jumlah_orang" name="jumlah_orang" type="text" placeholder="" class="form-control input-md" required="">
-          
+        <input id="jumlah_orang_anak_dewasa" name="jumlah_orang_dewasa" type="text" placeholder="" class="form-control input-md" required="">
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="jumlah_orang_anak">Anak-anak</label>  
+        <div class="col-md-6">
+        <input id="jumlah_orang_anak" name="jumlah_orang_anak" type="text" placeholder="" class="form-control input-md" required="">
         </div>
       </div>
 

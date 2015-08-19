@@ -99,9 +99,10 @@ class Pemesanan extends CI_Controller {
         $this->load->model('m_pemesanan');
 
         $wisata_id = $this->input->get('wisata_id');
-        $jml_orang = $this->input->get('jml_orang');
+        $jml_orang_dewasa = $this->input->get('jml_orang_dewasa');
+        $jml_orang_anak = $this->input->get('jml_orang_anak');
 
-        $total_biaya = $this->m_pemesanan->cek_total_biaya($wisata_id, $jml_orang);
+        $total_biaya = $this->m_pemesanan->cek_total_biaya($wisata_id, $jml_orang_dewasa, $jml_orang_anak);
         echo $total_biaya;
     }
 

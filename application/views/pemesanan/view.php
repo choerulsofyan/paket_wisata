@@ -45,9 +45,26 @@
         Tanggal Pemesanan
     </div>
     <div class="col-lg-5">
-        <?=$pemesanan['jumlah_orang'];?>
+        <?=$pemesanan['tgl_pemesanan'];?>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-2">
+        Jumlah Orang Dewasa
+    </div>
+    <div class="col-lg-5">
+        <?=$pemesanan['jumlah_orang_dewasa'];?>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-2">
+        Jumlah Orang Anak
+    </div>
+    <div class="col-lg-5">
+        <?=$pemesanan['jumlah_orang_anak'];?>
+    </div>
+</div> 
 <div class="row">
     <div class="col-lg-2">
         Total
