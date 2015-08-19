@@ -69,8 +69,8 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
-          <button id="submit" name="submit" class="btn btn-success">Submit</button>
-          <button id="cancel" name="cancel" class="btn btn-danger">Cancel</button>
+          <button id="submit" name="submit" class="btn btn-primary">Submit</button>
+          <a href="<?php echo base_url() . 'paket_wisata_detail'; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
         </div>
       </div>
 

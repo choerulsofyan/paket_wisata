@@ -8,7 +8,8 @@ class User extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('m_user');
-        $this->load->helper('url');    
+        $this->load->helper('url');  
+        $this->load->library('form_validation');  
         $this->auth->check_login();
     }
 

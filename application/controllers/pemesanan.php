@@ -8,9 +8,7 @@ class Pemesanan extends CI_Controller {
         $this->load->model('m_pemesanan');
         $this->load->helper('url');
         $this->load->library('form_validation');
-
         $this->auth->check_login();
-        
     }
 
     public function index()
