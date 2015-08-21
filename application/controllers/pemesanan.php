@@ -104,6 +104,11 @@ class Pemesanan extends CI_Controller {
         echo $total_biaya;
     }
 
+    function create()
+    {
+        $data['title'] = "Buat Pemesanan";
+        $this->load->template_admin('pemesanan/create', $data);
+    }
 }
 
 /* End of file  */

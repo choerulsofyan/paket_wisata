@@ -62,7 +62,7 @@
         <label class="col-md-4 control-label" for="jumlah_hari">Jumlah hari</label>
         <div class="col-md-6">
           <div class="input-group">
-            <input id="jumlah_hari" name="jumlah_hari" class="form-control" placeholder="" type="text" required="" value="<?=$paket_wisata['jumlah_hari'];?>">
+            <input id="jumlah_hari" name="jumlah_hari" class="form-control" placeholder="" type="number" required="" value="<?=$paket_wisata['jumlah_hari'];?>">
             <span class="input-group-addon">hari</span>
           </div>
           
@@ -74,7 +74,7 @@
         <div class="col-md-6">
           <div class="input-group">
             <span class="input-group-addon">Rp.</span>
-            <input id="harga" name="harga" class="form-control" placeholder="" type="text" required="" value="<?=$paket_wisata['harga'];?>">
+            <input id="harga" name="harga" class="form-control" placeholder="" type="number" required="" value="<?=$paket_wisata['harga'];?>">
           </div>
           
         </div>

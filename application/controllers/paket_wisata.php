@@ -92,6 +92,12 @@ class Paket_wisata extends CI_Controller {
         }   
     }
 
+    function get_paket_wisata() 
+    {
+        $paket_wisata = $this->m_paket_wisata->get_paket_wisata();
+        print_r($paket_wisata);
+    }    
+
 }
 
 /* End of file  */

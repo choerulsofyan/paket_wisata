@@ -42,7 +42,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="tgl_lahir">Tanggal Lahir</label>  
         <div class="col-md-6">
-        <input id="tgl_lahir" name="tgl_lahir" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$customer['tgl_lahir'];?>">
+        <input id="tgl_lahir" name="tgl_lahir" type="date" placeholder="" class="form-control input-md" required=""  value="<?=$customer['tgl_lahir'];?>">
           
         </div>
       </div>
@@ -74,7 +74,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="no_telp">Nomor Telepon</label>  
         <div class="col-md-6">
-        <input id="no_telp" name="no_telp" type="text" placeholder="" class="form-control input-md"  value="<?=$customer['no_telp'];?>">
+        <input id="no_telp" name="no_telp" type="number" placeholder="" class="form-control input-md"  value="<?=$customer['no_telp'];?>">
           
         </div>
       </div>
@@ -100,7 +100,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="email">Email</label>  
         <div class="col-md-6">
-        <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""   value="<?=$customer['email'];?>">
+        <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required=""   value="<?=$customer['email'];?>">
           
         </div>
       </div>

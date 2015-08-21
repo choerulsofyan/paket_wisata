@@ -23,6 +23,16 @@ $( document ).ready(function() {
         ]
     });
 
+    $('#DaftarRute').dataTable({
+        "ajax": window.location.origin + "/anugrah_tour/paket_wisata_detail/getRute/" + $('#paket_wisata_detail_id').val(),
+        "columns": [
+            { "data": "no" },
+            { "data": "rute" },
+            { "data": "hari_ke" },
+            { "data": "detail" }
+        ]
+    });
+
     $('#DaftarUser').dataTable({
         "ajax": window.location.origin + "/anugrah_tour/user/get",
         "columns": [
@@ -65,14 +75,6 @@ $( document ).ready(function() {
 
     $('#delete').on('click', function () {
         return confirm('Apakah anda yakin akan menghapus?');
-    });
-
-    $('#tgl_lahir').datepicker({
-        format: 'yyyy/mm/dd'
-    });
-
-    $('#tgl_pemesanan').datepicker({
-        format: 'yyyy/mm/dd'
     });
 
     $('#no_faktur').keypress(function(e) {
@@ -136,7 +138,7 @@ $( document ).ready(function() {
         ]
     });
 
-    $( "#jml_orang_dewasa" ).keyup(function() {
+    $( "#jml_orang_dewasa" ).on('keyup change', function() {
         var wisata_id = $('#wisata_id').val();
         var jml_orang_dewasa = $('#jml_orang_dewasa').val();
         var jml_orang_anak = $('#jml_orang_anak').val();
@@ -163,7 +165,7 @@ $( document ).ready(function() {
         });
     });
 
-    $( "#jml_orang_anak" ).keyup(function() {
+    $( "#jml_orang_anak" ).on('keyup change', function() {
         var wisata_id = $('#wisata_id').val();
         var jml_orang_dewasa = $('#jml_orang_dewasa').val();
         var jml_orang_anak = $('#jml_orang_anak').val();
@@ -189,5 +191,43 @@ $( document ).ready(function() {
           }
         });
     });
+
+    $('input[type=radio][name=kategori_wisata]').change(function() {
+        var kategori_id = this.value;
+        getPaketWisataByKategoriId(kategori_id)
+    });
+
+    function getPaketWisataByKategoriId(kategori_id)
+    {
+        $.ajax({
+          url: window.location.origin + "/anugrah_tour/paket_wisata/get_paket_wisata",
+          data:  {
+            "kategori_id" : kategori_id
+          },
+          type: 'GET',
+          dataType: 'json',
+          success: function(data, textStatus, jqXHR) {
+            var $wisata_id = $("#wisata_id");
+
+            $wisata_id.removeAttr("disabled");
+            $wisata_id.empty();
+            
+            $.each(data, function(i, item) {
+              $wisata_id.append($("<option></option>")
+                 .attr("value", data[i].id).text(data[i].judul_wisata));
+            });
+
+          },
+          error: function(xhr, status, error) {
+            console.log('xhr:');
+            console.log(xhr);
+            console.log('status:');
+            console.log(status);
+            console.log('error:');
+            console.log(error);
+          }
+        });
+    }
+
 });
 

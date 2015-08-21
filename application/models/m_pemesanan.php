@@ -54,6 +54,10 @@ class M_pemesanan extends CI_Model {
             'total'               => $total
         );
 
+        echo "<pre>";
+        print_r($data);
+        echo "</pre>";
+
         $result = $this->db->insert($this->table, $data);
 
         if ($result) {
@@ -103,7 +107,7 @@ class M_pemesanan extends CI_Model {
         return $total_biaya;
     }
 
-    function get_paket_wisata()
+    /*function get_paket_wisata()
     {
         $this->db->select('id, judul_wisata');
         $this->db->from($this->table);
@@ -111,7 +115,7 @@ class M_pemesanan extends CI_Model {
         $query = $this->db->get();
         $data  = $query->result_array();
         return $data;
-    }
+    }*/
 
     function cek_nomor_faktur()
     {

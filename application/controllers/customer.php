@@ -56,14 +56,6 @@ class Customer extends CI_Controller {
         $this->load->template_admin('customer/edit', $data);
     }
 
-    function create()
-    {
-        $this->auth->restrict('customer.create');
-
-        $data['title'] = "Input Customer Baru";
-        $this->load->template_admin('customer/create', $data);   
-    }
-
     function save()
     {
         $save = $this->m_customer->save();    

@@ -1,22 +1,16 @@
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">
+        <h3>
             <?=$title;?>
-        </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'paket_wisata';?>">Paket Wisata</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> View Detail
-            </li>
-        </ol>
+            <hr/>
+        </h3>
     </div>
 </div>
 <!-- /.row -->
 
 <div class="row">
+    <input type="hidden" id="paket_wisata_detail_id" name="paket_wisata_detail_id" value="<?=$paket_wisata['id'];?>">
     <div class="col-lg-2">
         Judul Wisata
     </div>
@@ -75,6 +69,22 @@
         <div class="col-md-12">
             <a href="<?php echo base_url() . 'paket_wisata_detail/create/' . $paket_wisata['id']; ?>" id="add" class="btn btn-primary">Add Paket Wisata Detail</a>
         </div>
+    </div>
+    <br/>
+    <br/>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table id="DaftarRute">
+            <thead>
+                <tr>
+                    <th>No. </th>
+                    <th>Rute</th>
+                    <th>Hari Ke</th>
+                    <th>Detail</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
 <!-- /.row

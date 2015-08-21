@@ -143,12 +143,6 @@
                         </li>
                         <?php endif; ?>                        
 
-                        <?php if ($this->auth->check_privileges('paket_wisata_detail.view')) : ?>                        
-                        <li>
-                            <a href="<?=base_url();?>paket_wisata_detail"><i class="fa fa-fw fa-plane"></i> Detail Wisata </a>
-                        </li>
-                        <?php endif; ?>
-
                         <?php if ($this->auth->check_privileges('pemesanan.view') || $this->auth->check_privileges('pembayaran.view')) : ?>
                         <li>
                             <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-euro"></i> Transaksi <i class="fa fa-fw fa-caret-down"></i></a>

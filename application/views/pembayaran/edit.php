@@ -60,7 +60,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="angsuran_ke">Angsuran ke</label>  
         <div class="col-md-6">
-        <input id="angsuran_ke" name="angsuran_ke" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['angsuran_ke'];?>" />
+        <input id="angsuran_ke" name="angsuran_ke" type="number" placeholder="" class="form-control input-md" value="<?=$pembayaran['angsuran_ke'];?>" />
           
         </div>
       </div>
@@ -71,7 +71,7 @@
         <div class="col-md-6">
         <div class="input-group">
         <span class="input-group-addon">Rp.</span>
-        <input id="pembayaran" name="pembayaran" type="text" placeholder="" class="form-control input-md" value="<?=$pembayaran['pembayaran'];?>">
+        <input id="pembayaran" name="pembayaran" type="number" placeholder="" class="form-control input-md" value="<?=$pembayaran['pembayaran'];?>">
         </div>
         </div>
       </div>

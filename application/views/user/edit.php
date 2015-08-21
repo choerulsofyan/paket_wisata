@@ -43,7 +43,7 @@
         <label class="col-md-4 control-label" for="tgl_lahir">Tanggal lahir</label>
         <div class="col-md-6">
           <div class="input-group">
-            <input id="tgl_lahir" name="tgl_lahir" class="form-control" placeholder="" type="text" required=""  value="<?=$user['tgl_lahir'];?>">
+            <input id="tgl_lahir" name="tgl_lahir" class="form-control" placeholder="" type="date" required=""  value="<?=$user['tgl_lahir'];?>">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -84,7 +84,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="email">Email</label>  
         <div class="col-md-6">
-        <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$user['email'];?>">
+        <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required=""  value="<?=$user['email'];?>">
           
         </div>
       </div>
@@ -115,13 +115,13 @@
         <div class="col-md-4">
         <div class="radio">
           <label for="status-0">
-            <input type="radio" name="status" id="status-0" value="Aktif" <?php echo ($user['status'] == 'Aktif' ? 'checked' : ''); ?>>
+            <input type="radio" name="status" id="status-0" value="Aktif" <?php echo ($user['status'] == 'AKTIF' ? 'checked' : ''); ?>>
             Aktif
           </label>
         </div>
         <div class="radio">
           <label for="status-1">
-            <input type="radio" name="status" id="status-1" value="Non-aktif" <?php echo ($user['status'] == 'Non-aktif' ? 'checked' : ''); ?>>
+            <input type="radio" name="status" id="status-1" value="Non-aktif" <?php echo ($user['status'] == 'NON-AKTIF' ? 'checked' : ''); ?>>
             Non-aktif
           </label>
         </div>

@@ -56,7 +56,7 @@
         <a href="<?php echo base_url() . 'paket_wisata_detail/edit/' . $paket_wisata_detail['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata_detail['id'];?>)">Delete</button> -->
         <a href="<?php echo base_url() . 'paket_wisata_detail/delete/' . $paket_wisata_detail['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo base_url() . 'paket_wisata_detail'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'paket_wisata'); ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>

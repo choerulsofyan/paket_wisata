@@ -65,6 +65,41 @@ class M_paket_wisata_detail extends CI_Model {
         }
     }
 
+    function getRute($id)
+    {
+        $this->db->select('tpwd.id, tpwd.rute, tpwd.hari_ke')
+                  ->from('tpaket_wisata_detail AS tpwd')
+                  ->where('tpwd.wisata_id = ' . $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data       = $query->result_array();
+            $row_counts = $query->num_rows();
+
+            for ($i = 0; $i < $row_counts; $i++) {
+                $number   = $i + 1;
+                $no       = array('no' => $number);
+                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata_detail/view/" . $data[$i]['id'] . "'>View</a>");
+                $data[$i] = $no + $data[$i]; 
+                $data[$i] = $data[$i] + $detail; 
+            }
+
+        } else {
+            $data            = array();
+            $data['no']      = "";
+            $data['rute']    = "";
+            $data['hari_ke'] = "";
+            $data['detail']  = "";
+        }
+
+        $data = array("data" => $data);
+        $data = json_encode($data);
+
+        return $data;
+    }
+
     function save()
     {
         $id        = $this->input->post('id');

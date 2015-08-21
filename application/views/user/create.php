@@ -51,7 +51,7 @@
         <label class="col-md-4 control-label" for="tgl_lahir">Tanggal lahir</label>
         <div class="col-md-6">
           <div class="input-group">
-            <input id="tgl_lahir" name="tgl_lahir" class="form-control" placeholder="" type="text" required="">
+            <input id="tgl_lahir" name="tgl_lahir" class="form-control" placeholder="" type="date" required="">
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
@@ -92,7 +92,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="email">Email</label>  
         <div class="col-md-6">
-        <input id="email" name="email" type="text" placeholder="" class="form-control input-md" required="">
+        <input id="email" name="email" type="email" placeholder="" class="form-control input-md" required="">
           
         </div>
       </div>

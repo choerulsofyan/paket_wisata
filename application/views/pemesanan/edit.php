@@ -60,7 +60,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="tgl_pemesanan">Tanggal Pemesanan</label>  
         <div class="col-md-6">
-        <input id="tgl_pemesanan" name="tgl_pemesanan" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['tgl_pemesanan'];?>"/>
+        <input id="tgl_pemesanan" name="tgl_pemesanan" type="date" placeholder="" class="form-control input-md" value="<?=$pemesanan['tgl_pemesanan'];?>"/>
           
         </div>
       </div>
@@ -69,7 +69,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="jml_orang_dewasa">Jumlah Orang Dewasa</label>  
         <div class="col-md-6">
-        <input id="jml_orang_dewasa" name="jml_orang_dewasa" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_dewasa'];?>" required />          
+        <input id="jml_orang_dewasa" name="jml_orang_dewasa" type="number" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_dewasa'];?>" required />          
         </div>
       </div>
 
@@ -77,7 +77,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="jml_orang_anak">Jumlah Orang Anak</label>  
         <div class="col-md-6">
-        <input id="jml_orang_anak" name="jml_orang_anak" type="text" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_anak'];?>"/>
+        <input id="jml_orang_anak" name="jml_orang_anak" type="number" placeholder="" class="form-control input-md" value="<?=$pemesanan['jumlah_orang_anak'];?>"/>
           
         </div>
       </div>
@@ -97,6 +97,7 @@
         <div class="col-md-8">
           <button id="submit" name="submit" class="btn btn-primary">Submit</button>
           <a href="<?php echo base_url() . 'pemesanan/view/' . $pemesanan['id']; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
+          <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'pemesanan/view/' . $pemesanan['id']); ?>" id="cancel" class="btn btn-primary">Back</a>
         </div>
       </div>
 

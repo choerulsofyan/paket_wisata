@@ -49,17 +49,7 @@ class M_paket_wisata extends CI_Model {
         return $data;
     }
 
-    /*function get_paket_wisata()
-    {
-        $this->db->select('id, judul_wisata');
-        $this->db->from($this->table);
-
-        $query = $this->db->get();
-        $data  = $query->result_array();
-        return $data;
-    }*/
-
-    function get_paket_wisata($id = null)
+    function cek_paket_wisata($id = null)
     {
         $this->db->select('id, judul_wisata');
         $this->db->from($this->table);
@@ -69,8 +59,26 @@ class M_paket_wisata extends CI_Model {
         }
 
         $query = $this->db->get();
-        $data  = $query->result_array();
 
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function get_paket_wisata()
+    {
+        $kategori_id = $this->input->get('kategori_id');
+
+        $this->db->select('id, judul_wisata');
+        $this->db->from($this->table);
+        $this->db->where('kategori_id = ' . $kategori_id);
+
+        $query = $this->db->get();
+        $data  = $query->result_array();
+        $data  = json_encode($data);
+        
         return $data;
     }
 

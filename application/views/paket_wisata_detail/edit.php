@@ -1,14 +1,3 @@
-<?php
-  // echo "wisata id : " . print_r($paket_wisata_detail['wisata_id']) . "<br/><br/>";
-  // print_r($paket_wisata_detail['wisata_id']);
-  // echo "<pre>";
-  // print_r($paket_wisata);
-  // echo "</pre>";
-  // print_r($paket_wisata_detail['wisata_id'])
-?>
-
-
-
 <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
@@ -38,28 +27,7 @@
       <!-- Form Name -->
       <legend>Form Name</legend>
       <input type="hidden" name="id" value="<?=$paket_wisata_detail['id'];?>">
-
-      <!-- Select Basic -->
-      <div class="form-group">
-        <label class="col-md-4 control-label" for="wisata_id">Paket Wisata</label>
-        <div class="col-md-6">
-          <select id="wisata_id" name="wisata_id" class="form-control">
-            <?php 
-              foreach ($paket_wisata as $row) :       
-                if ($row['id'] == $paket_wisata_detail['wisata_id']) :
-            ?>
-                  <option value="<?=$row['id'];?>" selected="selected"><?=$row['judul_wisata'];?></option>
-            <?php 
-                else : 
-            ?>
-                  <option value="<?=$row['id'];?>"><?=$row['judul_wisata'];?></option>
-            <?php
-                endif;
-              endforeach; 
-            ?>            
-          </select>
-        </div>
-      </div>
+      <input type="hidden" id="wisata_id" name="wisata_id" value="<?=$paket_wisata_detail['wisata_id'];?>">
 
       <!-- Text input-->
       <div class="form-group">
@@ -74,7 +42,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="hari_ke">Hari ke</label>  
         <div class="col-md-6">
-        <input id="hari_ke" name="hari_ke" type="text" placeholder="" class="form-control input-md" required=""  value="<?=$paket_wisata_detail['hari_ke'];?>">
+        <input id="hari_ke" name="hari_ke" type="number" placeholder="" class="form-control input-md" required=""  value="<?=$paket_wisata_detail['hari_ke'];?>">
           
         </div>
       </div>

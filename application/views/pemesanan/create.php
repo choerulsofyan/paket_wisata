@@ -1,17 +1,10 @@
  <!-- Page Heading -->
 <div class="row">
     <div class="col-lg-12">
-<!--         <h1 class="page-header">
-            <?=$title;?>
-        </h1> -->
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> Forms
-            </li>
-        </ol>
+      <ul class="nav nav-tabs">
+        <li role="pemesanan"><a href="<?=base_url() . 'pemesanan';?>">Daftar</a></li>
+        <li role="pemesanan" class="active"><a href="<?=base_url() . 'pemesanan/create';?>">Buat Pemesanan</a></li>
+      </ul>
     </div>
 </div>
 <!-- /.row -->
@@ -19,14 +12,45 @@
 <div class="row">
     <div class="col-lg-6">
 
+      <br/><br/>
+
       <?php echo validation_errors(); ?>
 
       <form class="form-horizontal" method="POST" action="<?=base_url();?>tour/save">
       <fieldset>
 
       <!-- Form Name -->
+      <legend>Tujuan Wisata</legend>
+
+      <!-- Multiple Radios -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="kategori_wisata">Kategori Wisata</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="kategori_wisata-0">
+            <input type="radio" name="kategori_wisata" id="kategori_wisata-0" value="1"> Domestik
+          </label>
+        </div>
+        <div class="radio">
+          <label for="kategori_wisata-1">
+            <input type="radio" name="kategori_wisata" id="kategori_wisata-1" value="2"> Mancanegara
+          </label>
+        </div>
+        </div>
+      </div>
+
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="wisata_id">Paket Wisata</label>
+        <div class="col-md-6">
+          <select id="wisata_id" name="wisata_id" class="form-control" disabled >
+            <option selected>-PILIH KATEGORI WISATA-</option>
+          </select>
+        </div>
+      </div>
+
       <legend>Info Customer</legend>
-      <input id="wisata_id" type="hidden" name="wisata_id" value="<?=$wisata_id;?>">
 
       <!-- Text input-->
       <div class="form-group">
