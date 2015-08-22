@@ -22,13 +22,6 @@ class Login extends CI_Controller {
         $this->load->view('login');
     }
 
-    function logout()
-    {
-        $this->session->unset_userdata('logged_in');
-        session_destroy();
-        redirect(base_url() . 'user/login','refresh');
-    }
-
     function verifyLogin()
     {
         $this->load->library('form_validation');
@@ -53,6 +46,7 @@ class Login extends CI_Controller {
 
             $sess_array = array(
                 'id'         => $result['id'],
+                'nama'       => $result['nama_lengkap'],
                 'username'   => $result['username'],
                 'group_user' => $result['grup_user']
             );

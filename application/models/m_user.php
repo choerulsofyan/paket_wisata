@@ -12,7 +12,7 @@ class M_user extends CI_Model {
 
     function login($username, $password)
     {
-        $this->db->select('id, username, grup_user, status');
+        $this->db->select('id, nama_lengkap, username, grup_user, status');
         $this->db->from($this->table);
         $this->db->where('username', $username);
         $this->db->where('password', md5($password));
