@@ -32,7 +32,7 @@ class Paket_wisata extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata.view');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail Paket Wisata";
         $data['paket_wisata']  = $this->m_paket_wisata->detail($id);
         $this->load->template_admin('paket_wisata/view', $data);
@@ -42,7 +42,7 @@ class Paket_wisata extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Edit Data Paket Wisata";
         $data['paket_wisata']  = $this->m_paket_wisata->detail($id);
         $this->load->template_admin('paket_wisata/edit', $data);
@@ -62,7 +62,7 @@ class Paket_wisata extends CI_Controller {
         $save = $this->m_paket_wisata->save();    
         
         if ($save) {
-            redirect('paket_wisata','refresh');
+            redirect('admin/paket_wisata','refresh');
         } else {
             echo "save failed";
         }
@@ -74,7 +74,7 @@ class Paket_wisata extends CI_Controller {
         
         $this->load->model('m_paket_wisata_detail');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete_paket_wisata = $this->m_paket_wisata->delete($id);
         
         if ($delete_paket_wisata) {
@@ -82,7 +82,7 @@ class Paket_wisata extends CI_Controller {
             $delete_paket_wisata_detail = $this->m_paket_wisata_detail->deleteByPaketWisataId($id);
 
             if ($delete_paket_wisata_detail) {
-                redirect('paket_wisata','refresh');
+                redirect('admin/paket_wisata','refresh');
             } else {
                 echo "delete paket wisata detail failed";
             }

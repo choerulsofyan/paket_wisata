@@ -129,7 +129,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="<?=base_url();?>logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                                <a href="<?=base_url();?>admin/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                             </li>
                         </ul>
                     </li>
@@ -138,12 +138,12 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li>
-                            <a href="<?=base_url();?>dashboard"><i class="fa fa-fw fa-bar-chart-o"></i> Dashboard</a>
+                            <a href="<?=base_url();?>admin/dashboard"><i class="fa fa-fw fa-bar-chart-o"></i> Dashboard</a>
                         </li>
                         
                         <?php if ($this->auth->check_privileges('paket_wisata.view')) : ?>
                         <li>
-                            <a href="<?=base_url();?>paket_wisata"><i class="fa fa-fw fa-plane"></i> Paket Wisata</a>
+                            <a href="<?=base_url();?>admin/paket_wisata"><i class="fa fa-fw fa-plane"></i> Paket Wisata</a>
                         </li>
                         <?php endif; ?>                        
 
@@ -154,13 +154,13 @@
                                 
                                 <?php if ($this->auth->check_privileges('pemesanan.view')) : ?>
                                 <li>
-                                    <a href="<?=base_url();?>pemesanan"><i class="fa fa-fw fa-book"></i> Pemesanan</a>
+                                    <a href="<?=base_url();?>admin/pemesanan"><i class="fa fa-fw fa-book"></i> Pemesanan</a>
                                 </li>
                                 <?php endif; ?>
 
                                 <?php if ($this->auth->check_privileges('pembayaran.view')) : ?>
                                 <li>
-                                    <a href="<?=base_url();?>pembayaran"><i class="fa fa-fw fa-euro"></i> Pembayaran</a>
+                                    <a href="<?=base_url();?>admin/pembayaran"><i class="fa fa-fw fa-euro"></i> Pembayaran</a>
                                 </li>
                                 <?php endif; ?>
 
@@ -170,13 +170,13 @@
 
                         <?php if ($this->auth->check_privileges('customer.view')) : ?>
                         <li>
-                            <a href="<?=base_url();?>customer"><i class="fa fa-fw fa-users"></i> Customer</a>
+                            <a href="<?=base_url();?>admin/customer"><i class="fa fa-fw fa-users"></i> Customer</a>
                         </li>
                         <?php endif; ?>
 
                         <?php if ($this->auth->check_privileges('user.view')) : ?>
                         <li>
-                            <a href="<?=base_url();?>user"><i class="fa fa-fw fa-user"></i> User</a>
+                            <a href="<?=base_url();?>admin/user"><i class="fa fa-fw fa-user"></i> User</a>
                         </li>
                         <?php endif; ?>
 

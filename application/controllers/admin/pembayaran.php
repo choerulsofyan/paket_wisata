@@ -31,7 +31,7 @@ class Pembayaran extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.view');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail Pembayaran";
         $data['pembayaran']  = $this->m_pembayaran->detail($id);
         $this->load->template_admin('pembayaran/view', $data);
@@ -41,7 +41,7 @@ class Pembayaran extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Edit Data Pembayaran";
         $data['pembayaran']  = $this->m_pembayaran->detail($id);
         $this->load->template_admin('pembayaran/edit', $data);
@@ -60,7 +60,7 @@ class Pembayaran extends CI_Controller {
         $save = $this->m_pembayaran->save();    
         
         if ($save) {
-            redirect('pembayaran','refresh');
+            redirect('admin/pembayaran','refresh');
         } else {
             echo "save failed";
         }
@@ -70,11 +70,11 @@ class Pembayaran extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.delete');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete = $this->m_pembayaran->delete($id);    
         
         if ($delete) {
-            redirect('pembayaran','refresh');
+            redirect('admin/pembayaran','refresh');
         } else {
             echo "delete failed";
         }   
@@ -82,7 +82,7 @@ class Pembayaran extends CI_Controller {
 
     function cek_info_customer()
     {
-        $no_faktur = $this->uri->segment(3);
+        $no_faktur = $this->uri->segment(4);
         $info_customer = $this->m_pembayaran->cek_info_customer($no_faktur);
         print_r($info_customer);  
     }

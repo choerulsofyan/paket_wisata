@@ -1,11 +1,7 @@
 $( document ).ready(function() {
-
-    $('.carousel').carousel({
-        interval: 5000 //changes the speed
-    })
     
     $('#DaftarPaketWisata').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/paket_wisata/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/paket_wisata/get",
         "columns": [
             { "data": "no" },
             { "data": "judul_wisata" },
@@ -17,7 +13,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarPaketWisataDetail').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/paket_wisata_detail/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/paket_wisata_detail/get",
         "columns": [
             { "data": "no" },
             { "data": "judul_wisata" },
@@ -28,7 +24,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarRute').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/paket_wisata_detail/getRute/" + $('#paket_wisata_detail_id').val(),
+        "ajax": window.location.origin + "/anugrah_tour/admin/paket_wisata_detail/getRute/" + $('#paket_wisata_detail_id').val(),
         "columns": [
             { "data": "no" },
             { "data": "rute" },
@@ -38,7 +34,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarUser').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/user/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/user/get",
         "columns": [
             { "data": "no" },
             { "data": "nama_lengkap" },
@@ -50,7 +46,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarPembayaran').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/pembayaran/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/pembayaran/get",
         "columns": [
             { "data": "no" },
             { "data": "no_faktur" },
@@ -64,7 +60,7 @@ $( document ).ready(function() {
     });
 
     $('#Customer').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/customer/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/customer/get",
         "columns": [
             { "data": "no" },
             { "data": "nama" },
@@ -87,7 +83,7 @@ $( document ).ready(function() {
             var no_faktur = $('#no_faktur').val();
 
             $.ajax({
-              url: window.location.origin + "/anugrah_tour/pembayaran/cek_info_customer/" + no_faktur,
+              url: window.location.origin + "/anugrah_tour/admin/pembayaran/cek_info_customer/" + no_faktur,
               type: 'GET',
               data: no_faktur,
               dataType: 'json',
@@ -128,7 +124,7 @@ $( document ).ready(function() {
     });
 
     $('#DaftarPemesanan').dataTable({
-        "ajax": window.location.origin + "/anugrah_tour/pemesanan/get",
+        "ajax": window.location.origin + "/anugrah_tour/admin/pemesanan/get",
         "columns": [
             { "data": "no" },
             { "data": "nama" },
@@ -148,7 +144,7 @@ $( document ).ready(function() {
         var jml_orang_anak = $('#jml_orang_anak').val();
 
         $.ajax({
-          url: window.location.origin + "/anugrah_tour/pemesanan/cek_total_biaya",
+          url: window.location.origin + "/anugrah_tour/admin/pemesanan/cek_total_biaya",
           data: {
             "wisata_id" : wisata_id,
             "jml_orang_dewasa" : jml_orang_dewasa,
@@ -175,7 +171,7 @@ $( document ).ready(function() {
         var jml_orang_anak = $('#jml_orang_anak').val();
 
         $.ajax({
-          url: window.location.origin + "/anugrah_tour/pemesanan/cek_total_biaya",
+          url: window.location.origin + "/anugrah_tour/admin/pemesanan/cek_total_biaya",
           data: {
             "wisata_id" : wisata_id,
             "jml_orang_dewasa" : jml_orang_dewasa,
@@ -204,7 +200,7 @@ $( document ).ready(function() {
     function getPaketWisataByKategoriId(kategori_id)
     {
         $.ajax({
-          url: window.location.origin + "/anugrah_tour/paket_wisata/get_list_paket_wisata",
+          url: window.location.origin + "/anugrah_tour/admin/paket_wisata/get_list_paket_wisata",
           data:  {
             "kategori_id" : kategori_id
           },

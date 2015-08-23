@@ -9,7 +9,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>paket_wisata_detail/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/paket_wisata_detail/save">
       <fieldset>
 
       <!-- Form Name -->
@@ -48,7 +48,7 @@
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
           <button id="submit" name="submit" class="btn btn-primary">Submit</button>
-          <a href="<?php echo base_url() . 'paket_wisata_detail'; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
+          <a href="<?php echo base_url() . 'admin/paket_wisata_detail'; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
         </div>
       </div>
 

@@ -55,7 +55,7 @@ class Tour extends CI_Controller {
             $save_pemesanan = $this->m_pemesanan->save($customer);
 
             if($save_pemesanan) {
-                redirect('tour','refresh');
+                redirect('admin/tour','refresh');
             } else {
                 echo "save pemesanan failed!";
             }

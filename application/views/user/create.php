@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-12">
       <ul class="nav nav-tabs">
-        <li role="user"><a href="<?=base_url() . 'user';?>">Daftar</a></li>
-        <li role="user" class="active"><a href="<?=base_url() . 'user/create';?>">Tambah</a></li>
+        <li role="user"><a href="<?=base_url() . 'admin/user';?>">Daftar</a></li>
+        <li role="user" class="active"><a href="<?=base_url() . 'admin/user/create';?>">Tambah</a></li>
       </ul>
     </div>
 </div>
@@ -20,7 +20,7 @@
       
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>user/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/user/save">
       <fieldset>
 
       <!-- Form Name -->
@@ -159,7 +159,7 @@
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
           <button id="submit" name="submit" class="btn btn-primary">Submit</button>
-          <a href="<?php echo base_url() . 'user'; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
+          <a href="<?php echo base_url() . 'admin/user'; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
         </div>
       </div>
 

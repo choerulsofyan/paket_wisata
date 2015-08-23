@@ -15,7 +15,7 @@ class Login extends CI_Controller {
     function index()
     {
         if ($this->session->userdata('logged_in')) {
-            redirect(base_url() . 'dashboard','refresh');
+            redirect(base_url() . 'admin/dashboard','refresh');
         }
 
         $this->load->helper(array('form'));
@@ -29,9 +29,9 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean|callback_check_login');
 
         if ($this->form_validation->run() == FALSE) {
-            redirect(base_url() . 'user/login','refresh');
+            redirect(base_url() . 'admin/user/login','refresh');
         } else {
-            redirect(base_url() . 'dashboard','refresh');
+            redirect(base_url() . 'admin/dashboard','refresh');
         }
     }
 

@@ -6,7 +6,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'customer';?>">Paket Wisata Detail</a>
+                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'admin/customer';?>">Paket Wisata Detail</a>
             </li>
             <li class="active">
                 <i class="fa fa-edit"></i> View Detail
@@ -77,15 +77,20 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'customer/edit/' . $customer['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <a href="<?php echo base_url() . 'admin/customer/edit/' . $customer['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$customer['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'customer/delete/' . $customer['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo base_url() . 'customer'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/customer/delete/' . $customer['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo base_url() . 'admin/customer'; ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>
 
 
+<?php
+    echo "<pre>";
+    print_r($info_pemesanan);
+    echo "</pre>";
+?>
 
 <!-- INFO PEMESANAN -->
 
@@ -136,9 +141,9 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'pemesanan/edit/' . $info_pemesanan['pemesanan_id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <a href="<?php echo base_url() . 'admin/pemesanan/edit/' . $info_pemesanan['pemesanan_id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata_detail['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'pemesanan/delete/' . $info_pemesanan['pemesanan_id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo base_url() . 'admin/pemesanan/delete/' . $info_pemesanan['pemesanan_id']; ?>" id="delete" class="btn btn-danger">Delete</a>
       </div>
     </div>
 </div>

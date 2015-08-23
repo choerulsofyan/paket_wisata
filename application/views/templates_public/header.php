@@ -15,7 +15,7 @@
     <body>
 
         <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-inverse navbar-fixed-top nav-custom" role="navigation">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -25,19 +25,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<?=base_url();?>">Anugrah Tour</a>
+                    <a class="navbar-brand" href="<?=base_url() . 'tour';?>">Anugrah Tour</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                        <a href="<?=base_url() . 'tour/home';?>">Beranda</a>
+                        <a href="<?=base_url() . 'tour';?>">Beranda</a>
                         </li>
                         <li>
-                            <a href="<?=base_url() . 'tour/domestic';?>">Tour Domestik</a>
+                            <a href="<?=base_url() . 'tour/category/1';?>">Tour Domestik</a>
                         </li>
                         <li>
-                            <a href="<?=base_url() . 'tour/international';?>">Tour Mancanegara</a>
+                            <a href="<?=base_url() . 'tour/category/2';?>">Tour Mancanegara</a>
                         </li>
                         <li>
                             <a href="<?=base_url() . 'tour/contact';?>">Kontak</a>

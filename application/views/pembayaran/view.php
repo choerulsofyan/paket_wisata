@@ -6,7 +6,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'pembayaran';?>">Paket Wisata Detail</a>
+                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'admin/pembayaran';?>">Paket Wisata Detail</a>
             </li>
             <li class="active">
                 <i class="fa fa-edit"></i> View Detail
@@ -61,10 +61,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'pembayaran/edit/' . $pembayaran['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <a href="<?php echo base_url() . 'admin/pembayaran/edit/' . $pembayaran['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$pembayaran['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'pembayaran/delete/' . $pembayaran['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo base_url() . 'pembayaran'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/pembayaran/delete/' . $pembayaran['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo base_url() . 'admin/pembayaran'; ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>

@@ -21,7 +21,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>user/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/user/save">
       <fieldset>
 
       <!-- Form Name -->
@@ -133,7 +133,7 @@
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
           <button id="submit" name="submit" class="btn btn-primary">Submit</button>
-          <a href="<?php echo base_url() . 'user/view/' . $user['id']; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
+          <a href="<?php echo base_url() . 'admin/user/view/' . $user['id']; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
         </div>
       </div>
 

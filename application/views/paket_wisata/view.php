@@ -56,10 +56,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'paket_wisata/edit/' . $paket_wisata['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <a href="<?php echo base_url() . 'admin/paket_wisata/edit/' . $paket_wisata['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'paket_wisata/delete/' . $paket_wisata['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo base_url() . 'paket_wisata'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/paket_wisata/delete/' . $paket_wisata['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo base_url() . 'admin/paket_wisata'; ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>
@@ -67,7 +67,7 @@
 <div class="row">
     <div class="form-group">
         <div class="col-md-12">
-            <a href="<?php echo base_url() . 'paket_wisata_detail/create/' . $paket_wisata['id']; ?>" id="add" class="btn btn-primary">Add Paket Wisata Detail</a>
+            <a href="<?php echo base_url() . 'admin/paket_wisata_detail/create/' . $paket_wisata['id']; ?>" id="add" class="btn btn-primary">Add Paket Wisata Detail</a>
         </div>
     </div>
     <br/>

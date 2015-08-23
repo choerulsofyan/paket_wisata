@@ -25,8 +25,8 @@ class M_Tour extends CI_Model {
             $row_counts = $query->num_rows();
 
             for ($i = 0; $i < $row_counts; $i++) {
-                $book_now   = array('book_now' => "<a href='" . base_url() . "tour/book/" . $data[$i]['id'] . "'>Book Now</a>");
-                $detail   = array('detail' => "<a href='" . base_url() . "tour/detail/" . $data[$i]['id'] . "'>View</a>");
+                $book_now   = array('book_now' => "<a href='" . base_url() . "admin/tour/book/" . $data[$i]['id'] . "'>Book Now</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "admin/tour/detail/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $data[$i] + $detail + $book_now; 
             }
 

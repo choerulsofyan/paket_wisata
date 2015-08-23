@@ -27,7 +27,7 @@ class M_paket_wisata extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "paket_wisata/view/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "admin/paket_wisata/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }
@@ -109,7 +109,7 @@ class M_paket_wisata extends CI_Model {
             }
 
             $data[$i]['deskripsi'] = $deskripsi;
-            $data[$i]['detail'] = "<a href='" . base_url() . "tour/detail/" . $data[$i]['id'] . "' class='btn btn-primary' role='button'>Selengkapnya</a>";
+            $data[$i]['detail'] = "<a href='" . base_url() . "admin/tour/detail/" . $data[$i]['id'] . "' class='btn btn-primary' role='button'>Selengkapnya</a>";
         }
 
         return $data;

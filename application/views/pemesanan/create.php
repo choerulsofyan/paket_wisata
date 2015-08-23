@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-12">
       <ul class="nav nav-tabs">
-        <li role="pemesanan"><a href="<?=base_url() . 'pemesanan';?>">Daftar</a></li>
-        <li role="pemesanan" class="active"><a href="<?=base_url() . 'pemesanan/create';?>">Buat Pemesanan</a></li>
+        <li role="pemesanan"><a href="<?=base_url() . 'admin/pemesanan';?>">Daftar</a></li>
+        <li role="pemesanan" class="active"><a href="<?=base_url() . 'admin/pemesanan/create';?>">Buat Pemesanan</a></li>
       </ul>
     </div>
 </div>
@@ -16,7 +16,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>tour/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/tour/save">
       <fieldset>
 
       <!-- Form Name -->

@@ -107,16 +107,6 @@ class M_pemesanan extends CI_Model {
         return $total_biaya;
     }
 
-    /*function get_list_paket_wisata()
-    {
-        $this->db->select('id, judul_wisata');
-        $this->db->from($this->table);
-
-        $query = $this->db->get();
-        $data  = $query->result_array();
-        return $data;
-    }*/
-
     function cek_nomor_faktur()
     {
         $this->db->select('no_faktur');
@@ -171,7 +161,7 @@ class M_pemesanan extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "pemesanan/view/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "admin/pemesanan/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }
@@ -222,6 +212,8 @@ class M_pemesanan extends CI_Model {
                   ->where('tc.id = ' . $customer_id);
 
         $query = $this->db->get();
+
+        echo $this->db->last_query();
 
         if ($query->num_rows() > 0)
         {

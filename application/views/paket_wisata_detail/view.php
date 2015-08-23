@@ -6,7 +6,7 @@
         </h1>
         <ol class="breadcrumb">
             <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'paket_wisata_detail';?>">Paket Wisata Detail</a>
+                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'admin/paket_wisata_detail';?>">Paket Wisata Detail</a>
             </li>
             <li class="active">
                 <i class="fa fa-edit"></i> View Detail
@@ -53,10 +53,10 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
       <div class="col-md-12">
-        <a href="<?php echo base_url() . 'paket_wisata_detail/edit/' . $paket_wisata_detail['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
+        <a href="<?php echo base_url() . 'admin/paket_wisata_detail/edit/' . $paket_wisata_detail['id']; ?>" id="edit" class="btn btn-primary">Edit</a>
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata_detail['id'];?>)">Delete</button> -->
-        <a href="<?php echo base_url() . 'paket_wisata_detail/delete/' . $paket_wisata_detail['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
-        <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'paket_wisata'); ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/paket_wisata_detail/delete/' . $paket_wisata_detail['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
+        <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'admin/paket_wisata'); ?>" id="cancel" class="btn btn-primary">Back</a>
       </div>
     </div>
 </div>

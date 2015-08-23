@@ -1,5 +1,14 @@
 body {
     padding-top: 50px;
+    font-family: 'Open Sans', sans-serif; 
+    background: url("../images/white_wall_hash.png");
+    background-repeat: repeat-x repeat-y;
+}
+
+.nav-custom {
+    background-color: #0C0C71;
+    border-color: #0C0C71;
+    color: white;
 }
 
 .jumbotron-header {
@@ -11,7 +20,8 @@ body {
 
 .content-footer {
     margin: 0px;
-    /*color: white;*/
+    color:white;
+    background-color: #0C0C71;
     /*background: rgb(51,51,102);*/
 }
 
@@ -26,4 +36,19 @@ footer p {
 
 .center {
     text-align: center;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #fff;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #9D9D9D;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #9D9D9D;
 }

@@ -21,7 +21,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>pemesanan/update">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/pemesanan/update">
       <fieldset>
 
       <!-- Form Name -->
@@ -96,8 +96,8 @@
         <label class="col-md-4 control-label" for="submit"></label>
         <div class="col-md-8">
           <button id="submit" name="submit" class="btn btn-primary">Submit</button>
-          <a href="<?php echo base_url() . 'pemesanan/view/' . $pemesanan['id']; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
-          <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'pemesanan/view/' . $pemesanan['id']); ?>" id="cancel" class="btn btn-primary">Back</a>
+          <a href="<?php echo base_url() . 'admin/pemesanan/view/' . $pemesanan['id']; ?>" id="cancel" name="cancel" class="btn btn-danger">Cancel</a>
+          <a href="<?php echo (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : base_url() . 'admin/pemesanan/view/' . $pemesanan['id']); ?>" id="cancel" class="btn btn-primary">Back</a>
         </div>
       </div>
 

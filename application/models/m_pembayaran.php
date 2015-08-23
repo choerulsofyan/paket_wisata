@@ -27,7 +27,7 @@ class M_pembayaran extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "pembayaran/view/" . $data[$i]['id'] . "'>View</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "admin/pembayaran/view/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }
@@ -197,7 +197,7 @@ class M_pembayaran extends CI_Model {
             for ($i = 0; $i < $row_counts; $i++) {
                 $number   = $i + 1;
                 $no       = array('no' => $number);
-                $detail   = array('detail' => "<a href='" . base_url() . "pembayaran/view/" . $data[$i]['id'] . "'  id='view' class='btn btn-primary'>View</a> <a href='" . base_url() . "pembayaran/delete/" . $data[$i]['id'] . "' id='delete' class='btn btn-danger'>Delete</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "admin/pembayaran/view/" . $data[$i]['id'] . "'  id='view' class='btn btn-primary'>View</a> <a href='" . base_url() . "admin/pembayaran/delete/" . $data[$i]['id'] . "' id='delete' class='btn btn-danger'>Delete</a>");
                 $data[$i] = $no + $data[$i]; 
                 $data[$i] = $data[$i] + $detail; 
             }

@@ -2,8 +2,8 @@
 <div class="row">
     <div class="col-lg-12">
         <ul class="nav nav-tabs">
-          <li role="user" class="active"><a href="<?=base_url() . 'user';?>">Daftar</a></li>
-          <li role="user"><a href="<?=base_url() . 'user/create';?>">Tambah</a></li>
+          <li role="user" class="active"><a href="<?=base_url() . 'admin/user';?>">Daftar</a></li>
+          <li role="user"><a href="<?=base_url() . 'admin/user/create';?>">Tambah</a></li>
         </ul>
     </div>
 </div>

@@ -15,7 +15,7 @@ class Auth
         $this->session = $this->ci->session->userdata('logged_in');
 
         if ($this->session != TRUE) {
-            redirect('login','refresh');
+            redirect('admin/login','refresh');
         }
     }
 
@@ -36,12 +36,12 @@ class Auth
         $this->session = $this->ci->session->userdata('logged_in');
 
         if ($this->session != TRUE) {
-            redirect('user/login','refresh');
+            redirect('admin/user/login','refresh');
         } else {
             $this->user = (object) $this->ci->session->userdata('logged_in');
             
             if ($this->user->group_user != $group_user) {
-                redirect('dashboard','refresh');
+                redirect('admin/dashboard','refresh');
             }
         }
     }*/
@@ -51,12 +51,12 @@ class Auth
         $this->session = $this->ci->session->userdata('logged_in');
 
         if ($this->session != TRUE) {
-            redirect('user/login','refresh');
+            redirect('admin/user/login','refresh');
         } else {
             $this->user = (object) $this->ci->session->userdata('logged_in');
             
             if (!in_array($this->user->group_user, $access)) {
-                redirect('dashboard','refresh');
+                redirect('admin/dashboard','refresh');
             }
         }
     }*/
@@ -66,13 +66,13 @@ class Auth
         $this->session = $this->ci->session->userdata('logged_in');
 
         if ($this->session != TRUE) {
-            redirect('user/login','refresh');
+            redirect('admin/user/login','refresh');
         } else {
             $this->user = (object) $this->ci->session->userdata('logged_in');
             $result     = $this->ci->m_user->check_privileges($this->user->group_user, $access);
 
             if (!$result) {
-                redirect('dashboard','refresh');
+                redirect('admin/dashboard','refresh');
             }
         }
     }*/
@@ -83,7 +83,7 @@ class Auth
         $result     = $this->ci->m_user->check_privileges($this->user->group_user, $access);
 
         if (!$result) {
-            redirect('dashboard','refresh');
+            redirect('admin/dashboard','refresh');
         }
     }
 

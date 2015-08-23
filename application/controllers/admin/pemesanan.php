@@ -30,7 +30,7 @@ class Pemesanan extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.view');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail Pemesanan";
         $data['pemesanan']  = $this->m_pemesanan->detail($id);
         $this->load->template_admin('pemesanan/view', $data);
@@ -40,7 +40,7 @@ class Pemesanan extends CI_Controller {
     {
         $this->auth->restrict('pembayaran.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Edit Data Pemesanan";
         $data['pemesanan']  = $this->m_pemesanan->detail($id);
         $this->load->template_admin('pemesanan/edit', $data);
@@ -51,7 +51,7 @@ class Pemesanan extends CI_Controller {
         $save = $this->m_pemesanan->save();    
         
         if ($save) {
-            redirect('pemesanan','refresh');
+            redirect('admin/pemesanan','refresh');
         } else {
             echo "save failed";
         }
@@ -62,7 +62,7 @@ class Pemesanan extends CI_Controller {
         $update = $this->m_pemesanan->update();    
         
         if ($update) {
-            redirect('pemesanan','refresh');
+            redirect('admin/pemesanan','refresh');
         } else {
             echo "save failed";
         }
@@ -74,7 +74,7 @@ class Pemesanan extends CI_Controller {
 
         $this->load->model('m_pembayaran');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete_pemesanan = $this->m_pemesanan->delete($id);    
         
         if ($delete_pemesanan) {
@@ -82,7 +82,7 @@ class Pemesanan extends CI_Controller {
             $delete_pembayaran = $this->m_pembayaran->deleteteByPembayaranId($id);
 
             if ($delete_pembayaran) {
-                redirect('pemesanan','refresh');
+                redirect('admin/pemesanan','refresh');
             } else {
                 echo "delete pembayaran error";
             }

@@ -32,7 +32,7 @@ class User extends CI_Controller {
     {
         $this->auth->restrict('user.view');        
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail User";
         $data['user']  = $this->m_user->detail($id);
         $this->load->template_admin('user/view', $data);
@@ -42,7 +42,7 @@ class User extends CI_Controller {
     {
         $this->auth->restrict('user.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Edit Data User";
         $data['user']  = $this->m_user->detail($id);
         $this->load->template_admin('user/edit', $data);
@@ -61,7 +61,7 @@ class User extends CI_Controller {
         $save = $this->m_user->save();    
         
         if ($save) {
-            redirect('user','refresh');
+            redirect('admin/user','refresh');
         } else {
             echo "save failed";
         }
@@ -71,11 +71,11 @@ class User extends CI_Controller {
     {
         $this->auth->restrict('user.delete');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete = $this->m_user->delete($id);    
         
         if ($delete) {
-            redirect('user','refresh');
+            redirect('admin/user','refresh');
         } else {
             echo "delete failed";
         }   

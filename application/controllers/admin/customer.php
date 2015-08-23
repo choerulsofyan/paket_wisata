@@ -36,7 +36,7 @@ class Customer extends CI_Controller {
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail Customer";
         $data['customer'] = $this->m_customer->detail($id);
         $data['info_pemesanan'] = $this->m_pemesanan->getDetailByCustomerId($id);
@@ -50,7 +50,7 @@ class Customer extends CI_Controller {
     {
         $this->auth->restrict('customer.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Edit Data Customer";
         $data['customer']  = $this->m_customer->detail($id);
         $this->load->template_admin('customer/edit', $data);
@@ -61,7 +61,7 @@ class Customer extends CI_Controller {
         $save = $this->m_customer->save();    
         
         if ($save) {
-            redirect('customer','refresh');
+            redirect('admin/customer','refresh');
         } else {
             echo "save failed";
         }
@@ -74,7 +74,7 @@ class Customer extends CI_Controller {
         $this->load->model('m_pemesanan');
         $this->load->model('m_pembayaran');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete = $this->m_customer->delete($id);    
         
         if ($delete) {
@@ -86,7 +86,7 @@ class Customer extends CI_Controller {
                 $delete_pembayaran = $this->m_pembayaran->deleteByCustomerId($id);
 
                 if ($delete_pembayaran) {
-                    redirect('customer','refresh');
+                    redirect('admin/customer','refresh');
                 } else {
                     echo "delete pembayaran error";
                 }

@@ -29,7 +29,7 @@ class Paket_wisata_detail extends CI_Controller {
 
     function getRute()
     {
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data = $this->m_paket_wisata_detail->getRute($id);
         print_r($data);
     }
@@ -38,7 +38,7 @@ class Paket_wisata_detail extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata_detail.view');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $data['title'] = "Detail Rute";
         $data['paket_wisata_detail']  = $this->m_paket_wisata_detail->detail($id);
         $this->load->template_admin('paket_wisata_detail/view', $data);
@@ -48,7 +48,7 @@ class Paket_wisata_detail extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata_detail.edit');
 
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
 
         $this->load->model('m_paket_wisata');
 
@@ -58,7 +58,7 @@ class Paket_wisata_detail extends CI_Controller {
             $data['paket_wisata_detail'] = $this->m_paket_wisata_detail->detail($id);
             $this->load->template_admin('paket_wisata_detail/edit', $data);
         } else {
-            redirect('paket_wisata','refresh');
+            redirect('admin/paket_wisata','refresh');
         }
 
     }
@@ -69,7 +69,7 @@ class Paket_wisata_detail extends CI_Controller {
 
         $this->load->model('m_paket_wisata');
 
-        $paket_wisata_id = $this->uri->segment(3);
+        $paket_wisata_id = $this->uri->segment(4);
         $data['title']   = "Tambah Rute Wisata";
         
         if ($paket_wisata_id != null || $paket_wisata_id != "") 
@@ -79,11 +79,11 @@ class Paket_wisata_detail extends CI_Controller {
             if ($paket_wisata_available) {
                 $data['paket_wisata_id'] = $paket_wisata_id; 
             } else {
-                redirect('paket_wisata','refresh');    
+                redirect('admin/paket_wisata','refresh');    
             }
 
         } else {
-            redirect('paket_wisata','refresh');
+            redirect('admin/paket_wisata','refresh');
         }
         
         $this->load->template_admin('paket_wisata_detail/create', $data);   
@@ -95,7 +95,7 @@ class Paket_wisata_detail extends CI_Controller {
         $wisata_id = $this->input->post('wisata_id');
 
         if ($save) {
-            redirect('paket_wisata/view/' . $wisata_id, 'refresh');
+            redirect('admin/paket_wisata/view/' . $wisata_id, 'refresh');
         } else {
             echo "save failed";
         }
@@ -105,11 +105,11 @@ class Paket_wisata_detail extends CI_Controller {
     {
         $this->auth->restrict('paket_wisata_detail.delete');
         
-        $id = $this->uri->segment(3);
+        $id = $this->uri->segment(4);
         $delete = $this->m_paket_wisata_detail->delete($id);    
         
         if ($delete) {
-            redirect('paket_wisata','refresh');
+            redirect('admin/paket_wisata','refresh');
         } else {
             echo "delete failed";
         }   
