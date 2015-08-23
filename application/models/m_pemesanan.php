@@ -107,7 +107,7 @@ class M_pemesanan extends CI_Model {
         return $total_biaya;
     }
 
-    /*function get_paket_wisata()
+    /*function get_list_paket_wisata()
     {
         $this->db->select('id, judul_wisata');
         $this->db->from($this->table);

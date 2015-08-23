@@ -11,7 +11,7 @@ class Tour extends CI_Controller {
         $this->load->library('form_validation');
     }
 
-    public function index()
+    public function index_b()
     {
         $kategori_id   = $this->uri->segment(3);
         $data['title'] = "Daftar Paket Tour";
@@ -20,7 +20,15 @@ class Tour extends CI_Controller {
     }
 
 
-    function kategori()
+    function index()
+    {   
+        $this->load->model('m_paket_wisata');
+        $data['wisata_domestik']    = $this->m_paket_wisata->get_paket_wisata(1);
+        $data['wisata_mancanegara'] = $this->m_paket_wisata->get_paket_wisata(2);
+        $this->load->template_public('public/home.php', $data);   
+    }
+
+    function category()
     {
         $kategori_id   = $this->uri->segment(3);
         $data['title'] = "Daftar Paket Tour";

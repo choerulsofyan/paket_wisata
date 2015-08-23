@@ -92,9 +92,15 @@ class Paket_wisata extends CI_Controller {
         }   
     }
 
-    function get_paket_wisata() 
+    function get_list_paket_wisata() 
     {
-        $paket_wisata = $this->m_paket_wisata->get_paket_wisata();
+        $paket_wisata = $this->m_paket_wisata->get_list_paket_wisata();
+        print_r($paket_wisata);
+    }    
+
+    function get_paket_wisata($kategori_id) 
+    {
+        $paket_wisata = $this->m_paket_wisata->get_paket_wisata($kategori_id);
         print_r($paket_wisata);
     }    
 

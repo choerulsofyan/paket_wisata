@@ -67,7 +67,7 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
-    function get_paket_wisata()
+    function get_list_paket_wisata()
     {
         $kategori_id = $this->input->get('kategori_id');
 
@@ -79,6 +79,39 @@ class M_paket_wisata extends CI_Model {
         $data  = $query->result_array();
         $data  = json_encode($data);
         
+        return $data;
+    }
+
+    function get_paket_wisata($kategori_id)
+    {
+        $this->db->select('id, judul_wisata, jumlah_hari, harga, deskripsi');
+        $this->db->from($this->table);
+        $this->db->where('kategori_id = ' . $kategori_id);
+        $this->db->limit(8);
+
+        $query = $this->db->get();
+        $data  = $query->result_array();
+        
+        $jumlah_array = count($data);
+
+        for ($i = 0; $i < $jumlah_array; $i++) { 
+
+            $deskripsi = $data[$i]['deskripsi'];
+            $deskripsi = strip_tags($deskripsi);
+
+            if (strlen($deskripsi) > 200) {
+
+                // truncate deskripsi
+                $deskripsiCut = substr($deskripsi, 0, 200);
+
+                // make sure it ends in a word so assassinate doesn't become ass...
+                $deskripsi = substr($deskripsiCut, 0, strrpos($deskripsiCut, ' ')).'...'; 
+            }
+
+            $data[$i]['deskripsi'] = $deskripsi;
+            $data[$i]['detail'] = "<a href='" . base_url() . "tour/detail/" . $data[$i]['id'] . "' class='btn btn-primary' role='button'>Selengkapnya</a>";
+        }
+
         return $data;
     }
 

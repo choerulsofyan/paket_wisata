@@ -1,3 +1,29 @@
 body {
-    padding-top: 70px;
+    padding-top: 50px;
+}
+
+.jumbotron-header {
+    background: rgb(0,172,238);
+    /*background: #000 url("../images/tours/london.jpg") center center;*/
+    color: white;
+    margin: 0px;
+}
+
+.content-footer {
+    margin: 0px;
+    /*color: white;*/
+    /*background: rgb(51,51,102);*/
+}
+
+footer {
+    width: 100%;
+}
+
+footer p {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.center {
+    text-align: center;
 }

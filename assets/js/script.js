@@ -1,5 +1,9 @@
 $( document ).ready(function() {
 
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    
     $('#DaftarPaketWisata').dataTable({
         "ajax": window.location.origin + "/anugrah_tour/paket_wisata/get",
         "columns": [
@@ -200,7 +204,7 @@ $( document ).ready(function() {
     function getPaketWisataByKategoriId(kategori_id)
     {
         $.ajax({
-          url: window.location.origin + "/anugrah_tour/paket_wisata/get_paket_wisata",
+          url: window.location.origin + "/anugrah_tour/paket_wisata/get_list_paket_wisata",
           data:  {
             "kategori_id" : kategori_id
           },

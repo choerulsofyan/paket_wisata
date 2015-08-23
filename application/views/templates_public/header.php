@@ -7,11 +7,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/font-awesome.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/style.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/jquery.dataTables.min.css'); ?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/datepicker.css'); ?>">
         <script src="<?php echo asset_url('js/jquery-2.1.4.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>
-        <script src="<?php echo asset_url('js/bootstrap-datepicker.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/script.js'); ?>" type="text/javascript"></script>
     </head>
     <body>
@@ -27,33 +25,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">Anugrah Tour</a>
+                    <a class="navbar-brand" href="<?=base_url();?>">Anugrah Tour</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                        <a href="<?=base_url();?>home">Beranda</a>
+                        <a href="<?=base_url() . 'tour/home';?>">Beranda</a>
                         </li>
                         <li>
-                            <a href="services.html">Services</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tour <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="<?=base_url();?>tour/kategori/1">Domestik</a>
-                                </li>
-                                <li>
-                                    <a href="<?=base_url();?>tour/kategori/2">Mancanegara</a>
-                                </li>
-                            </ul>
+                            <a href="<?=base_url() . 'tour/domestic';?>">Tour Domestik</a>
                         </li>
                         <li>
-                            <a href="<?=base_url();?>contact">Contact Us</a>
+                            <a href="<?=base_url() . 'tour/international';?>">Tour Mancanegara</a>
                         </li>
                         <li>
-                            <a href="about.html">Register</a>
+                            <a href="<?=base_url() . 'tour/contact';?>">Kontak</a>
+                        </li>
+                        <li>
+                            <a href="<?=base_url() . 'tour/about';?>">Tentang</a>
                         </li>
                     </ul>
                 </div>
@@ -62,6 +52,4 @@
             <!-- /.container -->
         </nav>
         <!-- End of Navigation -->
-    
-        <!-- Page Content -->
-        <div class="container">
+
