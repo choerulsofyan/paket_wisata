@@ -4,14 +4,6 @@
         <h1 class="page-header">
             <?=$title;?>
         </h1>
-        <ol class="breadcrumb">
-            <li>
-                <i class="fa fa-dashboard"></i>  <a href="<?=base_url() . 'admin/user';?>">User</a>
-            </li>
-            <li class="active">
-                <i class="fa fa-edit"></i> View Detail
-            </li>
-        </ol>
     </div>
 </div>
 <!-- /.row -->
