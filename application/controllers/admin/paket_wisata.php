@@ -58,14 +58,21 @@ class Paket_wisata extends CI_Controller {
 
     function save()
     {
-        $id = $this->input->post('id');
-        $save = $this->m_paket_wisata->save();    
-        
-        if ($save) {
-            redirect('admin/paket_wisata','refresh');
+        $upload_gambar = $this->do_upload();
+
+        if ($upload_gambar) {
+
+            $save = $this->m_paket_wisata->save($upload_gambar);    
+            
+            if ($save) {
+                redirect('admin/paket_wisata','refresh');
+            } else {
+                echo "save failed";
+            }
         } else {
-            echo "save failed";
+             echo $this->upload->display_errors();
         }
+
     }
 
     function delete() 
@@ -103,6 +110,27 @@ class Paket_wisata extends CI_Controller {
         $paket_wisata = $this->m_paket_wisata->get_paket_wisata($kategori_id);
         print_r($paket_wisata);
     }    
+
+    function do_upload()
+    {
+        $config['upload_path']   = './assets/images/tours/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']      = '10000';
+        $config['max_width']     = '1024';
+        $config['max_height']    = '768';
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('gambar')) {
+            return false;
+        } else {
+            $file_name = $this->upload->data();
+            $file_name = $file_name['file_name'];
+            // $this->file_name = $file_name;
+
+            return $file_name;
+        }
+    }
 
 }
 

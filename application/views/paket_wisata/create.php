@@ -20,7 +20,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/paket_wisata/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/paket_wisata/save" enctype="multipart/form-data">
       <fieldset>
 
       <!-- Form Name -->
@@ -82,6 +82,14 @@
         <label class="col-md-4 control-label" for="deskripsi">Deskripsi</label>
         <div class="col-md-4">                     
           <textarea class="form-control" id="deskripsi" name="deskripsi"></textarea>
+        </div>
+      </div>
+
+      <!-- File Button --> 
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="gambar">Gambar</label>
+        <div class="col-md-4">
+          <input id="gambar" name="gambar" class="input-file" type="file" required/>
         </div>
       </div>
 

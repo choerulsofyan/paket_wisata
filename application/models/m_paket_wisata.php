@@ -131,7 +131,7 @@ class M_paket_wisata extends CI_Model {
         }
     }
 
-    function save()
+    function save($gambar)
     {
         $id           = $this->input->post('id');
         $judul_wisata = $this->input->post('judul_wisata');
@@ -145,7 +145,8 @@ class M_paket_wisata extends CI_Model {
             'kategori_id'  => $kategori,
             'jumlah_hari'  => $jumlah_hari,
             'harga'        => $harga,
-            'deskripsi'    => $deskripsi
+            'deskripsi'    => $deskripsi,
+            'gambar'       => $gambar
         );
 
 
