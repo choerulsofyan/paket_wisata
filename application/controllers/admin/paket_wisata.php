@@ -62,6 +62,12 @@ class Paket_wisata extends CI_Controller {
 
         if ($upload_gambar) {
 
+            $id    = $this->input->post('id');
+
+            if ($id != null) {
+                $this->delete_image($id);
+            }
+
             $save = $this->m_paket_wisata->save($upload_gambar);    
             
             if ($save) {
@@ -89,7 +95,14 @@ class Paket_wisata extends CI_Controller {
             $delete_paket_wisata_detail = $this->m_paket_wisata_detail->deleteByPaketWisataId($id);
 
             if ($delete_paket_wisata_detail) {
-                redirect('admin/paket_wisata','refresh');
+
+                $delete_image = $this->delete_image($id);
+
+                if ($delete_image) {
+                    redirect('admin/paket_wisata','refresh');
+                } else {
+                    echo "delete gambar failed";
+                }
             } else {
                 echo "delete paket wisata detail failed";
             }
@@ -126,9 +139,45 @@ class Paket_wisata extends CI_Controller {
         } else {
             $file_name = $this->upload->data();
             $file_name = $file_name['file_name'];
-            // $this->file_name = $file_name;
 
             return $file_name;
+        }
+    }
+
+    function get_image_name($id) 
+    {
+        $image_name = $this->m_paket_wisata->get_image_name($id);
+        return $image_name;
+    }
+
+    function delete_image($id)
+    {
+        $this->load->helper("file");
+        $image_name = $this->get_image_name($id);
+        
+        if ($image_name != null) {
+
+            $file_path         = "./assets/images/tours/" . $image_name;
+        
+            if (file_exists($file_path)) {
+
+                $delete_image = unlink($file_path);
+                
+                if ($delete_image) {
+                    // echo "delete success";
+                    return true;
+                } else {
+                    // echo "delete failed";
+                    return false;
+                }
+            } else {
+                // echo "path : " . $image_name;
+                // echo "<br/> file doesn't exists";
+                return false;
+            }
+        } else {
+            // echo "this image doesn't exists";
+            return false;
         }
     }
 

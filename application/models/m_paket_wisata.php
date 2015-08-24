@@ -175,6 +175,21 @@ class M_paket_wisata extends CI_Model {
             return false;
         }
     }
+
+    function get_image_name($id)
+    {
+        $this->db->select('gambar');
+        $this->db->from($this->table);
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $image_name = $query->row_array();
+            $image_name = $image_name['gambar'];
+            return $image_name;
+        }
+    }
     
 }
 
