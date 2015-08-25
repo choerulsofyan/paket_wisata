@@ -88,6 +88,14 @@
         </div>
       </div>
 
+      <!-- File Button --> 
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="gambar">Gambar</label>
+        <div class="col-md-4">
+          <input id="gambar" name="gambar" class="input-file" type="file" value="<?=$paket_wisata['gambar'];?>"/>
+        </div>
+      </div>
+
       <!-- Button (Double) -->
       <div class="form-group">
         <label class="col-md-4 control-label" for="submit"></label>
