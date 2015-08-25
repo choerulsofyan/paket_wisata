@@ -60,25 +60,20 @@ class Paket_wisata extends CI_Controller {
     {
         $upload_gambar = $this->do_upload();
 
-        if ($upload_gambar) {
+        $id     = $this->input->post('id');
+        $gambar = $this->input->post('gambar');
 
-            $id    = $this->input->post('id');
-
-            if ($id != null) {
-                $this->delete_image($id);
-            }
-
-            $save = $this->m_paket_wisata->save($upload_gambar);    
-            
-            if ($save) {
-                redirect('admin/paket_wisata','refresh');
-            } else {
-                echo "save failed";
-            }
-        } else {
-             echo $this->upload->display_errors();
+        if ($id != null && $upload_gambar) {
+            $this->delete_image($id);
         }
 
+        $save = $this->m_paket_wisata->save($upload_gambar);
+        
+        if ($save) {
+            redirect('admin/paket_wisata','refresh');
+        } else {
+            echo "save failed";
+        }
     }
 
     function delete() 
@@ -101,7 +96,6 @@ class Paket_wisata extends CI_Controller {
 
                 if ($delete_paket_wisata_detail) {
                     redirect('admin/paket_wisata','refresh');
-                    // echo "delete gambar success";
                 } else {
                     echo "delete paket wisata detail failed";
                 }
@@ -136,6 +130,7 @@ class Paket_wisata extends CI_Controller {
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('gambar')) {
+            // echo $this->upload->display_errors();
             return false;
         } else {
             $file_name = $this->upload->data();
@@ -156,7 +151,7 @@ class Paket_wisata extends CI_Controller {
         $this->load->helper("file");
         $image_name = $this->get_image_name($id);
         
-        echo "file name: " . $image_name;
+        // echo "file name: " . $image_name;
 
         if ($image_name != null) {
 
@@ -174,7 +169,7 @@ class Paket_wisata extends CI_Controller {
                     // return false;
                 }
             } else {
-                echo "path : " . $image_name;
+                echo "path : " . $file_path;
                 echo "<br/> file doesn't exists";
                 // return false;
             }

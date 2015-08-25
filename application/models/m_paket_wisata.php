@@ -145,14 +145,17 @@ class M_paket_wisata extends CI_Model {
             'kategori_id'  => $kategori,
             'jumlah_hari'  => $jumlah_hari,
             'harga'        => $harga,
-            'deskripsi'    => $deskripsi,
-            'gambar'       => $gambar
+            'deskripsi'    => $deskripsi
         );
 
 
         if ($id == null) {
+            $data['gambar'] = $gambar;
             $result = $this->db->insert($this->table, $data);
         } else {
+            if ($gambar != null) {
+                $data['gambar'] = $gambar;
+            }
             $this->db->where('id', $id);
             $result = $this->db->update($this->table, $data);
         }
