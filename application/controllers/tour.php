@@ -11,15 +11,6 @@ class Tour extends CI_Controller {
         $this->load->library('form_validation');
     }
 
-    public function index_b()
-    {
-        $kategori_id   = $this->uri->segment(3);
-        $data['title'] = "Daftar Paket Tour";
-        $data['tours']  = $this->m_tour->get();
-        $this->load->template_public('tour/index.php', $data);
-    }
-
-
     function index()
     {   
         $this->load->model('m_paket_wisata');

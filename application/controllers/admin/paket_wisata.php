@@ -124,8 +124,8 @@ class Paket_wisata extends CI_Controller {
         $config['upload_path']   = './assets/images/tours/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']      = '10240';
-        $config['max_width']     = '1024';
-        $config['max_height']    = '768';
+        // $config['max_width']     = '1024';
+        // $config['max_height']    = '768';
 
         $this->load->library('upload', $config);
 
