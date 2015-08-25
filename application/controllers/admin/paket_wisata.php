@@ -88,28 +88,29 @@ class Paket_wisata extends CI_Controller {
         $this->load->model('m_paket_wisata_detail');
 
         $id = $this->uri->segment(4);
-        $delete_paket_wisata = $this->m_paket_wisata->delete($id);
+
+        $delete_image = $this->delete_image($id);
+
+        if ($delete_image) {
+
+            $delete_paket_wisata = $this->m_paket_wisata->delete($id);
         
-        if ($delete_paket_wisata) {
+            if ($delete_paket_wisata) {
 
-            $delete_paket_wisata_detail = $this->m_paket_wisata_detail->deleteByPaketWisataId($id);
+                $delete_paket_wisata_detail = $this->m_paket_wisata_detail->deleteByPaketWisataId($id);
 
-            if ($delete_paket_wisata_detail) {
-
-                $delete_image = $this->delete_image($id);
-
-                if ($delete_image) {
+                if ($delete_paket_wisata_detail) {
                     redirect('admin/paket_wisata','refresh');
+                    // echo "delete gambar success";
                 } else {
-                    echo "delete gambar failed";
+                    echo "delete paket wisata detail failed";
                 }
             } else {
-                echo "delete paket wisata detail failed";
-            }
-
+                echo "delete paket wisata failed";
+            }   
         } else {
-            echo "delete paket wisata failed";
-        }   
+            echo "delete gambar failed";
+        }
     }
 
     function get_list_paket_wisata() 
@@ -155,6 +156,8 @@ class Paket_wisata extends CI_Controller {
         $this->load->helper("file");
         $image_name = $this->get_image_name($id);
         
+        echo "file name: " . $image_name;
+
         if ($image_name != null) {
 
             $file_path         = "./assets/images/tours/" . $image_name;
@@ -167,17 +170,17 @@ class Paket_wisata extends CI_Controller {
                     // echo "delete success";
                     return true;
                 } else {
-                    // echo "delete failed";
-                    return false;
+                    echo "delete failed";
+                    // return false;
                 }
             } else {
-                // echo "path : " . $image_name;
-                // echo "<br/> file doesn't exists";
-                return false;
+                echo "path : " . $image_name;
+                echo "<br/> file doesn't exists";
+                // return false;
             }
         } else {
-            // echo "this image doesn't exists";
-            return false;
+            echo "this image doesn't exists";
+            // return false;
         }
     }
 
