@@ -3,18 +3,24 @@
      <meta charset="utf-8">
      <title>Silahkan Login</title>
      <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/form-login.css'); ?>">
-     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-     <script type="text/javascript" src="<?php echo asset_url('js/modernizr-latest.js'); ?>"></script>
-     <script type="text/javascript" src="<?php echo asset_url('js/placeholder.js'); ?>"></script>
  </head>
- <body>
-      <?php echo validation_errors(); ?>
-       <form id="slick-login" action="<?=base_url();?>admin/login/verifylogin" method="POST">
-         <label for="username">username</label>
-         <input type="text" id="username" name="username"  class="placeholder" placeholder="username"/>
-         <label for="password">password</label>
-         <input type="password" id="password" name="password"  class="placeholder" placeholder="password"/>
-         <input type="submit" value="Log In">
-     </form>
- </body>
- </html>
+
+<body class="align">
+    <div class="site__container">
+        <div class="grid__container">
+            <form action="<?=base_url();?>admin/login/verifylogin" method="post" class="form form--login">
+                <div class="form__field">
+                    <label class="fontawesome-user" for="login__username"><span class="hidden">Username</span></label>
+                    <input id="login__username" type="text" class="form__input" placeholder="Username" name="username" required>
+                </div>
+                <div class="form__field">
+                    <label class="fontawesome-lock" for="login__password"><span class="hidden">Password</span></label>
+                    <input id="login__password" type="password" class="form__input" placeholder="Password" name="password" required>
+                </div>
+                <div class="form__field">
+                    <input type="submit" value="Sign In">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
