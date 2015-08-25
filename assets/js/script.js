@@ -229,5 +229,41 @@ $( document ).ready(function() {
         });
     }
 
+    $('#gambar').bind('change', function() {
+
+      var file_size = this.files[0].size;
+      var file_type = this.files[0].type;
+
+      if (file_size > 5242880) {
+        alert("Ukuran gambar terlalu besar");
+      }
+
+      if (file_type != null) 
+      {
+
+        var allowed_type;
+
+        if (file_type == "image/png") {
+            allowed_type = true;
+        } else if (file_type == "image/jpeg") {
+            allowed_type = true;
+        } else if (file_type == "image/gif") {
+            allowed_type = true;
+        } else {
+            allowed_type = false;
+        }
+
+        if (allowed_type == false) {
+            alert("Type file tidak diperbolehkan");
+            $('#gambar').val("");
+        }
+        
+      } else {
+        alert("Type file tidak diperbolehkan");
+        $('#gambar').val("");
+      }
+
+    });
+
 });
 
