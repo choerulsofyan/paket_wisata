@@ -74,6 +74,7 @@
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$paket_wisata_detail['id'];?>)">Delete</button> -->
         <a href="<?php echo base_url() . 'admin/pemesanan/delete/' . $pemesanan['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
         <a href="<?php echo base_url() . 'admin/pemesanan'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/pemesanan/data2pdf/'; ?>" id="print" class="btn btn-primary">Print</a>
       </div>
     </div>
 </div>
