@@ -84,7 +84,7 @@ class M_paket_wisata extends CI_Model {
 
     function get_paket_wisata($kategori_id)
     {
-        $this->db->select('id, judul_wisata, jumlah_hari, harga, deskripsi');
+        $this->db->select('id, judul_wisata, jumlah_hari, harga, deskripsi, gambar');
         $this->db->from($this->table);
         $this->db->where('kategori_id = ' . $kategori_id);
         $this->db->limit(8);

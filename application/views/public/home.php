@@ -43,19 +43,21 @@
 
 <div class="container">
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="page-header center">
-        <h2>Tour Domestik</h2>
+  <?php if (count($wisata_domestik) > 0) : ?>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header center">
+          <h2>Tour Domestik</h2>
+        </div>
       </div>
     </div>
-  </div>
     
     <div class="row">
       <?php foreach ($wisata_domestik as $row) : ?>
         <div class="col-md-3">
           <div class="thumbnail">
-            <img src="<?= base_url() . 'assets/images/tours/hongkong.jpg';?>" alt="...">
+            <img src="<?= base_url() . 'assets/images/tours/' . $row['gambar'];?>" alt="...">
             <div class="caption">
               <h4><?=$row['judul_wisata'];?></h4>
               <p>
@@ -72,39 +74,40 @@
       <?php endforeach; ?>
     </div>
 
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="page-header center">
-        <a href="<?=base_url() . 'tour/category/1';?>" class="btn btn-primary btn-lg" role="button">Selengkapnya di Tour Domestik</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="page-header center">
-    <h2>Tour Mancanegara</h2>
-  </div>
-    
     <div class="row">
-
-    <?php foreach ($wisata_mancanegara as $row) : ?>
-
-      <div class="col-md-3">
-        <div class="thumbnail">
-          <img src="<?= base_url() . 'assets/images/tours/hongkong.jpg';?>" alt="...">
-          <div class="caption">
-            <h4><?=$row['judul_wisata'];?></h4>
-            <p>
-              <b>
-                Jumlah hari : <?=$row['jumlah_hari'];?> hari
-                <br/>
-                Harga : IDR. <?=$row['harga'];?>
-              </b>
-            </p>
-            <a href="#" class="btn btn-primary" role="button">Selengkapnya</a> 
-          </div>
+      <div class="col-lg-12">
+        <div class="page-header center">
+          <a href="<?=base_url() . 'tour/category/1';?>" class="btn btn-primary btn-lg" role="button">Selengkapnya di Tour Domestik</a>
         </div>
       </div>
+    </div>
 
+  <?php endif; ?>
+
+  <?php if (count($wisata_mancanegara) > 0) : ?>
+
+    <div class="page-header center">
+      <h2>Tour Mancanegara</h2>
+    </div>
+    
+    <div class="row">
+      <?php foreach ($wisata_mancanegara as $row) : ?>
+        <div class="col-md-3">
+          <div class="thumbnail">
+            <img src="<?= base_url() . 'assets/images/tours/' . $row['gambar'];?>" alt="...">
+            <div class="caption">
+              <h4><?=$row['judul_wisata'];?></h4>
+              <p>
+                <b>
+                  Jumlah hari : <?=$row['jumlah_hari'];?> hari
+                  <br/>
+                  Harga : IDR. <?=$row['harga'];?>
+                </b>
+              </p>
+              <a href="#" class="btn btn-primary" role="button">Selengkapnya</a> 
+            </div>
+          </div>
+        </div>
       <?php endforeach; ?>
     </div>
 
@@ -115,5 +118,7 @@
         </div>
       </div>
     </div>
+
+  <?php endif; ?>
 
 </div>
