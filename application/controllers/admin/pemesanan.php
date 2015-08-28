@@ -110,40 +110,11 @@ class Pemesanan extends CI_Controller {
         $this->load->template_admin('pemesanan/create', $data);
     }
 
-    public function data2pdf($download_pdf = '', $pemesanan_id = null)
+    function print_pemesanan()
     {
-        $this->load->helper('exportpdf_helper'); 
-
-        $ret = '';
-        $ID = 1; //misalnya saja id user adalah 1
-        $pdf_filename = 'user_info_'.$ID.'.pdf';
-        $link_download = ($download_pdf == TRUE)? '' : anchor(base_url().'admin/pemesanan/data2pdf/true', 'Download Pdf');
-         
-        $query = $this->db->query("SELECT * FROM tpemesanan");
-
-        if ($query->num_rows() > 0) {
-            $user_info = $query->row_array();
-        }
-         
-        $data_header = array('title' => 'Convert Codeigniter to PDF',);
-
-        $data_userinfo = array(     
-            'user_info' => $user_info,
-            'link_download' => $link_download
-        );
-
-        //$header = $this->load->view('header', $data_header, true);
-        $user_info = $this->load->view('user_table', $data_userinfo, true);
-        //$footer = $this->load->view('footer', '', true);
-        
-        //$output = $header.$user_info.$footer;
-        $output = $user_info;
-        
-        if ($download_pdf == TRUE) {
-            generate_pdf($output, $pdf_filename);
-        } else {
-            echo $output;
-        }
+        $pemesanan_id      = $this->uri->segment(4);
+        $data['pemesanan'] = $this->m_pemesanan->detail($pemesanan_id);
+        $bukti_pemesanan = $this->load->view('bukti_pemesanan', $data);
     }
 }
 
