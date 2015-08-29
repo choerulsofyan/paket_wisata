@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bukti Pembayaran</title>
+    <title>Bukti Pemesanan</title>
     <script type="text/javascript">
         window.onload = window.print();
     </script>
 </head>
 <body>
     <hr/>
+    <center>
+        <h3>Bukti Pemesanan</h3>
+    </center>
     <table>
         <tr>
             <td>No. Faktur</td>

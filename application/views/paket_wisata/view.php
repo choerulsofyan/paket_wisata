@@ -36,19 +36,42 @@
 </div>
 <div class="row">
     <div class="col-lg-2">
+            Tanggal Keberangkatan
+    </div>
+    <div class="col-lg-5">
+        <?=$paket_wisata['tgl_keberangkatan'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+            Tanggal Kembali
+    </div>
+    <div class="col-lg-5">
+        <?=$paket_wisata['tgl_kembali'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
         Harga
     </div>
     <div class="col-lg-5">
         <?=$paket_wisata['harga'];?>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-2">
         Deskripsi
     </div>
     <div class="col-lg-5">
         <?=$paket_wisata['deskripsi'];?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-2">
+        Status
+    </div>
+    <div class="col-lg-5">
+        <?=$paket_wisata['status'];?>
     </div>
 </div>
 <div class="row">

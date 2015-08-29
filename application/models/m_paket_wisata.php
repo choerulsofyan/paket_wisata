@@ -13,7 +13,7 @@ class M_paket_wisata extends CI_Model {
     function get() 
     {   
 
-        $this->db->select('tpw.id, tpw.judul_wisata, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga')
+        $this->db->select('tpw.id, tpw.judul_wisata, tkt.nama_kategori, tpw.jumlah_hari, tpw.tgl_keberangkatan, tpw.tgl_kembali, tpw.harga, tpw.status')
                   ->from('tpaket_wisata AS tpw, tkategori AS tkt')
                   ->where('tpw.kategori_id = tkt.id');
 
@@ -33,14 +33,17 @@ class M_paket_wisata extends CI_Model {
             }
 
         } else {
-            $data                  = array();
-            $data['no']            = "";
-            $data['id']            = "";
-            $data['judul_wisata']  = "";
-            $data['nama_kategori'] = "";
-            $data['jumlah_hari']   = "";
-            $data['harga']         = "";
-            $data['detail']        = "";
+            $data                      = array();
+            $data['no']                = "";
+            $data['id']                = "";
+            $data['judul_wisata']      = "";
+            $data['nama_kategori']     = "";
+            $data['jumlah_hari']       = "";
+            $data['tgl_keberangkatan'] = "";
+            $data['tgl_kembali']       = "";
+            $data['harga']             = "";
+            $data['detail']            = "";
+            $data['status']            = "";
         }
 
         $data = array("data" => $data);
@@ -84,7 +87,7 @@ class M_paket_wisata extends CI_Model {
 
     function get_paket_wisata($kategori_id)
     {
-        $this->db->select('id, judul_wisata, jumlah_hari, harga, deskripsi, gambar');
+        $this->db->select('id, judul_wisata, jumlah_hari, tgl_keberangkatan, tgl_kembali, harga, deskripsi, gambar');
         $this->db->from($this->table);
         $this->db->where('kategori_id = ' . $kategori_id);
         $this->db->limit(8);
@@ -117,7 +120,7 @@ class M_paket_wisata extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tpw.id, tpw.judul_wisata, tkt.id as kategori_id, tkt.nama_kategori, tpw.jumlah_hari, tpw.harga, tpw.deskripsi')
+        $this->db->select('tpw.id, tpw.judul_wisata, tkt.id as kategori_id, tkt.nama_kategori, tpw.jumlah_hari, tpw.tgl_keberangkatan, tpw.tgl_kembali, tpw.harga, tpw.deskripsi, tpw.gambar, tpw.status')
                   ->from('tpaket_wisata AS tpw, tkategori AS tkt')
                   ->where('tpw.kategori_id = tkt.id')
                   ->where('tpw.id = ' . $id);
@@ -133,19 +136,25 @@ class M_paket_wisata extends CI_Model {
 
     function save($gambar)
     {
-        $id           = $this->input->post('id');
-        $judul_wisata = $this->input->post('judul_wisata');
-        $kategori     = $this->input->post('kategori');
-        $jumlah_hari  = $this->input->post('jumlah_hari');
-        $harga        = $this->input->post('harga');
-        $deskripsi    = $this->input->post('deskripsi');
+        $id                = $this->input->post('id');
+        $judul_wisata      = $this->input->post('judul_wisata');
+        $kategori          = $this->input->post('kategori');
+        $jumlah_hari       = $this->input->post('jumlah_hari');
+        $tgl_keberangkatan = $this->input->post('tgl_keberangkatan');
+        $tgl_kembali       = $this->input->post('tgl_kembali');
+        $harga             = $this->input->post('harga');
+        $deskripsi         = $this->input->post('deskripsi');
+        $status         = $this->input->post('status');
         
         $data = array(
-            'judul_wisata' => $judul_wisata,
-            'kategori_id'  => $kategori,
-            'jumlah_hari'  => $jumlah_hari,
-            'harga'        => $harga,
-            'deskripsi'    => $deskripsi
+            'judul_wisata'      => $judul_wisata,
+            'kategori_id'       => $kategori,
+            'jumlah_hari'       => $jumlah_hari,
+            'tgl_keberangkatan' => $tgl_keberangkatan,
+            'tgl_kembali'       => $tgl_kembali,
+            'harga'             => $harga,
+            'deskripsi'         => $deskripsi,
+            'status'            => $status
         );
 
 

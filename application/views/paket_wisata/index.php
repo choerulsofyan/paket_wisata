@@ -24,8 +24,11 @@
                     <th>Judul Wisata</th>
                     <th>Kategori</th>
                     <th>Jumlah Hari</th>
+                    <th>Tanggal Keberangkatan</th>
+                    <th>Tanggal Kembali</th>
                     <th>Harga</th>
                     <th>Detail</th>
+                    <th>Status</th>
                 </tr>
             </thead>
 

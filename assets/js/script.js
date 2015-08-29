@@ -7,8 +7,11 @@ $( document ).ready(function() {
             { "data": "judul_wisata" },
             { "data": "nama_kategori" },
             { "data": "jumlah_hari" },
+            { "data": "tgl_keberangkatan" },
+            { "data": "tgl_kembali" },
             { "data": "harga" },
-            { "data": "detail" }
+            { "data": "detail" },
+            { "data": "status" }
         ]
     });
 

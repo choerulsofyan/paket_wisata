@@ -53,9 +53,26 @@
             <input id="jumlah_hari" name="jumlah_hari" class="form-control" placeholder="" type="number" required="" value="<?=$paket_wisata['jumlah_hari'];?>">
             <span class="input-group-addon">hari</span>
           </div>
-          
         </div>
       </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="tgl_keberangkatan">Tanggal Keberangkatan</label>  
+        <div class="col-md-6">
+          <input id="tgl_keberangkatan" name="tgl_keberangkatan" type="date" placeholder="" class="form-control input-md" required=""  value="<?=$paket_wisata['tgl_keberangkatan'];?>">
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="tgl_kembali">Tanggal Kembali</label>  
+        <div class="col-md-6">
+          <input id="tgl_kembali" name="tgl_kembali" type="date" placeholder="" class="form-control input-md" required=""  value="<?=$paket_wisata['tgl_kembali'];?>">
+        </div>
+      </div>
+
+
       <!-- Prepended text-->
       <div class="form-group">
         <label class="col-md-4 control-label" for="harga">Harga</label>
@@ -81,6 +98,25 @@
         <label class="col-md-4 control-label" for="gambar">Gambar</label>
         <div class="col-md-4">
           <input id="gambar" name="gambar" class="input-file" type="file"/>
+        </div>
+      </div>
+
+      <!-- Multiple Radios -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="status">Status</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="status-0">
+            <input type="radio" name="status" id="status-0" value="AKTIF" <?php echo ($paket_wisata['status'] == 'AKTIF' ? 'checked' : ''); ?>>
+            Aktif
+          </label>
+        </div>
+        <div class="radio">
+          <label for="status-1">
+            <input type="radio" name="status" id="status-1" value="NON-AKTIF" <?php echo ($paket_wisata['status'] == 'NON-AKTIF' ? 'checked' : ''); ?>>
+            Non-Aktif
+          </label>
+        </div>
         </div>
       </div>
 
