@@ -86,6 +86,13 @@ class Pembayaran extends CI_Controller {
         $info_customer = $this->m_pembayaran->cek_info_customer($no_faktur);
         print_r($info_customer);  
     }
+
+    function print_pembayaran()
+    {
+        $pembayaran_id      = $this->uri->segment(4);
+        $data['pembayaran'] = $this->m_pembayaran->detail($pembayaran_id);
+        $bukti_pembayaran = $this->load->view('bukti_pembayaran', $data);
+    }
 }
 
 /* End of file  */

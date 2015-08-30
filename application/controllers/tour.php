@@ -19,10 +19,19 @@ class Tour extends CI_Controller {
         $this->load->template_public('public/home.php', $data);   
     }
 
+    function contact()
+    {
+        $this->load->template_public('public/contact.php');   
+    }
+
+    function about()
+    {
+        $this->load->template_public('public/about.php');   
+    }
+
     function category()
     {
         $kategori_id   = $this->uri->segment(3);
-        $data['title'] = "Daftar Paket Tour";
         $data['tours']  = $this->m_tour->get($kategori_id);
         $this->load->template_public('tour/index.php', $data);
     }
@@ -59,8 +68,11 @@ class Tour extends CI_Controller {
     function detail()
     {
         $this->load->model('m_paket_wisata');
+        $this->load->model('m_paket_wisata_detail');
+
         $wisata_id       = $this->uri->segment(3);
         $data['paket_wisata']  = $this->m_paket_wisata->detail($wisata_id);
+        $data['rute']  = $this->m_paket_wisata_detail->getRuteByPaketWisataId($wisata_id);
         $this->load->template_public('public/detail.php', $data);
     }    
 

@@ -53,6 +53,7 @@
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$pembayaran['id'];?>)">Delete</button> -->
         <a href="<?php echo base_url() . 'admin/pembayaran/delete/' . $pembayaran['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
         <a href="<?php echo base_url() . 'admin/pembayaran'; ?>" id="cancel" class="btn btn-primary">Back</a>
+        <a href="<?php echo base_url() . 'admin/pembayaran/print_pembayaran/' . $pembayaran['id']; ?>" id="print" class="btn btn-primary" target="_blank">Print</a>
       </div>
     </div>
 </div>

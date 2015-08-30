@@ -1,5 +1,7 @@
-<div class="row">
-    <div class="col-lg-6">
+
+<div class="row" >
+
+    <div class="col-lg-6" style="margin-top:3%;">
       
       <?php echo validation_errors(); ?>
 
@@ -7,7 +9,7 @@
       <fieldset>
 
       <!-- Form Name -->
-      <legend>Info Customer</legend>
+      <legend style="margin-left: 10%;">Info Customer</legend>
       <input id="wisata_id" type="hidden" name="wisata_id" value="<?=$wisata_id;?>">
 
       <!-- Text input-->
@@ -60,7 +62,7 @@
         </div>
       </div>
 
-      <legend>Email dan Password</legend>
+      <legend style="margin-left: 10%;">Email dan Password</legend>
 
       <!-- Text input-->
       <div class="form-group">
@@ -80,7 +82,7 @@
         </div>
       </div>
 
-      <legend>Jumlah orang</legend>
+      <legend style="margin-left: 10%;">Jumlah orang</legend>
 
       <!-- Text input-->
       <div class="form-group">
@@ -118,5 +120,7 @@
         echo "<br/>";
       }
     ?>
+	
+	
 </div>
 <!-- /.row -->

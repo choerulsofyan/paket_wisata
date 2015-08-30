@@ -16,7 +16,7 @@
 
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/tour/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>tour/save">
       <fieldset>
 
       <!-- Form Name -->
