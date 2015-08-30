@@ -8,47 +8,43 @@
 </div>
 <!-- /.row -->
 
-<div class="row">
-    <div class="col-lg-2">
-        Nomor Faktur
-    </div>
-    <div class="col-lg-5">
-        <?=$pembayaran['no_faktur'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Customer
-    </div>
-    <div class="col-lg-5">
-        <?=$pembayaran['customer_nama'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Total
-    </div>
-    <div class="col-lg-5">
-        Rp. <?=$pembayaran['total'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Angsuran ke
-    </div>
-    <div class="col-lg-5">
-        <?=$pembayaran['angsuran_ke'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Pembayaran
-    </div>
-    <div class="col-lg-5">
-        Rp. <?=$pembayaran['pembayaran'];?>
-    </div>
-</div>
-<div class="row">
+ <div class="col-lg-6">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                 <tbody>
+                                    <tr>
+                                        <th>No Faktur</th>
+                                        <td> <?=$pembayaran['no_faktur'];?></td>
+                                        
+                                    </tr>
+                                
+                               
+                                    <tr>
+                                        <th>Nama Customer</th>
+                                        <td> <?=$pembayaran['customer_nama'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Total</th>
+                                        <td> Rp. <?=$pembayaran['total'];?></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th>Angsuran ke</th>
+                                        <td><?=$pembayaran['angsuran_ke'];?></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th>Pembayaran</th>
+                                        <td> Rp. <?=$pembayaran['pembayaran'];?></td>
+                                        
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+						<div class="row">
     <!-- Button (Double) -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
@@ -60,4 +56,23 @@
       </div>
     </div>
 </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
 <!-- /.row
+						
+                    </div>
+
+
+<div class="row">

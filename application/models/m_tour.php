@@ -10,7 +10,7 @@ class M_Tour extends CI_Model {
 
     function get($kategori_id = null)
     {
-        $this->db->select('tpw.id, tpw.judul_wisata, tpw.jumlah_hari, tpw.harga, tpw.deskripsi');
+        $this->db->select('tpw.id, tpw.judul_wisata, tpw.jumlah_hari, tpw.harga, tpw.deskripsi, tpw.gambar');
         $this->db->from('tpaket_wisata AS tpw');
 
         if ($kategori_id != null) {
@@ -25,8 +25,8 @@ class M_Tour extends CI_Model {
             $row_counts = $query->num_rows();
 
             for ($i = 0; $i < $row_counts; $i++) {
-                $book_now   = array('book_now' => "<a href='" . base_url() . "admin/tour/book/" . $data[$i]['id'] . "'>Book Now</a>");
-                $detail   = array('detail' => "<a href='" . base_url() . "admin/tour/detail/" . $data[$i]['id'] . "'>View</a>");
+                $book_now   = array('book_now' => "<a href='" . base_url() . "tour/book/" . $data[$i]['id'] . "'>Book Now</a>");
+                $detail   = array('detail' => "<a href='" . base_url() . "tour/detail/" . $data[$i]['id'] . "'>View</a>");
                 $data[$i] = $data[$i] + $detail + $book_now; 
             }
 

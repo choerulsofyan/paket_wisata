@@ -65,6 +65,21 @@ class M_paket_wisata_detail extends CI_Model {
         }
     }
 
+    function getRuteByPaketWisataId($paket_wisata_id)
+    {
+        $this->db->select('tpwd.hari_ke, tpwd.rute, tpwd.deskripsi')
+                  ->from('tpaket_wisata_detail AS tpwd')
+                  ->where('tpwd.wisata_id = ' . $paket_wisata_id);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data = $query->result_array();
+            return $data;
+        }
+    }
+
     function getRute($id)
     {
         $this->db->select('tpwd.id, tpwd.rute, tpwd.hari_ke')

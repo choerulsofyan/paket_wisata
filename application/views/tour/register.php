@@ -1,15 +1,9 @@
 <div class="row">
     <div class="col-lg-6">
-      <br/>
-      <h3>
-          <?=$title;?>
-          <hr/>
-      </h3>
-      <br/>
       
       <?php echo validation_errors(); ?>
 
-      <form class="form-horizontal" method="POST" action="<?=base_url();?>admin/tour/save">
+      <form class="form-horizontal" method="POST" action="<?=base_url();?>tour/save">
       <fieldset>
 
       <!-- Form Name -->

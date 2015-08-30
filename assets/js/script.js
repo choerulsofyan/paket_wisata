@@ -141,6 +141,24 @@ $( document ).ready(function() {
         ]
     });
 
+    $("#tgl_keberangkatan").on('keyup change', function() {
+        var tgl_keberangkatan = document.getElementById("tgl_keberangkatan").value;
+        var jumlah_hari       = document.getElementById("jumlah_hari").value;
+
+        tgl_keberangkatan   = new Date(tgl_keberangkatan);
+        hari_keberangkatan  = tgl_keberangkatan.getDate();
+        bulan_keberangkatan = tgl_keberangkatan.getMonth();
+        tahun_keberangkatan = tgl_keberangkatan.getFullYear();
+
+        hari_keberangkatan = parseInt(hari_keberangkatan);
+        jumlah_hari        = parseInt(jumlah_hari);
+        hari_kembali       = hari_keberangkatan + jumlah_hari;
+
+        var tgl_kembali = new Date(hari_kembali + "/" + bulan_keberangkatan + "/" + tahun_keberangkatan);
+
+        console.log(tgl_kembali);
+    });
+
     $( "#jml_orang_dewasa" ).on('keyup change', function() {
         var wisata_id = $('#wisata_id').val();
         var jml_orang_dewasa = $('#jml_orang_dewasa').val();
@@ -267,6 +285,8 @@ $( document ).ready(function() {
       }
 
     });
+
+    
 
 });
 

@@ -3,6 +3,7 @@ body {
     font-family: 'Open Sans', sans-serif; 
     background: url("../images/white_wall_hash.png");
     background-repeat: repeat-x repeat-y;
+    color: black;
 }
 
 .nav-custom {
@@ -51,4 +52,15 @@ footer p {
 
 .navbar-inverse .navbar-brand:hover {
     color: #9D9D9D;
+}
+
+
+
+.image-paket-wisata {
+    height: 200px;
+}
+
+.text-caption {
+    text-shadow: -1px 1px 1px rgba(0, 0, 0, 1);
+    color:rgba(255,255,255,1);
 }

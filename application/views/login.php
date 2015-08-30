@@ -4,9 +4,17 @@
      <title>Silahkan Login</title>
      <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/form-login.css'); ?>">
  </head>
+ 
 
 <body class="align">
+
+
+ 
     <div class="site__container">
+	 <center><h1>WELCOME</h1>
+ <h2>to</h2>
+ <h2>Anugrah Tour Administrator Panel</h2>
+ <h1>LOGIN</h1></center>
         <div class="grid__container">
             <form action="<?=base_url();?>admin/login/verifylogin" method="post" class="form form--login">
                 <div class="form__field">

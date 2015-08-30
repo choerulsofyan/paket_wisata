@@ -7,11 +7,12 @@
 <!-- /.row -->
 
 <div class="row">
+<div class="table-responsive">
     <div class="col-lg-12">
     <h3 class="page-header">
         <?=$title;?>
     </h3>
-    <table id="Customer">
+    <table id="Customer" class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>No. </th>

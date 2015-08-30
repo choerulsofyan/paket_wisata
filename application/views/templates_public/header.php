@@ -6,7 +6,10 @@
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/modern-business.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/font-awesome.min.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/style.css'); ?>">
+        <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/style-category.css'); ?>">
         <link rel="stylesheet" type="text/css" href="<?php echo asset_url('css/jquery.dataTables.min.css'); ?>">
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
         <script src="<?php echo asset_url('js/jquery-2.1.4.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/bootstrap.min.js'); ?>" type="text/javascript"></script>
         <script src="<?php echo asset_url('js/jquery.dataTables.min.js'); ?>" type="text/javascript"></script>

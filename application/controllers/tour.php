@@ -46,7 +46,7 @@ class Tour extends CI_Controller {
             $save_pemesanan = $this->m_pemesanan->save($customer);
 
             if($save_pemesanan) {
-                redirect('admin/tour','refresh');
+                redirect('tour','refresh');
             } else {
                 echo "save pemesanan failed!";
             }
@@ -55,6 +55,14 @@ class Tour extends CI_Controller {
             echo "save customer failed";
         }
     }
+
+    function detail()
+    {
+        $this->load->model('m_paket_wisata');
+        $wisata_id       = $this->uri->segment(3);
+        $data['paket_wisata']  = $this->m_paket_wisata->detail($wisata_id);
+        $this->load->template_public('public/detail.php', $data);
+    }    
 
 }
 

@@ -1,6 +1,6 @@
  <!-- Page Heading -->
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
       <ul class="nav nav-tabs">
         <li role="pemesanan" class="active"><a href="<?=base_url() . 'admin/pemesanan';?>">Daftar</a></li>
         <li role="pemesanan"><a href="<?=base_url() . 'admin/pemesanan/create';?>">Buat Pemesanan</a></li>
@@ -10,14 +10,14 @@
 <!-- /.row -->
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
     <br/>
     <h3>
         <?=$title;?>
     </h3>
     <br/>
-    
-    <table id="DaftarPemesanan">
+    <div class="table-responsive">
+    <table id="DaftarPemesanan" class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>No. </th>

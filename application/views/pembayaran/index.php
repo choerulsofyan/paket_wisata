@@ -17,7 +17,8 @@
         <hr/>
     </h3>
     <br/>
-    <table id="DaftarPembayaran">
+	 <div class="table-responsive">
+    <table id="DaftarPembayaran" class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>No. </th>
@@ -33,5 +34,6 @@
 
         </table>
     </div>
+</div>
 </div>
 <!-- /.row -->

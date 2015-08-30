@@ -1,70 +1,71 @@
 <!-- Page Heading -->
+
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <h1 class="page-header">
             <?=$title;?>
         </h1>
     </div>
 </div>
-<!-- /.row -->
-<h3>Info Customer</h3>
-<div class="row">
-    <div class="col-lg-2">
-        Nama
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['nama'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Tanggal lahir
-    </div>
-    <div class="col-lg-5">
-        <?=date("d F Y", strtotime($customer['tgl_lahir']));?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Jenis kelamin
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['jenis_kelamin'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Alamat
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['alamat'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        No. Telepon
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['no_telp'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Email
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['email'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Status
-    </div>
-    <div class="col-lg-5">
-        <?=$customer['status'];?>
-    </div>
-</div>
-<div class="row">
+
+<div class="col-md-12">
+<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">INFO CUSTOMER</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-lg-12">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                
+                                    
+                                
+                                <tbody>
+								
+									<tr>
+                                        <th>Nama</th>
+                                        <td> <?=$customer['nama'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Tanggal lahir</th>
+                                        <td><?=date("d F Y", strtotime($customer['tgl_lahir']));?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Jenis kelamin</th>
+                                        <td><?=$customer['jenis_kelamin'];?></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th>Alamat</th>
+                                        <td><?=$customer['alamat'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>No. Telepon</th>
+                                        <td><?=$customer['no_telp'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td><?=$customer['email'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td><?=$customer['status'];?></td>
+                                      
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+					
+					
+					<div class="row">
     <!-- Button (Double) -->
     <div class="form-group">
       <label class="col-md-4 control-label" for="submit"></label>
@@ -76,66 +77,75 @@
     </div>
 </div>
 
-
-<?php if ($info_pemesanan) : ?>
-
-    <!-- INFO PEMESANAN -->
-    <h3>Info Pemesanan</h3>
-    <div class="row">
-        <div class="col-lg-2">
-            Nomor Faktur
-        </div>
-        <div class="col-lg-5">
-            <?=$info_pemesanan['no_faktur'];?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-2">
-            Judul Wisata
-        </div>
-        <div class="col-lg-5">
-            <?=$info_pemesanan['judul_wisata'];?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-2">
-            Tanggal Pemesanan
-        </div>
-        <div class="col-lg-5">
-            <!-- <?=$info_pemesanan['tgl_pemesanan'];?> -->
-            <?=date("d F Y", strtotime($info_pemesanan['tgl_pemesanan']));?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-2">
-            Jumlah Orang Dewasa
-        </div>
-        <div class="col-lg-5">
-            <?=$info_pemesanan['jumlah_orang_dewasa'];?>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-2">
-            Jumlah Orang Anak
-        </div>
-        <div class="col-lg-5">
-            <?=$info_pemesanan['jumlah_orang_anak'];?>
-        </div>
-    </div>
-    <div class="row">
-        <!-- Button (Double) -->
-        <div class="form-group">
+                            </div>
+                        </div>
+						</div>
+						
+						<div class="col-md-12">
+<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">INFO PEMESANAN</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="panel-body">
+                                
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                
+                                <tbody>
+								
+									<tr>
+                                        <th>No Faktur</th>
+                                        <td><?=$info_pemesanan['no_faktur'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Judul Wisata</th>
+                                        <td><?=$info_pemesanan['judul_wisata'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Tanggal Pemesanan</th>
+                                        <td><?=date("d F Y", strtotime($info_pemesanan['tgl_pemesanan']));?></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th>Jumlah Orang Dewasa</th>
+                                        <td><?=$info_pemesanan['jumlah_orang_dewasa'];?> Orang</td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Jumlah Orang Anak</th>
+                                        <td><?=$info_pemesanan['jumlah_orang_anak'];?> Orang</td>
+                                        
+                                    </tr>
+                                   
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+						<div class="form-group">
           <label class="col-md-4 control-label" for="submit"></label>
           <div class="col-md-12">
             <a href="<?php echo base_url() . 'admin/pemesanan/edit/' . $info_pemesanan['pemesanan_id']; ?>" id="edit" class="btn btn-primary">Edit</a>
             <a href="<?php echo base_url() . 'admin/pemesanan/delete/' . $info_pemesanan['pemesanan_id']; ?>" id="delete" class="btn btn-danger">Delete</a>
           </div>
         </div>
-    </div>
-    <!-- END OF INFO PEMESANAN -->
-
-    <!-- INFO PEMBAYARAN -->
-    <h3>Info Pembayaran</h3>
+                    </div>
+                            </div>
+                            </div>
+                        </div>
+						
+						
+						<div class="col-md-12">
+<div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">INFO PEMBAYARAN</h3>
+                            </div>
+                            <div class="panel-body">
+                                   <!-- INFO PEMBAYARAN -->
+   
     <div class="row">
         <div class="col-lg-2">
             Total Biaya
@@ -161,10 +171,25 @@
         </div>
     </div>
     <!-- END OF INFO PEMBAYARAN -->
+                            </div>
+                        </div>
+						</div>
+						</div>
+
+
+<!-- /.row -->
+
+
+
+<?php if ($info_pemesanan) : ?>
+
+
+
+ 
 
     <!-- INFO ANGSURAN -->
     <?php if ($info_angsuran) : ?>
-        <h3>Info Pembayaran</h3>
+        <h3>Info Angsuran</h3>
         <div class="row">
             <div class="col-lg-12">
             <table class="table table-striped">

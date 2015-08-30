@@ -8,70 +8,59 @@
 </div>
 <!-- /.row -->
 
-<div class="row">
-    <div class="col-lg-2">
-        Nama lengkap
-    </div>
-    <div class="col-lg-5">
-        <?=$user['nama_lengkap'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Tanggal lahir
-    </div>
-    <div class="col-lg-5">
-        <?=$user['tgl_lahir'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Jenis kelamin
-    </div>
-    <div class="col-lg-5">
-        <?=$user['jenis_kelamin'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Alamat
-    </div>
-    <div class="col-lg-5">
-        <?=$user['alamat'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Email
-    </div>
-    <div class="col-lg-5">
-        <?=$user['email'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Username
-    </div>
-    <div class="col-lg-5">
-        <?=$user['username'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-            Grup User
-    </div>
-    <div class="col-lg-5">
-        <?=$user['grup_user'];?>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-2">
-        Status
-    </div>
-    <div class="col-lg-5">
-        <?=$user['status'];?>
-    </div>
-</div>
+<div class="col-lg-6">
+                        
+                        <div class="table-responsive">
+                            <table class="table table-hover table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th>Nama Lengkap</th>
+                                        <td><?=$user['nama_lengkap'];?></td>
+                                        
+                                    </tr>
+                                
+                                
+                                    <tr>
+                                        <th>Tanggal Lahir</th>
+                                        <td> <?=$user['tgl_lahir'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Jenis Kelamin</th>
+                                        <td><?=$user['jenis_kelamin'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Alamat</th>
+                                        <td><?=$user['alamat'];?></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td><?=$user['email'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <td><?=$user['username'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Grup User</th>
+                                        <td><?=$user['grup_user'];?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <th>Status</th>
+                                        <td><?=$user['status'];?></td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
 <div class="row">
     <!-- Button (Double) -->
     <div class="form-group">
@@ -81,7 +70,18 @@
         <!-- <button name="delete" class="btn btn-danger" onclick="confirmDelete(<?=$user['id'];?>)">Delete</button> -->
         <a href="<?php echo base_url() . 'admin/user/delete/' . $user['id']; ?>" id="delete" class="btn btn-danger">Delete</a>
         <a href="<?php echo base_url() . 'admin/user'; ?>" id="cancel" class="btn btn-primary">Back</a>
+		<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
       </div>
     </div>
+	
 </div>
 <!-- /.row

@@ -17,7 +17,7 @@
     </h3>
     <br/>
     
-    <table id="DaftarUser">
+    <table id="DaftarUser" class="table table-hover table-striped">
             <thead>
                 <tr>
                     <th>No. </th>
