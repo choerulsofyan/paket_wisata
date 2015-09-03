@@ -106,6 +106,7 @@ class Customer extends CI_Controller {
         $info_customer = $this->m_customer->cek_info_customer($no_faktur);
         print_r($info_customer);  
     }
+
 }
 
 /* End of file  */

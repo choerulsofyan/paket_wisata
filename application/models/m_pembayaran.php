@@ -207,6 +207,33 @@ class M_pembayaran extends CI_Model {
             return false;
         }
     }
+
+    function getCustomerAngsuran($customer_id) 
+    {   
+        $this->db->select('tp.id, tp.tgl_pembayaran, tp.pembayaran, tp.angsuran_ke')
+                  ->from('tpembayaran AS tp, tcustomer AS tc')
+                  ->where('tp.customer_id = tc.id')
+                  ->where('tp.customer_id = ' . $customer_id);
+
+        
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0)
+        {
+            $data       = $query->result_array();
+            $row_counts = $query->num_rows();
+
+            for ($i = 0; $i < $row_counts; $i++) {
+                $number   = $i + 1;
+                $no       = array('no' => $number);
+                $data[$i] = $no + $data[$i]; 
+            }
+
+            return $data;
+        } else {
+            return false;
+        }
+    }
 }
 
 /* End of file  */

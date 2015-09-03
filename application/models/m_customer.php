@@ -159,6 +159,27 @@ class M_customer extends CI_Model {
             $data = json_encode($data);
             return $data;
         }
+    }
+
+    function login($email, $password)
+    {
+        $this->db->select('id, nama, tgl_lahir, jenis_kelamin, alamat, no_telp, email');
+        $this->db->from($this->table);
+        $this->db->where('email', $email);
+        $this->db->where('password', md5($password));
+        $this->db->where('status', 'AKTIF');
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $user =  $query->row_array();
+            return $user;
+
+        } else {
+            return false;
+        }
+
     }  
 }
 

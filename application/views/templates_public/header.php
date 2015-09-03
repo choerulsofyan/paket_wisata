@@ -42,6 +42,10 @@
                         <li>
                             <a href="<?=base_url() . 'tour/category/2';?>">Tour Mancanegara</a>
                         </li>
+
+                        <li>
+                            <a href="<?=base_url() . 'tour/payment';?>">Cara Pembayaran</a>
+                        </li>
                         <li>
                             <a href="<?=base_url() . 'tour/contact';?>">Kontak</a>
                         </li>

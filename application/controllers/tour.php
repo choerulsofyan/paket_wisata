@@ -24,6 +24,11 @@ class Tour extends CI_Controller {
         $this->load->template_public('public/contact.php');   
     }
 
+    function payment()
+    {
+        $this->load->template_public('public/cara-bayar.php');   
+    }
+
     function about()
     {
         $this->load->template_public('public/about.php');   
