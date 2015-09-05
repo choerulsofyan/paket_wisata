@@ -32,22 +32,22 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour';?>">Beranda</a>
                         </li>
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour/category/1" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour/category/1';?>">Tour Domestik</a>
                         </li>
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour/category/2" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour/category/2';?>">Tour Mancanegara</a>
                         </li>
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour/payment" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour/payment';?>">Cara Pembayaran</a>
                         </li>
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour/contact" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour/contact';?>">Kontak</a>
                         </li>
-                        <li>
+                        <?php echo ($this->uri->uri_string() == "tour/about" ? "<li class='active'>" : '<li>'); ?>
                             <a href="<?=base_url() . 'tour/about';?>">Tentang</a>
                         </li>
                         <?php
