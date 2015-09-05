@@ -78,13 +78,13 @@ input {
   background-color: #434A52;
 }
 .form--login input[type="submit"] {
-  background-color: #ea4c88;
+  background-color: #0C0C71;
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;
 }
 .form--login input[type="submit"]:focus, .form--login input[type="submit"]:hover {
-  background-color: #d44179;
+  background-color: #0C0C71;
 }
 .form__field {
   display: -webkit-box;
@@ -135,4 +135,8 @@ input {
   margin: 0 auto;
   max-width: 20rem;
   width: 90%;
+}
+.form input[type="password"], .form input[type="text"], .form input[type="email"] {
+  width: 100%;
+  color:#FCFBF8 !important;
 }

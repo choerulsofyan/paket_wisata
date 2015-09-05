@@ -144,7 +144,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="center">
-          <a href="<?=base_url() . 'tour/category/1';?>" role="button"><h3>Selengkapnya di Tour Domestik  &raquo;</h3></a>
+          <a href="<?=base_url() . 'tour/category/1';?>" role="button"><h4>Selengkapnya di Tour Domestik  &raquo;</h4></a>
         </div>
       </div>
     </div>
@@ -191,7 +191,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="center">
-          <a href="<?=base_url() . 'tour/category/2';?>" role="button"><h3>Selengkapnya di Tour Mancanegara  &raquo;</h3></a>
+          <a href="<?=base_url() . 'tour/category/2';?>" role="button"><h4>Selengkapnya di Tour Mancanegara  &raquo;</h4></a>
         </div>
       </div>
     </div>

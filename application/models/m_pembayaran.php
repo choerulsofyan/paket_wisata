@@ -54,7 +54,7 @@ class M_pembayaran extends CI_Model {
 
     function detail($id)
     {
-        $this->db->select('tpb.id, tpb.no_faktur, tc.nama as customer_nama, tpm.id as pemesanan_id, tpm.customer_id, tpm.total, tpb.pembayaran, tpb.angsuran_ke');
+        $this->db->select('tpb.id, tpb.no_faktur, tpb.tgl_pembayaran, tc.nama as customer_nama, tpm.id as pemesanan_id, tpm.customer_id, tpm.total, tpb.pembayaran, tpb.angsuran_ke');
         $this->db->from('tpemesanan tpm');
         $this->db->join('tcustomer tc', 'tpm.customer_id = tc.id', 'inner');
         $this->db->join('tpembayaran tpb', 'tpm.customer_id = tpb.customer_id', 'left');

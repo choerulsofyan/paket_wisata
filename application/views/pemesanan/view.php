@@ -41,7 +41,7 @@
                                    
                                     <tr>
                                         <th>Tanggal Pemesanan</th>
-                                        <td> <?=$pemesanan['tgl_pemesanan'];?></td>
+                                        <td><?=date("d F Y", strtotime($pemesanan['tgl_pemesanan']));?></td>
                                         
                                     </tr>
                                     <tr>

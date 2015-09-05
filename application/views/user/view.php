@@ -22,7 +22,7 @@
                                 
                                     <tr>
                                         <th>Tanggal Lahir</th>
-                                        <td> <?=$user['tgl_lahir'];?></td>
+                                        <td><?=date("d F Y", strtotime($user['tgl_lahir']));?></td>
                                         
                                     </tr>
                                     <tr>

@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td>Tanggal Pemesanan</td>
-            <td> : <?=$pemesanan['tgl_pemesanan'];?></td>
+            <td> : <?=date("d F Y", strtotime($pemesanan['tgl_pemesanan']));?></td>
         </tr>
         <tr>
             <td>Jumlah Orang</td>

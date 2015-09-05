@@ -27,12 +27,12 @@
                                 </tr>
                                 <tr>
                                     <th>Tgl Keberangkatan</th>
-                                    <td><?=$paket_wisata['tgl_keberangkatan'];?></td>
+                                    <td><?=date("d F Y", strtotime($paket_wisata['tgl_keberangkatan']));?></td>
                                     
                                 </tr>
                                 <tr>
                                     <th>Tgl kembali</th>
-                                    <td><?=$paket_wisata['tgl_kembali'];?></td>
+                                    <td><?=date("d F Y", strtotime($paket_wisata['tgl_kembali']));?></td>
                                     
                                 </tr>
                                 <tr>

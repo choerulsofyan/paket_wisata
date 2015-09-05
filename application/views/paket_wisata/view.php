@@ -31,12 +31,12 @@
                     </tr>
                     <tr>
                         <th>Tanggal Keberangkatan</th>
-                        <td><?=$paket_wisata['tgl_keberangkatan'];?></td>
+                        <td><?=date("d F Y", strtotime($paket_wisata['tgl_keberangkatan']));?></td>
                         
                     </tr>
                     <tr>
                         <th>Tanggal kembali</th>
-                        <td><?=$paket_wisata['tgl_kembali'];?></td>
+                        <td><?=date("d F Y", strtotime($paket_wisata['tgl_kembali']));?></td>
                         
                     </tr>
                     <tr>

@@ -206,7 +206,7 @@
                         <?php foreach ($info_angsuran as $row) : ?>
                             <tr>
                                 <td><?=$row['no'];?></td>
-                                <td><?=$row['tgl_pembayaran'];?></td>
+                                <td><?=date("d F Y", strtotime($row['tgl_pembayaran']));?></td>
                                 <td><?=$row['pembayaran'];?></td>
                                 <td><?=$row['angsuran_ke'];?></td>
                                 <td><?=$row['detail'];?></td>

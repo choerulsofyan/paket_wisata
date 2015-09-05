@@ -26,6 +26,11 @@
                                         
                                     </tr>
                                     <tr>
+                                        <th>Tanggal Pembayaran</th>
+                                        <td><?=date("d F Y", strtotime($pembayaran['tgl_pembayaran']));?></td>
+                                       
+                                    </tr>
+                                    <tr>
                                         <th>Total</th>
                                         <td> Rp. <?=$pembayaran['total'];?></td>
                                        
